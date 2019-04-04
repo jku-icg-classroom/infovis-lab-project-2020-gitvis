@@ -9,9 +9,9 @@ For more details see [_InfoVis Lab Intro_ document in the Google Drive folder](h
 
 **Tip:** Make yourself familiar with [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
-# General Information
+# Submission due on 19.04.2019
 
-**Submission due on 19.04.2019**
+## General Information
 
 **Project Name:** [TODO]
 
@@ -23,10 +23,9 @@ For more details see [_InfoVis Lab Intro_ document in the Google Drive folder](h
 | [TODO]        | [TODO]      | [TODO]         |
 | [TODO]        | [TODO]      | [TODO]         |
 
+# Submission due on 02.05.2019
 
-# Dataset
-
-**Submission due on 02.05.2019**
+## Dataset
 
 * What is the dataset about?
 * Where did you get this dataset from (i.e., source of the dataset)?
@@ -36,18 +35,16 @@ For more details see [_InfoVis Lab Intro_ document in the Google Drive folder](h
 
 [TODO]
 
-# User Tasks & Goals
-
-**Submission due on 02.05.2019**
+## User Tasks & Goals
 
 * What are the user tasks?
 * What would users like to see/get from the dataset?
 
 [TODO]
 
-# Proposed Dashboard Solution
+# Submission due on 23.05.2019
 
-**Submission due on 23.05.2019**
+## Proposed Dashboard Solution
 
 * Which type of visualizations did you use?
 * Explain why you chose these visualizations?
@@ -55,9 +52,9 @@ For more details see [_InfoVis Lab Intro_ document in the Google Drive folder](h
 
 [TODO]
 
-# Implementation Details
+# Submission due on 12.06.2019
 
-**Submission due on 12.06.2019**
+## Implementation Details
 
 * How did you implement the dashboard?
 * Which external libraries and/or resources did you use?
@@ -65,27 +62,21 @@ For more details see [_InfoVis Lab Intro_ document in the Google Drive folder](h
 
 [TODO]
 
-# Limitations
-
-**Submission due on 12.06.2019**
+## Limitations
 
 * What are the limitations of your solution?
 * Is there anything that a user could not achieve from the given user tasks? Why? What is missing and how must the prototype be improved?
 
 [TODO]
 
-# Findings and Insights
-
-**Submission due on 12.06.2019**
+## Findings and Insights
 
 * How does the solution enable users to answer the tasks?
 * What are the findings and insights from the dataset?
 
 [TODO]
 
-# Conclusion
-
-**Submission due on 12.06.2019**
+## Conclusion
 
 * What is your conclusion?
 
