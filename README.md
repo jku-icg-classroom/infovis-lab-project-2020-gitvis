@@ -1,15 +1,15 @@
-# InfoVis Lab Project 2019
+# InfoVis Lab Project
 Submission template for the InfoVis lab project at the Johannes Kepler University Linz.
 
 **Explanation:**
 This `README.md` needs to be pushed to Github for each of the 3 delivery dates.
 For every submission change/extend the corresponding sections by replacing the [TODO] markers.
 *In order to meet the deadlines make sure you push everything to your Github repository.*
-For more details see [_InfoVis Lab Intro_ document in the Google Drive folder](http://www.cg.jku.at/teaching/infovis/slides).
+For more details see [*Moodle page*](https://moodle.jku.at/jku/course/view.php?id=9291).
 
 **Tip:** Make yourself familiar with [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
-# Submission due on 19.04.2019
+# Submission due on 22.04.2020
 
 ## General Information
 
@@ -22,8 +22,6 @@ For more details see [_InfoVis Lab Intro_ document in the Google Drive folder](h
 | [TODO]        | [TODO]      | [TODO]         |
 | [TODO]        | [TODO]      | [TODO]         |
 | [TODO]        | [TODO]      | [TODO]         |
-
-# Submission due on 02.05.2019
 
 ## Dataset
 
@@ -42,7 +40,7 @@ For more details see [_InfoVis Lab Intro_ document in the Google Drive folder](h
 
 [TODO]
 
-# Submission due on 23.05.2019
+# Submission due on 13.05.2020
 
 ## Proposed Dashboard Solution
 
@@ -52,7 +50,7 @@ For more details see [_InfoVis Lab Intro_ document in the Google Drive folder](h
 
 [TODO]
 
-# Submission due on 12.06.2019
+# Submission due on 17.06.2020
 
 ## Implementation Details
 
