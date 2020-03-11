@@ -1,4 +1,4 @@
-# InfoVis Lab Project 2019
+# InfoVis Lab Project
 Submission template for the InfoVis lab project at the Johannes Kepler University Linz.
 
 **Explanation:**
