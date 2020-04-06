@@ -175,14 +175,19 @@ For every commit there is a node and this node has several childnodes, best expl
         }
     ]
 }
-]```
+]
+```
 
 ## User Tasks & Goals
 
 * What are the user tasks?
 * What would users like to see/get from the dataset?
 
-[TODO]
+[The user is a developer using git. 
+-Which commit(s) possibly caused the bug?
+-Which developer commited at what time?
+-Who are the main contributers?
+-What type of files are changed by which developer most frequently?]
 
 # Submission due on 13.05.2020
 
