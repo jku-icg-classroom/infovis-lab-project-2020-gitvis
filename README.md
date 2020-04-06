@@ -175,7 +175,8 @@ For every commit there is a node and this node has several childnodes, best expl
         }
     ]
 }
-]```
+]
+```
 
 ## User Tasks & Goals
 
