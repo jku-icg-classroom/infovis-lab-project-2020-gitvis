@@ -13,7 +13,7 @@ For more details see [*Moodle page*](https://moodle.jku.at/jku/course/view.php?i
 
 ## General Information
 
-**Project Name:** [TODO]
+**Project Name:** GitVis
 
 **Group Members**
 
