@@ -1,54 +1,59 @@
-// store main element for later
-const visElement = d3.select('#vis');
-
-/**
- * Load sample data and update a table
- */
-d3.csv('data/sample.csv')
-    .then((data) => { // wait until loading has finished, then ...
-        const table = createTable(data.columns);
-        updateTableRows(table, data);
-    })
-    .catch((error) => {
-        console.error('Error loading the data', error);
-    });
-
-/**
- * Create a table with the given columns as table header
- * @param {string[]} columns Array with the column names
- */
-function createTable(columns) {
-    const table = visElement.append('table');
-    table.html(`<thead></thead><tbody></tbody>`);
-
-    const tableHead = table.select('thead').append('tr');
-
-    // add a table head cell for each item in the column array
-    const th = tableHead.selectAll('th').data(columns);
-    const thEnter = th.enter().append('th');
-    th.merge(thEnter).text((d) => d); // use the string as text
-    th.exit().remove();
-
-    return table;
+const state = {
+    data: [],
+    // e.g. user selection
 }
 
-/**
- * Add new table rows for the given data
- * @param {d3.select} table D3 selection of the table element
- * @param {array} data Loaded data as array
- */
-function updateTableRows(table, data) {
-    // add a table row for each item in the dataset
-    const tr = table.select('tbody').selectAll('tr').data(data, (d) => d.fruit); // use the property `fruit` as unique key
-    const trEnter = tr.enter().append('tr');
-    const trMerge = tr.merge(trEnter);
-    tr.exit().remove();
-
-    // add a table cell for each property (i.e., column) in an item
-    const td = trMerge // use trMerge to update cells
-        .selectAll('td')
-        .data((d) => Object.values(d)); // `Object.values(d)` returns all property values of `d` as array
-    const tdEnter = td.enter().append('td');
-    td.merge(tdEnter).text((d) => d);
-    td.exit().remove();
+function filterData() {
+    // filter the raw data according to user selection
 }
+
+function wrangleData(filtered) {
+    // wrangles the given filtered data to the format required by the visualizations
+}
+
+function createVis(){
+    // store main element for later
+    debugger
+    const visElement = d3.select('#vis');
+
+    visElement.append('div').attr('id','head');
+    visElement.append('div').attr('id','history');
+    visElement.append('div').attr('id','details');
+
+
+    // initialized for creating the visualizations, e.g. setup SVG, init scales, ...
+    // createHeadVis();
+    // createHistoryVis();
+    // createDetailVis();
+
+    function update(new_data) {
+        // updates the specific visualization with the given data
+    }
+
+    // return the update function to be called
+    return update;
+}
+
+// create a specific instance
+const vis = createVis();
+
+function updateApp() {
+    // updates the application
+    const filtered = filterData();
+    const new_data = wrangleData(filtered);
+
+    // update visualization
+    vis(new_data);
+}
+
+// init interaction, e.g. listen to click events
+d3.select().on('click', () => {
+    // update state
+    updateApp();
+})
+
+d3.json().then((data) => {
+    // load data, e.g. via d3.json and update app afterwards
+    state.data = data;
+    updateApp();
+});
