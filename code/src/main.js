@@ -23,7 +23,7 @@ function createVis(){
 
     // initialized for creating the visualizations, e.g. setup SVG, init scales, ...
     // createHeadVis();
-    // createHistoryVis();
+    createHistoryVis(visElement);
     // createDetailVis();
 
     function update(new_data) {
