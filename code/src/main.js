@@ -12,18 +12,18 @@ function wrangleData(filtered) {
 }
 
 function createVis(){
+    // initialized for creating the visualizations, e.g. setup SVG, init scales, ...
+
     // store main element for later
-    debugger
     const visElement = d3.select('#vis');
 
     visElement.append('div').attr('id','head');
-    visElement.append('div').attr('id','history');
-    visElement.append('div').attr('id','details');
+    var content = visElement.append('div').attr('id','content');
+    var history = content.append('div').attr('id','history');
+    content.append('div').attr('id','details');
 
-
-    // initialized for creating the visualizations, e.g. setup SVG, init scales, ...
     // createHeadVis();
-    createHistoryVis(visElement);
+    createHistoryVis(history);
     // createDetailVis();
 
     function update(new_data) {

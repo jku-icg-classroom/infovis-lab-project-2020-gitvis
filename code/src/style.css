@@ -10,6 +10,7 @@ html {
     box-sizing: border-box;
 }
 
+
 body{
     padding: 0;
     marging: 0;
@@ -27,12 +28,22 @@ body{
     width: 100%;
     height: 20%;
     background-color: aqua;
+    display: inline-block;
 }
+
+#content {
+    width: 100%;
+    height: 80%;
+    background-color: saddlebrown;
+    display: inline-block;
+}
+
+p {display: table}
 
 
 #history {
     width: 70%;
-    height: 80%;
+    height: 100%;
     background-color: fuchsia;
     display: inline-block;
 }
@@ -40,7 +51,7 @@ body{
 
 #details {
     width: 30%;
-    height: 80%;
+    height: 100%;
     background-color: blue;
     display: inline-block;
 }

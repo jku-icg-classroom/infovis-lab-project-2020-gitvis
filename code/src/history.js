@@ -27,4 +27,9 @@ function createHistoryVis(visElement){
     g.setEdge("bpitt",     "kbacon");
     g.setEdge("hford",     "lwilson");
     g.setEdge("lwilson",   "kbacon");
+
+    // visElement.append(g);
+    visElement.append("p").text("schreibDas");
+   // https://stackoverflow.com/questions/37646275/why-does-my-div-move-down-when-i-add-paragraph
+    // history.append("p").text("qwert");
 }
