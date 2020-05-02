@@ -22,8 +22,6 @@ function createVis(){
     var history = content.append('div').attr('id','history');
     content.append('div').attr('id','details');
 
-    debugger
-
     // createHeadVis();
     createHistoryVis(history);
     // createDetailVis();
@@ -31,6 +29,7 @@ function createVis(){
     function update(new_data) {
         // updates the specific visualization with the given data
     }
+
 
     // return the update function to be called
     return update;
@@ -43,7 +42,7 @@ function updateApp() {
     // updates the application
     const filtered = filterData();
     const new_data = wrangleData(filtered);
-
+    
     // update visualization
     vis(new_data);
 }
@@ -54,8 +53,11 @@ d3.select().on('click', () => {
     updateApp();
 })
 
-d3.json().then((data) => {
+d3.json("./data/commithistory.json").then((data) => {
     // load data, e.g. via d3.json and update app afterwards
+    debugger
+    console.log(data);
+
     state.data = data;
     updateApp();
 });
