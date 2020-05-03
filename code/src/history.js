@@ -1,13 +1,43 @@
+var cy;
+
+
+function updateHistoryVis(new_data) {
+
+    debugger
+    new_data.forEach(function (e, k) {
+        cy.add({
+            group: 'nodes',
+            data: {
+                id: e.node_id,
+                key: k,
+                label: e.commit.message,
+                // size: 10
+            },
+            position: { x: 80, y: k*60 }
+        });
+    })
+    var nodes = cy.nodes();
+    for(let i=1;i<nodes.length;i++){
+        cy.add({
+            group: 'edges',
+            data: {
+                source: nodes[i-1].id(),
+                target: nodes[i].id()
+            },
+        });
+    }
+}
+
 function createHistoryVis(visElement){
     visElement.append("p").text("schreibDas");
 
     //-------------------------------------------------------------------------------
     https://codepen.io/eustatos/pen/ZmQOqB
 
-    visElement.append("div").attr("id","cy");
+    visElement.append("div").attr("id","cy").attr("position","relative");
 
     debugger
-    var cy = (window.cy = cytoscape({
+    cy = (window.cy = cytoscape({
         container: document.getElementById("cy"),
 
         layout: {
@@ -19,10 +49,22 @@ function createHistoryVis(visElement){
                 style: {
                     content: "data(label)",
                     "text-valign": "bottom",
-                    "background-color": "#11479e"
+                    "background-color": "#11479e",
+                    'text-wrap': 'wrap',
+                    shape: 'rectangle',
+                    width: '40',
+                    height: '5',
+                    'font-size': '0.5em',
+                    'background-fill': 'linear-gradient',
+                    'background-gradient-direction': 'to-right',
+                    'background-gradient-stop-colors': 'white white orange orange',
+                    // 'background-gradient-stop-positions': (ele) => {
+                    //     console.log(ele.data().size);
+                    //     const rnd_width = 100-ele.data().size;
+                    //     return '0% '+rnd_width+'% '+rnd_width+'% 100%'
+                    // }
                 }
             },
-
             {
                 selector: "edge",
                 style: {
@@ -34,42 +76,7 @@ function createHistoryVis(visElement){
                 }
             }
         ],
-
-        elements: {
-            nodes: [{ data: { id: "n0", label: "n0" } }],
-            edges: []
-        }
     }));
-    cy.add([
-        {
-            group: "nodes",
-            data: {
-                id: "n1",
-                label: "n1"
-            }
-        },
-        {
-            group: "edges",
-            data: {
-                source: "n0",
-                target: "n1"
-            }
-        },
-        {
-            group: "nodes",
-            data: {
-                id: "n2",
-                label: "n2"
-            }
-        },
-        {
-            group: "edges",
-            data: {
-                source: "n0",
-                target: "n2"
-            }
-        }
-    ]);
     cy
         .elements()
         .layout({
@@ -77,7 +84,10 @@ function createHistoryVis(visElement){
             fit: false,
             ready: () => {
                 cy.zoom(1);
-                cy.center(cy.getElementById("n0"));
+                // cy.center(cy.);
+                cy.center();
+                cy.resize();
+                cy.fit();
             }
         })
         .run();
@@ -91,6 +101,7 @@ function createHistoryVis(visElement){
     cy.on("zoom", e => {
         console.log(cy.zoom());
     });
+    cy.fit();
 
 
 
@@ -190,7 +201,7 @@ function createHistoryVis(visElement){
 //     });
 //
 //
-//     debugger
+//
 //     // g.nodes().forEach(function(v) {
 //     //     console.log("Node " + v + ": " + JSON.stringify(g.node(v)));
 //     //     cy.add({
@@ -207,7 +218,7 @@ function createHistoryVis(visElement){
 //     // });
 //
 //
-//     debugger
+//
 //     // for (var i = 0; i < 10; i++) {
 //     //     cy.add({
 //     //             data: { id: 'node' + i }

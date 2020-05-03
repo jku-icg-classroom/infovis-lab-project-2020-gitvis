@@ -29,12 +29,12 @@ function createTable(columns) {
     th.merge(thEnter).text((d) => d); // use the string as text
     th.exit().remove();
 
-    debugger;
+    ;
     var requestFile = function () {
         getRepoJSON
             .then(function (fulfilled) {
                 // yay, you got a file
-                debugger
+
                 console.log(fulfilled);
                 // output: { filename: 'data.txt', content: 'Hello World' }
             })

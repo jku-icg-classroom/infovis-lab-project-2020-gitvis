@@ -5,10 +5,12 @@ const state = {
 
 function filterData() {
     // filter the raw data according to user selection
+    return state.data;
 }
 
 function wrangleData(filtered) {
     // wrangles the given filtered data to the format required by the visualizations
+    return filtered;
 }
 
 function createVis(){
@@ -28,6 +30,8 @@ function createVis(){
 
     function update(new_data) {
         // updates the specific visualization with the given data
+
+        updateHistoryVis(new_data);
     }
 
 
@@ -55,7 +59,7 @@ d3.select().on('click', () => {
 
 d3.json("./data/commithistory.json").then((data) => {
     // load data, e.g. via d3.json and update app afterwards
-    debugger
+
     console.log(data);
 
     state.data = data;
