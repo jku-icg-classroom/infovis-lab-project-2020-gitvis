@@ -3,7 +3,7 @@ var cy;
 
 function updateHistoryVis(new_data) {
 
-    debugger
+    //debugger
     new_data.forEach(function (e, k) {
         cy.add({
             group: 'nodes',
@@ -36,7 +36,7 @@ function createHistoryVis(visElement){
 
     visElement.append("div").attr("id","cy").attr("position","relative");
 
-    debugger
+    //debugger
     cy = (window.cy = cytoscape({
         container: document.getElementById("cy"),
 

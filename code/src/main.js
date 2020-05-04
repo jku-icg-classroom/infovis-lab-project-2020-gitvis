@@ -1,5 +1,8 @@
+const COMMIT_DETAILS = 1;
+const AUTHOR_DETAILS = 2;
 const state = {
     data: [],
+    details: COMMIT_DETAILS,
     // e.g. user selection
 }
 
@@ -22,16 +25,19 @@ function createVis(){
     visElement.append('div').attr('id','head');
     var content = visElement.append('div').attr('id','content');
     var history = content.append('div').attr('id','history');
-    content.append('div').attr('id','details');
+    const details = content.append('div').attr('id','details');
 
     // createHeadVis();
     createHistoryVis(history);
-    // createDetailVis();
+    
+    if(state.details === COMMIT_DETAILS) createCommitDetailsVis(details);
+    //TODO else ELIAS
 
     function update(new_data) {
         // updates the specific visualization with the given data
 
         updateHistoryVis(new_data);
+        updateCommitDetails(new_data[0]);    //must be a single commit
     }
 
 
