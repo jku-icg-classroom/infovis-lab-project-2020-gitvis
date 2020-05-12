@@ -279,6 +279,7 @@ function createCommitDetailsVis(visElement) {
 
 function updateCommitDetails(new_commit) {
     //todo switch to repository-overview if new_commit is undefined
+    if(new_commit === null) return _updateRepoOverview();
 
     const msg = new_commit.commit.message;
     if(msg.length < 30) {
