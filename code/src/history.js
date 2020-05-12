@@ -8,7 +8,7 @@ function updateHistoryVis(new_data) {
         cy.add({
             group: 'nodes',
             data: {
-                id: e.node_id,
+                id: k,
                 key: k,
                 label: e.commit.message,
                 commitdata: e
@@ -27,13 +27,39 @@ function updateHistoryVis(new_data) {
             },
         });
     }
+    cy.center(cy.getElementById(new_data.length-1));
+
+    cy.layout({
+        name: "dagre",
+        spacingFactor: 1,
+    }).run();
+
+}
+
+//Problem: Creating D3 svg and inserting this in Cytoscape is not going to work, or at least I don't know how.
+//I don't get a useful DOM for D3 to maniuplate if I use Cytoscape
+function createSvg(ele,width,height) {
+    var svg_string = `<svg width = "${width}" height = "${height}" version="1.1" xmlns="http://www.w3.org/2000/svg">\n' +
+        '   <rect x = "0" y = "0" width = "${width}" height = "${height}" stroke-width="4" stroke="#000" fill="#fff"></rect>\n' +
+        '</svg>`
+
+    var svg = 'data:image/svg+xml;utf8,' + encodeURIComponent(svg_string);
+
+    return { svg: svg, width: width, height: height };
 }
 
 function createHistoryVis(visElement){
     //-------------------------------------------------------------------------------
-    https://codepen.io/eustatos/pen/ZmQOqB
+    // https://codepen.io/eustatos/pen/ZmQOqB
+    //https://github.com/cytoscape/cytoscape.js/issues/1802
+    //https://stackoverflow.com/questions/45658912/how-to-add-html-label-to-cytoscape-graph-node
+    //https://stackoverflow.com/questions/29165150/cytoscapejs-embed-html-inside-node-body
+    // ==> I can't mix HTML and canvas :/
 
     visElement.append("div").attr("id","cy").attr("position","relative");
+
+    var width = 220;
+    var height = 120;
 
     //debugger
     cy = (window.cy = cytoscape({
@@ -46,22 +72,26 @@ function createHistoryVis(visElement){
             {
                 selector: "node",
                 style: {
-                    content: "data(label)",
-                    "text-valign": "bottom",
+                    content: (ele) => {
+                        // console.log(ele.data().commitdata);
+                        let data = ele.data().commitdata.commit;
+                        let outputstring =
+                            "Message: " + (data.message.length > 20 ? data.message.substr(0,20)+"..." : data.message) + "\n" +
+                            "Author: " + data.author.name + "\n" +
+                            "Date: " + data.author.date;
+                        return outputstring;
+                    },
+                    'background-image': (ele) => {return createSvg(ele,width,height).svg;},
+                    // 'background-image': (ele) => {return 'https://cdn.rawgit.com/mafar/svg-test/9d252c09/dropshadow.svg';},
+                    "text-halign": "center",
+                    "text-valign": "center",
                     "background-color": "#11479e",
                     'text-wrap': 'wrap',
                     shape: 'rectangle',
-                    width: '40',
-                    height: '20',
-                    'font-size': '0.5em',
-                    'background-fill': 'linear-gradient',
-                    'background-gradient-direction': 'to-right',
-                    'background-gradient-stop-colors': 'white white orange orange',
-                    // 'background-gradient-stop-positions': (ele) => {
-                    //     console.log(ele.data().size);
-                    //     const rnd_width = 100-ele.data().size;
-                    //     return '0% '+rnd_width+'% '+rnd_width+'% 100%'
-                    // }
+                    width: width,
+                    height: height,
+                    'font-size': '1em',
+
                 }
             },
             {
@@ -77,35 +107,22 @@ function createHistoryVis(visElement){
             {
                 selector: 'node.highlight',
                 style: {
-                    'border-color': '#FFF',
-                    'border-width': '4px'
+                    'border-color': '#FF0',
+                    'border-width': '8px'
                 }
             }
         ],
     }));
-    cy
-        .elements()
-        .layout({
-            name: "dagre",
-            fit: false,
-            ready: () => {
-                cy.zoom(1);
-                // cy.center(cy.);
-                cy.center();
-                cy.resize();
-                cy.fit();
-            }
-        })
-        .run();
+
     cy.on("tap", "node", function tapNode(e) {
         cy.nodes().forEach(function (e, k) {
             e.removeClass('highlight');
         });
-        debugger
+
         const node = e.target;
         state.selectedCommit = node.data().commitdata;
-        console.log(node);
-        console.log(state.selectedCommit);
+        // console.log(node);
+        // console.log(state.selectedCommit);
         node.addClass('highlight');
         // node
         //     .connectedEdges()
@@ -113,139 +130,14 @@ function createHistoryVis(visElement){
         //     .style("visibility", "hidden");
     });
     cy.on("zoom", e => {
-        console.log(cy.zoom());
+        // console.log(cy.zoom());
     });
     cy.fit();
 
-
-
-
-
-
-    //------
-
-//     // Create a new directed graph
-//     var g = new dagre.graphlib.Graph();
-//
-// // Set an object for the graph label
-//     g.setGraph({});
-//
-// // Default to assigning a new object as a label for each new edge.
-//     g.setDefaultEdgeLabel(function() { return {}; });
-//
-// // Add nodes to the graph. The first argument is the node id. The second is
-// // metadata about the node. In this case we're going to add labels to each of
-// // our nodes.
-//     g.setNode("kspacey",    { label: "Kevin Spacey",  width: 144, height: 100 });
-//     g.setNode("swilliams",  { label: "Saul Williams", width: 160, height: 100 });
-//     g.setNode("bpitt",      { label: "Brad Pitt",     width: 108, height: 100 });
-//     g.setNode("hford",      { label: "Harrison Ford", width: 168, height: 100 });
-//     g.setNode("lwilson",    { label: "Luke Wilson",   width: 144, height: 100 });
-//     g.setNode("kbacon",     { label: "Kevin Bacon",   width: 121, height: 100 });
-//
-// // Add edges to the graph.
-//     g.setEdge("kspacey",   "swilliams");
-//     g.setEdge("swilliams", "kbacon");
-//     g.setEdge("bpitt",     "kbacon");
-//     g.setEdge("hford",     "lwilson");
-//     g.setEdge("lwilson",   "kbacon");
-//
-//     dagre.layout(g);
-//
-//     g.nodes().forEach(function(v) {
-//         console.log("Node " + v + ": " + JSON.stringify(g.node(v)));
-//     });
-//     g.edges().forEach(function(e) {
-//         console.log("Edge " + e.v + " -> " + e.w + ": " + JSON.stringify(g.edge(e)));
-//     });
-//
-//
-//     // Cytoscape:
-//     visElement.append("div").attr("id","cy");
-//
-//     // cytoscape.use( cytoscape-dagre );
-//
-//
-//     // https://blog.js.cytoscape.org/2016/05/24/getting-started/ tutorial
-//     var cy = cytoscape({
-//
-//         container: document.getElementById('cy'), // container to render in
-//
-//         elements: [ // list of graph elements to start with
-//             { // node a
-//                 data: { id: 'a' }
-//             },
-//             { // node b
-//                 data: { id: 'b' }
-//             },
-//             { // edge ab
-//                 data: { id: 'ab', source: 'a', target: 'b' }
-//             },
-//             { // node c
-//                 data: { id: 'c' }
-//             },
-//         ],
-//
-//         style: [ // the stylesheet for the graph
-//             {
-//                 selector: 'node',
-//                 style: {
-//                     'background-color': '#666',
-//                     'label': 'data(id)'
-//                 }
-//             },
-//
-//             {
-//                 selector: 'edge',
-//                 style: {
-//                     'width': 3,
-//                     'line-color': '#ccc',
-//                     'target-arrow-color': '#ccc',
-//                     'target-arrow-shape': 'triangle',
-//                     'curve-style': 'bezier'
-//                 }
-//             }
-//         ],
-//
-//         layout: {
-//             name: 'grid',
-//             rows: 1
-//         }
-//
-//     });
-//
-//
-//
-//     // g.nodes().forEach(function(v) {
-//     //     console.log("Node " + v + ": " + JSON.stringify(g.node(v)));
-//     //     cy.add({
-//     //             data: { id: v}
-//     //         }
-//     //     );
-//     //     // cy.add(v);
-//     // });
-//     cy.addAll(g);
-//
-//     // g.edges().forEach(function(e) {
-//     //     console.log("Edge " + e.v + " -> " + e.w + ": " + JSON.stringify(g.edge(e)));
-//     //     cy.add(e);
-//     // });
-//
-//
-//
-//     // for (var i = 0; i < 10; i++) {
-//     //     cy.add({
-//     //             data: { id: 'node' + i }
-//     //         }
-//     //     );
-//     //     var source = 'node' + i;
-//     //     cy.add({
-//     //         data: {
-//     //             id: 'edge' + i,
-//     //             source: source,
-//     //             target: (i % 2 == 0 ? 'a' : 'b')
-//     //         }
-//     //     });
-//     // }
-
+    var layout = cy.layout({
+        name: "dagre",
+        spacingFactor: 1,
+    });
 }
+
+
