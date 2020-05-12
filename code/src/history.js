@@ -29,8 +29,6 @@ function updateHistoryVis(new_data) {
 }
 
 function createHistoryVis(visElement){
-    visElement.append("p").text("schreibDas");
-
     //-------------------------------------------------------------------------------
     https://codepen.io/eustatos/pen/ZmQOqB
 
@@ -53,7 +51,7 @@ function createHistoryVis(visElement){
                     'text-wrap': 'wrap',
                     shape: 'rectangle',
                     width: '40',
-                    height: '5',
+                    height: '20',
                     'font-size': '0.5em',
                     'background-fill': 'linear-gradient',
                     'background-gradient-direction': 'to-right',
@@ -74,6 +72,13 @@ function createHistoryVis(visElement){
                     "target-arrow-color": "#9dbaea",
                     "curve-style": "bezier"
                 }
+            },
+            {
+                selector: 'node.highlight',
+                style: {
+                    'border-color': '#FFF',
+                    'border-width': '4px'
+                }
             }
         ],
     }));
@@ -92,11 +97,18 @@ function createHistoryVis(visElement){
         })
         .run();
     cy.on("tap", "node", function tapNode(e) {
+        cy.nodes().forEach(function (e, k) {
+            e.removeClass('highlight');
+        });
         const node = e.target;
-        node
-            .connectedEdges()
-            .targets()
-            .style("visibility", "hidden");
+        state.selectedCommitId = node.id();
+        console.log(node);
+        console.log(state.selectedCommitId);
+        node.addClass('highlight');
+        // node
+        //     .connectedEdges()
+        //     .targets()
+        //     .style("visibility", "hidden");
     });
     cy.on("zoom", e => {
         console.log(cy.zoom());
