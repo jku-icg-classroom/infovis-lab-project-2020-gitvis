@@ -318,7 +318,9 @@ function updateCommitDetails(new_commit) {
 
     const parsed_data = [];
     for(const item of map.values()) {
-        parsed_data.push(item);
+        //parsed_data.push(item);
+        parsed_data.push( { offset: 0, width: item.additions, type: item.type });
+        parsed_data.push( { offset: item.additions, width: item.deletions, type: item.type });
         //const type = item.type;
         //const additions = item.additions;
         //const deletions = item.deletions;
@@ -328,7 +330,7 @@ function updateCommitDetails(new_commit) {
 
     //create visualization
     //update the scales
-    xscale.domain([0, d3.max(parsed_data, (d) => d.additions + d.deletions)]);
+    xscale.domain([0, d3.max(parsed_data, (d) => d.offset + d.width)]);
     yscale.domain(parsed_data.map((d) => d.type));
     //render the axis
     g_xaxis.transition().call(xaxis);
@@ -337,11 +339,11 @@ function updateCommitDetails(new_commit) {
     // Render the chart with new data
 
     // DATA JOIN use the key argument for ensurign that the same DOM element is bound to the same data-item
-    const rect = g.selectAll('rect').data(parsed_data, (d) => d.type).join(
+    const rect = g.selectAll('rect').data(parsed_data, (d) => d.type + (d.offset === 0 ? '_a' : '_d')).join(
         // ENTER
         // new elements
         (enter) => {
-          const rect_enter = enter.append('rect').attr('x', 0);
+          const rect_enter = enter.append('rect').attr('x', 0).attr('fill', d => d.offset === 0 ? 'green' : 'red');
           rect_enter.append('title');
           return rect_enter;
         },
@@ -351,19 +353,17 @@ function updateCommitDetails(new_commit) {
         // EXIT
         // elements that aren't associated with data
         (exit) => exit.remove()
-        );
+    );
 
     // ENTER + UPDATE
     // both old and new elements
     rect.transition()
-    .attr('height', yscale.bandwidth())
-    .attr('width', (d) => xscale(d.additions + d.deletions))
-    .attr('y', (d) => yscale(d.type));
+        .attr('height', yscale.bandwidth())
+        .attr('width', (d) => xscale(d.width))
+        .attr('y', (d) => yscale(d.type))
+        .attr('x', d => xscale(d.offset));
 
     rect.select('title').text((d) => d.type);
-
-    
-
 }
 
 function _updateRepoOverview() {
