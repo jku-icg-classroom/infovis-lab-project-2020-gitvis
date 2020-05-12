@@ -3,7 +3,7 @@ const AUTHOR_DETAILS = 2;
 const state = {
     data: [],
     details: COMMIT_DETAILS,
-    selectedCommitId: 0,
+    selectedCommit: null,
     // e.g. user selection
 }
 

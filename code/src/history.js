@@ -11,6 +11,7 @@ function updateHistoryVis(new_data) {
                 id: e.node_id,
                 key: k,
                 label: e.commit.message,
+                commitdata: e
                 // size: 10
             },
             position: { x: 80, y: k*60 }
@@ -100,10 +101,11 @@ function createHistoryVis(visElement){
         cy.nodes().forEach(function (e, k) {
             e.removeClass('highlight');
         });
+        debugger
         const node = e.target;
-        state.selectedCommitId = node.id();
+        state.selectedCommit = node.data().commitdata;
         console.log(node);
-        console.log(state.selectedCommitId);
+        console.log(state.selectedCommit);
         node.addClass('highlight');
         // node
         //     .connectedEdges()
