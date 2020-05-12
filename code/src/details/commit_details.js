@@ -211,7 +211,6 @@ const debugData = [
     }
 ];
 
-console.log(debugData[0].files[0]);
 
 function debugSwitchData() {
     debugIndex++;
@@ -235,6 +234,13 @@ function createCommitDetailsVis(visElement) {
     const btn = desc.append("button").text("Switch data")
                                     .attr("id", "btn");
     $('#btn').on('click', debugSwitchData);
+
+    desc.append("h1").attr("id", "cmt_title");
+    desc.append("p").attr("id", "cmt_long_title");
+    desc.append("p").attr("id", "cmt_author");
+    desc.append("p").attr("id", "cmt_date");
+    desc.append("p").attr("id", "cmt_additions");
+    desc.append("p").attr("id", "cmt_deletions");
 
     //create the part for the filetypes-graph (bottom) of the commit details
     const files = visElement.append("div").attr("id", "cmt_files"); 
@@ -272,6 +278,22 @@ function createCommitDetailsVis(visElement) {
 }
 
 function updateCommitDetails(new_commit) {
+    //todo switch to repository-overview if new_commit is undefined
+
+    const msg = new_commit.commit.message;
+    if(msg.length < 30) {
+        d3.select("#cmt_title").text(msg);
+        d3.select("#cmt_long_title").text("");
+    } else {
+        d3.select("#cmt_title").text("");
+        d3.select("#cmt_long_title").text(msg);
+    }
+    d3.select("#cmt_author").text(new_commit.commit.author.name);
+    d3.select("#cmt_date").text(new_commit.commit.author.date);
+    d3.select("#cmt_additions").text("Additions: " + new_commit.stats.additions);
+    d3.select("#cmt_deletions").text("Deletions: " + new_commit.stats.deletions);
+
+
     const map = new Map();  // maps each file-type to its number of addtions and deletions
     
     //debugger
@@ -339,4 +361,11 @@ function updateCommitDetails(new_commit) {
     .attr('y', (d) => yscale(d.type));
 
     rect.select('title').text((d) => d.type);
+
+    
+
+}
+
+function _updateRepoOverview() {
+
 }
