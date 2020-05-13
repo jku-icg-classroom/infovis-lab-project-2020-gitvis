@@ -1,9 +1,84 @@
+var gr;
+var render = new dagreD3.render();
+
+
+function updateHistoryVis(new_data) {
+
+    new_data.forEach(function (e, k) {
+        gr.setNode(k,{ label: e.commit.message, commitdata: e});
+    })
+    gr.nodes().forEach(function(v) {
+        var node = gr.node(v);
+        // Round the corners of the nodes
+        node.rx = node.ry = 5;
+    });
+    var nodes = gr.nodes();
+    for(let i=0;i<nodes.length-1;i++){
+        gr.setEdge(nodes[i],nodes[i+1]);
+    }
+
+    render(d3.select("#dagresvg g"),gr);
+
+    d3.selectAll('g.node').on("click", function(n) {
+        d3.selectAll('g.node').classed('selected',false);
+
+
+        d3.select(this).classed("selected", true);
+
+        debugger
+        state.selectedCommit = gr.node(n).commitdata;
+        console.log(state.selectedCommit);
+    });
+
+}
+
+function createHistoryVis(visElement){
+    //-------------------------------------------------------------------------------
+    //https://stackoverflow.com/tags/dagre-d3/hot?filter=all
+
+    var dagrediv = visElement.append("div").attr("id","dagrediv").attr("position","relative");
+    dagrediv.append("svg").attr("id","dagresvg").attr("width","100%").attr("height","100%");
+    
+
+    gr = new dagreD3.graphlib.Graph()
+        .setGraph({})
+        .setDefaultEdgeLabel(function() { return {}; });
+
+    
+    var svg = d3.select("#dagresvg"),
+        svgGroup = svg.append("g");
+    render(d3.select("#dagresvg g"),gr);
+
+    // Set up zoom support
+    var svg = d3.select("svg"),
+        inner = svg.select("g"),
+        zoom = d3.zoom().on("zoom", function() {
+            inner.attr("transform", d3.event.transform);
+        });
+    svg.call(zoom);
+
+
+
+    // // Center the graph
+    // var xCenterOffset = (svg.attr("width") - gr.graph().width) / 2;
+    // svgGroup.attr("transform", "translate(" + xCenterOffset + ", 20)");
+    // svg.attr("height", gr.graph().height + 40);
+
+
+
+}
+
+
+
+
+
+/*
 var cy;
 
 
 function updateHistoryVis(new_data) {
 
-    //debugger
+    //
     new_data.forEach(function (e, k) {
         cy.add({
             group: 'nodes',
@@ -61,7 +136,7 @@ function createHistoryVis(visElement){
     var width = 220;
     var height = 120;
 
-    //debugger
+    //
     cy = (window.cy = cytoscape({
         container: document.getElementById("cy"),
 
@@ -140,4 +215,4 @@ function createHistoryVis(visElement){
     });
 }
 
-
+ */
