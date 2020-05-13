@@ -206,6 +206,10 @@ encodes the amount of lines changed overall. This way, the user can perceive whi
 comparing two commits can be done in an instant.
 
 ### Commit Detail Vis
+At the top of the commit details view are textual details of the commit. This includes title/description, author and date of the commit. 
+Also the number of additions and deletions is shown as bar graph (same data as in the node, but with two bars comparing is easier than with the stacked bars in the node).
+Beneath this is a detailed section of the different file types. With a stacked bar chart the additions and deletions for each file type are visualized. The types are located on the y-axis so the width of the bars encodes the number of additions/deletions. To further 
+differentiate between the bars, the types have different hues and the additions are slightly brighter than the deletions.
 
 ### Author Detail Vis
 Visualizations that are being used:
@@ -216,9 +220,6 @@ Visualizations that are being used:
 - Pie-Chart: for the ratio of additions and deletions (in total); easy to perceive if the author adds more than he deletes (or vice-versa)
 - Pie-Chart: for the most often changed file types (in total); easy to perceive which file types are most often changed by the autor; because there may be many (>10) different file types that the author has changed, we need to aggregate the data; otherwise a pie-chart would not be suitable for visualizing this (>10 colors needed; many segments; bad)
 - Calendar-Matrix: for the author´s commit history of the last 7 weeks; easy to perceive on which days the author commited and how much he commited on that day; design just like on github 
-
-![Commit-Details](img2.png)
-![Author-Details](img1.png)
 
 # Submission due on 17.06.2020
 
