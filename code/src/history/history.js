@@ -5,13 +5,30 @@ var render = new dagreD3.render();
 function updateHistoryVis(new_data) {
 
     new_data.forEach(function (e, k) {
-        gr.setNode(k,{ label: e.commit.message, commitdata: e});
-    })
+        debugger
+        var html = "<div class='commitcontainer'>";
+        html += "<span class=message>Title: "+(e.commit.message.length > 20 ? e.commit.message.substr(0,20)+'...' : e.commit.message)+"</span><br>";
+        html += "<span class=author>Author: "+e.commit.author.name+"</span><br>";
+        html += "<span class=date>Date: "+e.commit.author.date+"</span><br>";
+        // html += "<span class=queue><span class=counter>"+worker.count+"</span></span>";
+        html += "</div>";
+
+        gr.setNode(k,{
+            labelType: "html",
+            label: html,
+            rx: 5,
+            ry: 5,
+            width: 220,
+            height: 100,
+            commitdata: e});
+    });
+
     gr.nodes().forEach(function(v) {
         var node = gr.node(v);
         // Round the corners of the nodes
         node.rx = node.ry = 5;
     });
+
     var nodes = gr.nodes();
     for(let i=0;i<nodes.length-1;i++){
         gr.setEdge(nodes[i],nodes[i+1]);
@@ -29,6 +46,11 @@ function updateHistoryVis(new_data) {
         state.selectedCommit = gr.node(n).commitdata;
         console.log(state.selectedCommit);
     });
+
+
+    //Append the visualizations of each commit
+    d3.selectAll(".commitcontainer").append("span").text("asdf");
+
 
 }
 
