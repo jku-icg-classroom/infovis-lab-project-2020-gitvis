@@ -197,7 +197,25 @@ For every commit there is a node and this node has several childnodes, best expl
 * Explain why you chose these visualizations?
 * Add sketches or images if possible
 
-[TODO]
+### Commit History Vis
+For the visualization of the commithistory we used a graph, specifically a Directed Acyclic Graph. 
+We decided to use a graph because the structure we get from Git is inherently a DAG already.
+Each commit is represented by a node. Each node contains some textual information of this commit like title, author, date as well 
+as two bars for deleted and inserted lines. The bars do not only show the ratio of deleted/inserted but the breadth of the bars
+encodes the amount of lines changed overall. This way, the user can perceive which commit has a lot of lines changed and also 
+comparing two commits can be done in an instant.
+
+### Commit Detail Vis
+
+### Author Detail Vis
+Visualizations that are being used:
+- Image: for author avatar; trivial
+- Text: for author name and link to github; trivial
+- Pie-Chart: for # of commits (in total); easy to perceive the ratio of #commits_of_author / #commits_total
+- Pie-Chart: for # of changes (in total; additions + deletions); easy to perceive the ratio of #changes_of_author / #changes_total where changes represents the #lines (additions + deletions) that have been changed
+- Pie-Chart: for the ratio of additions and deletions (in total); easy to perceive if the author adds more than he deletes (or vice-versa)
+- Pie-Chart: for the most often changed file types (in total); easy to perceive which file types are most often changed by the autor; because there may be many (>10) different file types that the author has changed, we need to aggregate the data; otherwise a pie-chart would not be suitable for visualizing this (>10 colors needed; many segments; bad)
+- Calendar-Matrix: for the author´s commit history of the last 7 weeks; easy to perceive on which days the author commited and how much he commited on that day; design just like on github 
 
 # Submission due on 17.06.2020
 

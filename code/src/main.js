@@ -3,6 +3,7 @@ const AUTHOR_DETAILS = 2;
 const state = {
     data: [],
     details: COMMIT_DETAILS,
+    selectedCommit: null,
     // e.g. user selection
 }
 
@@ -37,7 +38,7 @@ function createVis(){
         // updates the specific visualization with the given data
 
         updateHistoryVis(new_data);
-        updateCommitDetails(new_data[0]);    //must be a single commit
+        updateCommitDetails(state.selectedCommit);    //must be a single commit
     }
 
 
