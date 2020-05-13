@@ -221,6 +221,9 @@ Visualizations that are being used:
 - Pie-Chart: for the most often changed file types (in total); easy to perceive which file types are most often changed by the autor; because there may be many (>10) different file types that the author has changed, we need to aggregate the data; otherwise a pie-chart would not be suitable for visualizing this (>10 colors needed; many segments; bad)
 - Calendar-Matrix: for the author´s commit history of the last 7 weeks; easy to perceive on which days the author commited and how much he commited on that day; design just like on github 
 
+![Commit-Detail](img2.png)
+![Author-Detail](img1.png)
+
 # Submission due on 17.06.2020
 
 ## Implementation Details
