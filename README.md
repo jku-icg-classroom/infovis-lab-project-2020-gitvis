@@ -215,7 +215,7 @@ Visualizations that are being used:
 - Pie-Chart: for # of changes (in total; additions + deletions); easy to perceive the ratio of #changes_of_author / #changes_total where changes represents the #lines (additions + deletions) that have been changed
 - Pie-Chart: for the ratio of additions and deletions (in total); easy to perceive if the author adds more than he deletes (or vice-versa)
 - Pie-Chart: for the most often changed file types (in total); easy to perceive which file types are most often changed by the autor; because there may be many (>10) different file types that the author has changed, we need to aggregate the data; otherwise a pie-chart would not be suitable for visualizing this (>10 colors needed; many segments; bad)
-- TODO???: for the author´s commit history of the last 7 weeks; easy to perceive on which days the author commited and how much he commited on that day; design just like on github 
+- Calendar-Matrix: for the author´s commit history of the last 7 weeks; easy to perceive on which days the author commited and how much he commited on that day; design just like on github 
 
 # Submission due on 17.06.2020
 
