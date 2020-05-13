@@ -45,6 +45,8 @@ function updateHistoryVis(new_data) {
         debugger
         state.selectedCommit = gr.node(n).commitdata;
         console.log(state.selectedCommit);
+
+        updateCommitDetails(state.selectedCommit);
     });
 
 
