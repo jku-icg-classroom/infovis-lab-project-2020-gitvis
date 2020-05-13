@@ -197,7 +197,14 @@ For every commit there is a node and this node has several childnodes, best expl
 * Explain why you chose these visualizations?
 * Add sketches or images if possible
 
-[TODO]
+[For the visualization of the commithistory we used a graph, specifically a Directed Acyclic Graph. 
+We decided to use a graph because the structure we get from Git is inherently a DAG already.
+Each commit is represented by a node. Each node contains some textual information of this commit like title, author, date as well 
+as two bars for deleted and inserted lines. The bars do not only show the ratio of deleted/inserted but the breadth of the bars
+encodes the amount of lines changed overall. This way, the user can perceive which commit has a lot of lines changed and also 
+comparing two commits can be done in an instant.
+
+]
 
 # Submission due on 17.06.2020
 
