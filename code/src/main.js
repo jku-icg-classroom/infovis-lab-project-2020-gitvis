@@ -67,6 +67,7 @@ d3.select().on('click', () => {
 d3.json("./data/commithistory.json").then((data) => {
     // load data, e.g. via d3.json and update app afterwards
 
+    data.reverse();
     console.log(data);
 
     state.data = data;

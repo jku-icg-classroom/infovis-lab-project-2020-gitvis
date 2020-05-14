@@ -10,7 +10,7 @@
     <script>
 		var untildate = new Date(); 
 		var sincedate = new Date(untildate);
-		sincedate.setDate(sincedate.getDate() - 10);
+		sincedate.setDate(sincedate.getDate() - 30);
 		  
 		var until = untildate.toISOString(); 
 		var since = sincedate.toISOString(); 
@@ -22,6 +22,7 @@
 
 		
 		var webservice = "https://api.github.com/repos/gtn/exacomp/commits?sha=experimental&since="+since+"&until="+until;
+        // var webservice = "https://api.github.com/repos/richardwolfmayr/diablo2d/commits?sha=master&since="+since+"&until="+until;
 		//document.write(webservice);
 		d3.json(webservice, function(commits) {
 			var queue = d3.queue();			
