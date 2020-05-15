@@ -320,8 +320,8 @@ function updateCommitDetails(new_commit) {
     const parsed_data = [];
     for(const item of map.values()) {
         //parsed_data.push(item);
-        parsed_data.push( { offset: 0, width: item.additions, type: item.type });
-        parsed_data.push( { offset: item.additions, width: item.deletions, type: item.type });
+        parsed_data.push( { offset: 0, additions: true, width: item.additions, type: item.type });
+        parsed_data.push( { offset: item.additions, additions: false, width: item.deletions, type: item.type });
         //const type = item.type;
         //const additions = item.additions;
         //const deletions = item.deletions;
@@ -340,11 +340,11 @@ function updateCommitDetails(new_commit) {
     // Render the chart with new data
 
     // DATA JOIN use the key argument for ensurign that the same DOM element is bound to the same data-item
-    const rect = g.selectAll('rect').data(parsed_data, (d) => d.type + (d.offset === 0 ? '_a' : '_d')).join(
+    const rect = g.selectAll('rect').data(parsed_data, d => d.type + (d.additions ? '_a' : '_d')).join(
         // ENTER
         // new elements
         (enter) => {
-          const rect_enter = enter.append('rect').attr('x', 0).attr('fill', d => d.offset === 0 ? 'green' : 'red');
+          const rect_enter = enter.append('rect').attr('x', 0).attr('fill', d => d.additions ? 'green' : 'red');
           rect_enter.append('title');
           return rect_enter;
         },
