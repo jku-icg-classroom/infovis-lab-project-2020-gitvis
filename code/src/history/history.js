@@ -5,7 +5,7 @@ var render = new dagreD3.render();
 function updateHistoryVis(new_data) {
 
     new_data.forEach(function (e, k) {
-        debugger
+        //debugger
         var html = "<div class='commitcontainer'>";
         html += "<span class=message>Title: "+(e.commit.message.length > 20 ? e.commit.message.substr(0,20)+'...' : e.commit.message)+"</span><br>";
         html += "<span class=author>Author: "+e.commit.author.name+"</span><br>";
@@ -42,7 +42,7 @@ function updateHistoryVis(new_data) {
 
         d3.select(this).classed("selected", true);
 
-        debugger
+        //debugger
         state.selectedCommit = gr.node(n).commitdata;
         console.log(state.selectedCommit);
 
