@@ -13,6 +13,12 @@
     /*background-color: greenyellow;*/
 }
 
+#adds_dels_chart {
+    width: 90%;
+    height: 60%;
+    margin: 5%;
+}
+
 #file_chart {
     width: 90%;
     height: 90%;
