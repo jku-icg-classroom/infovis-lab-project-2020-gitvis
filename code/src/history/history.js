@@ -86,7 +86,7 @@ function createHistoryVis(visElement){
 
     var dagrediv = visElement.append("div").attr("id","dagrediv").attr("position","relative");
     dagrediv.append("svg").attr("id","dagresvg").attr("width","100%").attr("height","100%");
-    
+
 
     gr = new dagreD3.graphlib.Graph()
         .setGraph({
@@ -97,7 +97,7 @@ function createHistoryVis(visElement){
         })
         .setDefaultEdgeLabel(function() { return {}; });
 
-    
+
     var svg = d3.select("#dagresvg"),
         svgGroup = svg.append("g");
     render(d3.select("#dagresvg g"),gr);
