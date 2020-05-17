@@ -14,6 +14,11 @@ function filterData() {
 
 function wrangleData(filtered) {
     // wrangles the given filtered data to the format required by the visualizations
+
+    filtered.forEach( (e,k) => {
+       // let dateparsed = Date.parse(e.commit.author.date);
+        filtered[k].commit.author.date = new Date(e.commit.author.date);
+    });
     return filtered;
 }
 

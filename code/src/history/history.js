@@ -3,46 +3,50 @@ var render = new dagreD3.render();
 
 
 function updateHistoryVis(new_data) {
+    let nodewidth = 300;
+    let nodeheight = 100;
 
     new_data.forEach(function (e, k) {
-        debugger
-        var html = "<div class='commitcontainer'>";
-        html += "<span class=message>Title: "+(e.commit.message.length > 20 ? e.commit.message.substr(0,20)+'...' : e.commit.message)+"</span><br>";
-        html += "<span class=author>Author: "+e.commit.author.name+"</span><br>";
-        html += "<span class=date>Date: "+e.commit.author.date+"</span><br>";
-        // html += "<span class=queue><span class=counter>"+worker.count+"</span></span>";
-        html += "</div>";
 
-        gr.setNode(k,{
+        var html = "<div class='commitcontainer'><div class='textinfo'>";
+        html += "<span class=message> \t&#8226; " + (e.commit.message.length > 18 ? e.commit.message.substr(0, 18) + '...' : e.commit.message) + "</span><br>";
+        html += "<span class=author> \t&#8226; " + e.commit.author.name + "</span><br>";
+        // html += "<span class=date>"+e.commit.author.date.getFullYear()+"-"+e.commit.author.date.getMonth()+"-"+e.commit.author.date.getDate()+"</span><br>";
+        html += "<span class=date> \t&#8226; " + e.commit.author.date.getFullYear() + '-' + ('0' + (e.commit.author.date.getMonth() + 1)).slice(-2) + '-' + ('0' + e.commit.author.date.getDate()).slice(-2) + "</span><br>";
+        html += "</div></div>";
+
+        //https://codepen.io/lechat/pen/RNrXxZ
+
+        gr.setNode(k, {
             labelType: "html",
             label: html,
-            rx: 5,
-            ry: 5,
-            width: 220,
-            height: 100,
-            commitdata: e});
+            width: nodewidth,
+            // height: nodeheight,
+            commitdata: e
+        });
     });
 
-    gr.nodes().forEach(function(v) {
+
+    gr.nodes().forEach(function (v) {
         var node = gr.node(v);
         // Round the corners of the nodes
         node.rx = node.ry = 5;
     });
 
     var nodes = gr.nodes();
-    for(let i=0;i<nodes.length-1;i++){
-        gr.setEdge(nodes[i],nodes[i+1]);
+    for (let i = 0; i < nodes.length - 1; i++) {
+        gr.setEdge(nodes[i], nodes[i + 1]);
     }
 
-    render(d3.select("#dagresvg g"),gr);
+    render(d3.select("#dagresvg g"), gr);
 
-    d3.selectAll('g.node').on("click", function(n) {
-        d3.selectAll('g.node').classed('selected',false);
+    d3.selectAll('g.node').on("click", function (n) {
+        d3.selectAll('g.node').classed('selected', false);
 
 
         d3.select(this).classed("selected", true);
 
-        debugger
+
         state.selectedCommit = gr.node(n).commitdata;
         console.log(state.selectedCommit);
 
@@ -51,10 +55,30 @@ function updateHistoryVis(new_data) {
 
 
     //Append the visualizations of each commit
-    d3.selectAll(".commitcontainer").append("span").text("asdf");
 
+    d3.selectAll(".commitcontainer").attr("style", "min-width:" + nodewidth + "px");
+    d3.selectAll(".commitcontainer").append("div").attr("class", "lineschanged");
+    d3.selectAll(".lineschanged").append("span").text("asdf");
+
+    // https://groups.google.com/forum/#!topic/d3-js/fMh1Sr7QFEA
+
+
+    d3.selectAll("foreignObject").attr("width", nodewidth).attr("height", nodeheight);
+
+
+    let transx = -(nodewidth) / 6 + 4;
+    let transy = 0
+    d3.selectAll(".node").selectAll(".label").attr("transform", "translate(" + transx + "," + transy + ")");
+
+
+    //barchart for lines added:
+    var svg = d3.selectAll(".lineschanged");
 
 }
+
+
+
+
 
 function createHistoryVis(visElement){
     //-------------------------------------------------------------------------------
@@ -65,7 +89,12 @@ function createHistoryVis(visElement){
     
 
     gr = new dagreD3.graphlib.Graph()
-        .setGraph({})
+        .setGraph({
+            nodesep: 70,
+            ranksep: 100,
+            marginx: 20,
+            marginy: 20
+        })
         .setDefaultEdgeLabel(function() { return {}; });
 
     
