@@ -5,6 +5,7 @@ const state = {
     details: COMMIT_DETAILS,
     selectedCommit: null,
     selectedAuthor: null,
+    authors: [],
 }
 
 function filterData() {
@@ -14,7 +15,6 @@ function filterData() {
 
 function wrangleData(filtered) {
     // wrangles the given filtered data to the format required by the visualizations
-
     filtered.forEach( (e,k) => {
        // let dateparsed = Date.parse(e.commit.author.date);
         filtered[k].commit.author.date = new Date(e.commit.author.date);
@@ -24,15 +24,14 @@ function wrangleData(filtered) {
 
 function createVis(){
     // initialized for creating the visualizations, e.g. setup SVG, init scales, ...
-    // store main element for later
-    const visElement = d3.select('#vis');
-    visElement.append('div').attr('id','head');
-    var content = visElement.append('div').attr('id','content');
-    var history = content.append('div').attr('id','history');
-    const detailsDiv = content.append('div').attr('id','details');
+    const rootDiv = d3.select('#vis');
+    let headerDiv = rootDiv.append('div').attr('id','header');
+    let contentDiv = rootDiv.append('div').attr('id','content');
+    let historyDiv = contentDiv.append('div').attr('id','history');
+    const detailsDiv = contentDiv.append('div').attr('id','details');
 
-    // createHeadVis();
-    createHistoryVis(history);
+    createHeaderVis(headerDiv);
+    createHistoryVis(historyDiv);
 
     if(state.details === COMMIT_DETAILS) {
         createCommitDetailsVis(detailsDiv);
@@ -50,10 +49,10 @@ function createVis(){
     
     function update(new_data) {
         // updates the specific visualization with the given data
+        updateHeaderVis(new_data);
         updateHistoryVis(new_data);
         updateCommitDetails(state.selectedCommit);    //must be a single commit
     }
-
 
     // return the update function to be called
     return update;
@@ -71,6 +70,11 @@ function updateApp() {
     vis(new_data);
 }
 
+function updateState(fn) {
+    fn();
+    updateApp();
+}
+
 // init interaction, e.g. listen to click events
 d3.select().on('click', () => {
     // update state
@@ -84,5 +88,16 @@ d3.json("./data/commithistory.json").then((data) => {
     console.log(data);
 
     state.data = data;
+    
+    const authors = data.map(e => e.author);
+    const distinctAuthors = Array.from(new Set(authors.map(a => a.id)))
+    .map(id => {
+        return {
+            ...authors.find(a => a.id === id)
+        }
+    });
+    state.authors = distinctAuthors;
+    console.log(state.authors);
+
     updateApp();
 });

@@ -10,7 +10,6 @@ html {
     box-sizing: border-box;
 }
 
-
 body{
     padding: 0;
     margin: 0;
@@ -24,15 +23,16 @@ body{
 
 }
 
-#head {
+#header {
     width: 100%;
-    height: 20%;
+    height: 15%;
+    position: relative;
     background-color: #CCF2FF;
 }
 
 #content {
     width: 100%;
-    height: 80%;
+    height: 85%;
     background-color: pink;
     display: flex;
 }
