@@ -6,7 +6,7 @@ html {
     margin: 0px;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -27,15 +27,14 @@ body{
 #head {
     width: 100%;
     height: 20%;
-    background-color: aqua;
-    display: inline-block;
+    background-color: #CCF2FF;
 }
 
 #content {
     width: 100%;
     height: 80%;
-    background-color: saddlebrown;
-    display: inline-block;
+    background-color: pink;
+    display: flex;
 }
 
 p {display: table}
@@ -43,30 +42,39 @@ div {display: table}
 
 
 #history {
-    width: 70%;
+    /* TODO: delete bec Split library handles width */
+    /*width: 70%;*/
     height: 100%;
-    background-color: white;
-    display: inline-block;
+    background-color: #F9FBFB;
+    float: left;
 }
 
 
 #details {
-    width: 30%;
+    float: left;
+    /* TODO: delete bec Split library handles width */
+    /* width: 30%; */
     height: 100%;
-    background-color: rgb(216, 216, 216);
-    display: inline-block;
+    background-color: white;
 }
-
-
 
 body {
     font-family: helvetica;
     font-size: 14px;
 }
 
-
-
 h1 {
     opacity: 0.5;
     font-size: 1em;
+}
+
+.gutter {
+    background-color: #eee;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+    height: 100%;
+    cursor: col-resize;
 }

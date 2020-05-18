@@ -4,7 +4,7 @@ const state = {
     data: [],
     details: COMMIT_DETAILS,
     selectedCommit: null,
-    // e.g. user selection
+    selectedAuthor: null,
 }
 
 function filterData() {
@@ -24,24 +24,32 @@ function wrangleData(filtered) {
 
 function createVis(){
     // initialized for creating the visualizations, e.g. setup SVG, init scales, ...
-
     // store main element for later
     const visElement = d3.select('#vis');
-
     visElement.append('div').attr('id','head');
     var content = visElement.append('div').attr('id','content');
     var history = content.append('div').attr('id','history');
-    const details = content.append('div').attr('id','details');
+    const detailsDiv = content.append('div').attr('id','details');
 
     // createHeadVis();
     createHistoryVis(history);
-    
-    if(state.details === COMMIT_DETAILS) createCommitDetailsVis(details);
-    //TODO else ELIAS
 
+    if(state.details === COMMIT_DETAILS) {
+        createCommitDetailsVis(detailsDiv);
+    } else if(state.details === AUTHOR_DETAILS) {
+        createAuthorDetailsVis(detailsDiv);
+    }
+
+    // split the history and details divs 
+    // history div has an initial width of 70%
+    // details div has an initial width of 30%
+    // split allows to resize both divs horizontally using the mouse 
+    Split(['#history', '#details'], {
+        sizes: [70, 30],
+    });
+    
     function update(new_data) {
         // updates the specific visualization with the given data
-
         updateHistoryVis(new_data);
         updateCommitDetails(state.selectedCommit);    //must be a single commit
     }
