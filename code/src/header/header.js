@@ -27,15 +27,10 @@ function updateHeaderVis(data) {
             return 0.7;
          })
         .on("click", function (author) {
-            // TODO: avoid updating whole vis 
             if(state.selectedAuthor && state.selectedAuthor.id === author.id) {
-                updateState(function () {
-                    state.selectedAuthor = null;
-                });
+                deselectAuthor();
             } else {
-                updateState(function () {
-                    state.selectedAuthor = author;
-                });
+                selectAuthor(author);
             }            
         });
 }

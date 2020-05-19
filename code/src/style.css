@@ -51,6 +51,7 @@ div {display: table}
 
 
 #details {
+    position: relative;
     float: left;
     /* TODO: delete bec Split library handles width */
     /* width: 30%; */
