@@ -198,7 +198,7 @@ function _updateFileTypesChart(author, data) {
     // all other file types will be aggregated into 'others'
     let changesPerFileTypeArr = d3.entries(changesPerFileType);
     changesPerFileTypeArr.sort((e1, e2) => e2.value - e1.value);
-    
+
     // prepate data for visualization
     let visData = {};
     if (changesPerFileTypeArr.length > 5) {
@@ -217,6 +217,8 @@ function _updateFileTypesChart(author, data) {
         });
     }
 
+    console.log(visData);
+
     // create color scale based on data
     const colorScale = d3.scaleOrdinal()
         .domain(d3.entries(visData).map(e => e.key))
@@ -226,7 +228,8 @@ function _updateFileTypesChart(author, data) {
         '#ad_file_types_chart',
         visData,
         colorScale,
-        pieChartRadius
+        pieChartRadius,
+        true
     );
 }
 
@@ -249,7 +252,9 @@ function _createPieChart(parentElem, id, size) {
         .attr("transform", "translate(" + size / 2 + "," + size / 2 + ")");
 }
 
-function _updatePieChart(id, data, colorScale, radius) {
+function _updatePieChart(id, data, colorScale, radius, showLegend) {
+    showLegend = showLegend || false;
+
     // utility function to compute startAngle and endAngle for every data item 
     // will be passed to the arc shape generator
     const pie = d3.pie()
@@ -273,6 +278,44 @@ function _updatePieChart(id, data, colorScale, radius) {
         .append('path')
         .attr('d', arcGenerator)
         .attr('fill', d => colorScale(d.data.key));
+
+    if (showLegend) {
+        // TODO: still buggy 
+        console.log(arcAngles);
+
+        // again rebind for legend
+        var legend = d3.select(id)
+            .selectAll(".legend")
+            .data(arcAngles);
+
+        legend.enter()
+            .append("g")
+            .attr("transform", function (d, i) {
+                return "translate(" + (radius + 110) + "," + (i * 15 + 20) + ")";
+            })
+            .attr("class", "legend")
+            .append("rect") // label color rects
+            .attr("width", 10)
+            .attr("height", 10)
+            .attr("fill", function (d, i) {
+                return colorScale(d.data.key);
+            });
+
+        legend
+            .append("text") // label text
+            .text(function (d) {
+                return d.data.key + "  (" + d.data.value + " changes)";
+            })
+            .style("font-size", 12)
+            .attr("y", 10)
+            .attr("x", 11);
+
+        legend.exit().remove();
+    } else {
+        d3.select(id)
+            .selectAll(".legend")
+            .remove();
+    }
 
     // TODO: animate pie chart on changes
     /*d3.select(id)
