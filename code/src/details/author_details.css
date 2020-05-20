@@ -1,0 +1,91 @@
+#ad_root {
+    color: black;
+}
+
+.ad_row_title {
+    font-family: 'Raleway';
+    font-size: 1em;
+    font-weight: 600;
+    color: #BEBEBE;
+}
+
+#ad_profile_row {
+    padding: 16px;
+}
+
+#ad_profile_row_names {
+    display: inline-block;
+    top: 50%;
+    padding-left: 16px;
+}
+
+#ad_avatar {
+    width: 74px;
+    height: 74px;
+
+    background-size: cover;
+    background-position: top center;  
+    border-radius: 50%;
+    float: left;
+}
+
+#ad_name {
+    display: block;
+    font-family: 'Raleway';
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#ad_github {
+    display: block;
+    font-family: 'Raleway';
+    font-size: 1em;
+    font-weight: 600;
+    color: #64ACFF;
+}
+
+#ad_contributions_row {
+    padding: 16px;
+}
+
+#ad_contributions_commits {
+    display: inline-block;
+}
+
+#ad_contributions_commits_chart_div {
+    width: 100px;
+    height: 100px;
+    margin-top: 7px;
+}
+
+#ad_contributions_commits_chart {
+    height: 100px;
+}
+
+#ad_contributions_changes {
+    display: inline-block;
+    margin-left: 36px;
+}
+
+#ad_contributions_changes_chart_div {
+    width: 100px;
+    height: 100px;
+    margin-top: 7px;
+}
+
+#ad_contributions_changes_chart {
+    height: 100px;
+}
+
+#ad_add_vs_del_row {
+    padding-left: 16px;
+}
+
+#ad_add_vs_del_chart {
+    display: block;
+    margin-top: 7px;
+}
+
+.legend {
+    
+}

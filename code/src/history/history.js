@@ -113,13 +113,8 @@ function updateHistoryVis(new_data) {
     d3.selectAll('g.node').on("click", function (n) {
         debugger
         d3.selectAll('g.node').classed('selected', false);
-
         d3.select(this).classed("selected", true);
-
-        state.selectedCommit = gr.node(n).commitdata;
-        console.log(state.selectedCommit);
-
-        updateCommitDetails(state.selectedCommit);
+        selectCommit(gr.node(n).commitdata);
     });
 
 
