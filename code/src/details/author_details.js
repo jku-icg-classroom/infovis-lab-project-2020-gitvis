@@ -40,12 +40,21 @@ function createAuthorDetailsVis(parentDiv) {
         .attr('id', 'ad_contributions_changes_chart_div');
     _createPieChart(changesChartDiv, 'ad_contributions_changes_chart', pieChartSizeSmall);
 
+    // what´s the ratio of additions vs deletions for the author
     const additionsDeletionsDiv = root.append('div')
         .attr('id', 'ad_add_vs_del_row');
     additionsDeletionsDiv.append('span')
         .attr('class', 'ad_row_title')
         .text('Additions vs Deletions');
     _createPieChart(additionsDeletionsDiv, 'ad_add_vs_del_chart', pieChartSize);
+
+    // which filetypes are frequently changed by the author
+    const fileTypesDiv = root.append('div')
+        .attr('id', 'ad_file_types_row');
+    fileTypesDiv.append('span')
+        .attr('class', 'ad_row_title')
+        .text('Frequently Changed Filetypes');
+    _createPieChart(fileTypesDiv, 'ad_file_types_chart', pieChartSize);
 }
 
 function updateAuthorDetailsVis(authors, author, data) {
@@ -61,7 +70,8 @@ function updateAuthorDetailsVis(authors, author, data) {
 
     _updateCommitsChart(authors, author, data);
     _updateChangesChart(authors, author, data);
-    _updateAddVsDelChart(authors, author, data);
+    _updateAddVsDelChart(author, data);
+    _updateFileTypesChart(author, data);
 
     _showAuthorDetailsVis();
 }
@@ -138,7 +148,7 @@ function _updateChangesChart(authors, author, data) {
     );
 }
 
-function _updateAddVsDelChart(authors, author, data) {
+function _updateAddVsDelChart(author, data) {
     const colorScale = d3.scaleOrdinal()
         .domain(['additions', 'deletions'])
         .range(['#23FFA0', '#FF648E']);
@@ -156,6 +166,64 @@ function _updateAddVsDelChart(authors, author, data) {
 
     _updatePieChart(
         '#ad_add_vs_del_chart',
+        visData,
+        colorScale,
+        pieChartRadius
+    );
+}
+
+function _updateFileTypesChart(author, data) {
+    // pre-process data
+    let changesPerFileType = {};
+    data.filter(d => d.author.id === author.id)
+        .map(d => d.files)
+        .forEach(filesArr => {
+            filesArr.forEach(changedFile => {
+                if (changedFile.changes) {
+                    // extract file type from file ending 
+                    const dotIndex = changedFile.filename.lastIndexOf(".");
+                    const ending = changedFile.filename.substring(dotIndex + 1);
+
+                    // increase changes for this file
+                    if (!changesPerFileType[ending]) {
+                        changesPerFileType[ending] = 0;
+                    }
+                    changesPerFileType[ending] += changedFile.changes;
+                }
+            });
+        });
+
+    // aggregate to max. 5 file types
+    // only keep file types that are changed most frequently 
+    // all other file types will be aggregated into 'others'
+    let changesPerFileTypeArr = d3.entries(changesPerFileType);
+    changesPerFileTypeArr.sort((e1, e2) => e2.value - e1.value);
+    
+    // prepate data for visualization
+    let visData = {};
+    if (changesPerFileTypeArr.length > 5) {
+        // aggretate 
+        let fourMostFreqChangedFilesArr = changesPerFileTypeArr.slice(0, 4);
+        let othersAggregatedFilesArr = changesPerFileTypeArr.slice(4, changesPerFileTypeArr.length);
+        const othersChangeCount = othersAggregatedFilesArr.reduce((acc, cur) => acc + cur.value, 0);
+
+        fourMostFreqChangedFilesArr.forEach(e => {
+            visData[e.key] = e.value;
+        });
+        visData["others"] = othersChangeCount;
+    } else {
+        changesPerFileTypeArr.forEach(e => {
+            visData[e.key] = e.value;
+        });
+    }
+
+    // create color scale based on data
+    const colorScale = d3.scaleOrdinal()
+        .domain(d3.entries(visData).map(e => e.key))
+        .range(d3.schemeSet3);
+
+    _updatePieChart(
+        '#ad_file_types_chart',
         visData,
         colorScale,
         pieChartRadius
