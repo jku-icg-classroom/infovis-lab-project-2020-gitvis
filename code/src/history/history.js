@@ -7,11 +7,14 @@ function updateHistoryVis(new_data) {
     let nodewidth = 300;
     let nodeheight = 100;
 
-    // let width = d3.select('#dagresvg').style("width");
-    // let height = d3.select('#dagresvg').style("height");
+    let width = d3.select('#dagresvg').style("width");
+    let height = d3.select('#dagresvg').style("height");
 
 
+    //how to append div to svg
+    //https://stackoverflow.com/questions/11322711/append-div-to-node-in-svg-with-d3
 
+    //tried timeline
     // debugger
     // //get the date in order to create the timeline boundaries
     // //source of the basic idea: https://stackoverflow.com/questions/46052688/put-a-timeline-to-a-d3-js-tree-graph
@@ -24,16 +27,6 @@ function updateHistoryVis(new_data) {
     //     currdate = e.commit.author.date.getFullYear() + '-' + e.commit.author.date.getMonth() + '-' + e.commit.author.date.getDate() + '-' + e.commit.author.date.getHours() + ':' + e.commit.author.date.getMinutes();
     //     return new Date(currdate);
     // });
-    //
-    // // let date;
-    // // let maxdate = d3.max(new_data, function (e) {
-    // //     date = e.commit.author.date.getFullYear() + '-' + e.commit.author.date.getMonth() + '-' + e.commit.author.date.getDate();
-    // //     return new Date(date.replace(/(\d{2})-(\d{2})-(\d{4})/, "$1/$2/$3"));
-    // // });
-    // // let mindate = d3.min(new_data, function (e) {
-    // //     date = e.commit.author.date.getFullYear() + '-' + e.commit.author.date.getMonth() + '-' + e.commit.author.date.getDate();
-    // //     return new Date(date.replace(/(\d{2})-(\d{2})-(\d{4})/, "$1/$2/$3"));
-    // // });
     //
     //
     // mindate.setDate(mindate.getDate() - 2);
@@ -98,15 +91,9 @@ function updateHistoryVis(new_data) {
 
     render(d3.select("#dagresvg g"), gr);
 
-
-    // let transnodes = d3.selectAll('g.node');
-    // transnodes._groups[0].forEach(function(n){
-    //     print(n.attr("transform"))
-    // });
     // let transnodes = d3.selectAll('g.node');
     // transnodes.attr("class","node bingo");
     // transnodes.attr("transform","translate(180,99)");
-
 
     debugger
 
@@ -137,6 +124,17 @@ function updateHistoryVis(new_data) {
 
     //barchart for lines added:
     var svg = d3.selectAll(".lineschanged");
+
+
+
+    let maxdate = d3.max(new_data, function (e) {
+        return e.commit.author.date;
+    });
+    let mindate = d3.min(new_data, function (e) {
+        return e.commit.author.date;
+    });
+    d3.select("#dagrediv").append("label").attr("id","datelabel").text("Showing commits from: "+mindate.getFullYear() + '-' + ('0' + (mindate.getMonth() + 1)).slice(-2) + '-' + ('0' + mindate.getDate()).slice(-2)
+        +" until: "+maxdate.getFullYear() + '-' + ('0' + (maxdate.getMonth() + 1)).slice(-2) + '-' + ('0' + maxdate.getDate()).slice(-2));
 
 }
 
