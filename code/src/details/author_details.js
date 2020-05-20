@@ -1,5 +1,5 @@
-const pieChartSize = 80;
-const pieChartMargin = 5;
+const pieChartSize = 120;
+const pieChartMargin = 10;
 const pieChartRadius = pieChartSize / 2 - pieChartMargin;
 
 const pieChartSizeSmall = 80;
@@ -39,6 +39,13 @@ function createAuthorDetailsVis(parentDiv) {
     const changesChartDiv = contributionsChangesDiv.append('div')
         .attr('id', 'ad_contributions_changes_chart_div');
     _createPieChart(changesChartDiv, 'ad_contributions_changes_chart', pieChartSizeSmall);
+
+    const additionsDeletionsDiv = root.append('div')
+        .attr('id', 'ad_add_vs_del_row');
+    additionsDeletionsDiv.append('span')
+        .attr('class', 'ad_row_title')
+        .text('Additions vs Deletions');
+    _createPieChart(additionsDeletionsDiv, 'ad_add_vs_del_chart', pieChartSize);
 }
 
 function updateAuthorDetailsVis(authors, author, data) {
@@ -52,11 +59,18 @@ function updateAuthorDetailsVis(authors, author, data) {
     d3.select('#ad_name').text(author.login);
     d3.select('#ad_github').text(author.html_url);
 
-    const contributionsPiechartColorScale = d3.scaleOrdinal()
+    _updateCommitsChart(authors, author, data);
+    _updateChangesChart(authors, author, data);
+    _updateAddVsDelChart(authors, author, data);
+
+    _showAuthorDetailsVis();
+}
+
+function _updateCommitsChart(authors, author, data) {
+    const colorScale = d3.scaleOrdinal()
         .domain(['a', 'b'])
         .range(['#64ACFF', '#F9F9F9']);
 
-    // TODO: prepare data for visualization
     const authorCommitsInitial = authors.reduce((acc, cur) => {
         acc["" + cur.id] = 0;
         return acc;
@@ -68,7 +82,6 @@ function updateAuthorDetailsVis(authors, author, data) {
         },
         authorCommitsInitial
     );
-
     let commitsPerAuthorAggregated = {
         others: 0
     };
@@ -81,26 +94,72 @@ function updateAuthorDetailsVis(authors, author, data) {
             }
             return acc;
         }, commitsPerAuthorAggregated);
-
     _updatePieChart(
         '#ad_contributions_commits_chart',
         commitsPerAuthorAggregated,
-        contributionsPiechartColorScale,
+        colorScale,
         pieChartRadiusSmall
     );
+}
 
-    // TODO: prepare data for visualization
-    const contributionsChangesData = { a: 5, b: 5 };
+function _updateChangesChart(authors, author, data) {
+    const colorScale = d3.scaleOrdinal()
+        .domain(['a', 'b'])
+        .range(['#64ACFF', '#F9F9F9']);
+
+    const authorChangesInitial = authors.reduce((acc, cur) => {
+        acc["" + cur.id] = 0;
+        return acc;
+    }, {});
+    const changesPerAuthor = data.reduce(
+        (acc, cur) => {
+            acc["" + cur.author.id] += cur.stats.total;
+            return acc;
+        },
+        authorChangesInitial
+    );
+    let changesPerAuthorAggregated = {
+        others: 0
+    };
+    changesPerAuthorAggregated = d3.entries(changesPerAuthor)
+        .reduce((acc, cur) => {
+            if (cur.key === "" + author.id) {
+                acc[cur.key] = cur.value;
+            } else {
+                acc["others"] += cur.value;
+            }
+            return acc;
+        }, changesPerAuthorAggregated);
     _updatePieChart(
         '#ad_contributions_changes_chart',
-        contributionsChangesData,
-        contributionsPiechartColorScale,
+        changesPerAuthorAggregated,
+        colorScale,
         pieChartRadiusSmall
     );
+}
 
-    // TODO: ratio added-deleted
+function _updateAddVsDelChart(authors, author, data) {
+    const colorScale = d3.scaleOrdinal()
+        .domain(['additions', 'deletions'])
+        .range(['#23FFA0', '#FF648E']);
 
-    _showAuthorDetailsVis();
+    let visData = {
+        additions: 0,
+        deletions: 0
+    };
+    visData = data.filter(d => d.author.id === author.id)
+        .reduce((acc, cur) => {
+            acc.additions += cur.stats.additions;
+            acc.deletions += cur.stats.deletions;
+            return acc;
+        }, visData);
+
+    _updatePieChart(
+        '#ad_add_vs_del_chart',
+        visData,
+        colorScale,
+        pieChartRadius
+    );
 }
 
 function _showAuthorDetailsVis() {
@@ -126,7 +185,8 @@ function _updatePieChart(id, data, colorScale, radius) {
     // utility function to compute startAngle and endAngle for every data item 
     // will be passed to the arc shape generator
     const pie = d3.pie()
-        .value(d => d.value);
+        .value(d => d.value)
+        .sort(null); // makes slices go clockwise
 
     // d3.entries(...) maps the object to an array of key-value pairs
     const arcAngles = pie(d3.entries(data));
@@ -145,6 +205,21 @@ function _updatePieChart(id, data, colorScale, radius) {
         .append('path')
         .attr('d', arcGenerator)
         .attr('fill', d => colorScale(d.data.key));
+
+    // TODO: animate pie chart on changes
+    /*d3.select(id)
+    .selectAll('slices')
+    .selectAll('path')
+    .transition()
+    .duration(500)
+    .attrTween("d", function (d) {
+        var interpolate = d3.interpolate(0, d);
+        var _this = this;
+        return function (t) {
+            _this._current = interpolate(t);
+            return arcGenerator(_this._current);
+        };
+    });*/
 
     // TODO: add annotation
     /*d3.select('#ad_contributions_commits_chart')

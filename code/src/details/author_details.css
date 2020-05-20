@@ -59,7 +59,6 @@
 }
 
 #ad_contributions_commits_chart {
-    width: 100px;
     height: 100px;
 }
 
@@ -75,6 +74,14 @@
 }
 
 #ad_contributions_changes_chart {
-    width: 100px;
     height: 100px;
+}
+
+#ad_add_vs_del_row {
+    padding-left: 16px;
+}
+
+#ad_add_vs_del_chart {
+    display: block;
+    margin-top: 7px;
 }
