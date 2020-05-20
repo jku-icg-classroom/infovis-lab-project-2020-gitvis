@@ -71,6 +71,10 @@
 #ad_contributions_changes_chart_div {
     width: 100px;
     height: 100px;
-    background-color: pink;
     margin-top: 7px;
+}
+
+#ad_contributions_changes_chart {
+    width: 100px;
+    height: 100px;
 }

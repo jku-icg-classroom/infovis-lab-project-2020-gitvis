@@ -2,28 +2,43 @@ const pieChartSize = 80;
 const pieChartMargin = 5;
 const pieChartRadius = pieChartSize / 2 - pieChartMargin;
 
+const pieChartSizeSmall = 80;
+const pieChartMarginSmall = 5;
+const pieChartRadiusSmall = pieChartSizeSmall / 2 - pieChartMarginSmall;
+
 function createAuthorDetailsVis(parentDiv) {
     const root = parentDiv.append("div").attr("id", "ad_root");
 
-    const profileDiv = root.append('div').attr('id', 'ad_profile_row');
+    // basic profile informations about the author 
+    const profileDiv = root.append('div')
+        .attr('id', 'ad_profile_row');
     profileDiv.append('div').attr('id', 'ad_avatar');
-    const profileDivNames = profileDiv.append('div').attr('id', 'ad_profile_row_names');
+    const profileDivNames = profileDiv.append('div')
+        .attr('id', 'ad_profile_row_names');
     profileDivNames.append('span').attr('id', 'ad_name');
     profileDivNames.append('span').attr('id', 'ad_github');
 
-    const contributionsDiv = root.append('div').attr('id', 'ad_contributions_row');
-    const contributionsCommitsDiv = contributionsDiv.append('div').attr('id', 'ad_contributions_commits');
-    contributionsCommitsDiv.append('span').attr('class', 'ad_row_title').text('Contributions (#Commits)');
-    contributionsCommitsDiv.append('div')
-        .attr('id', 'ad_contributions_commits_chart_div')
-        .append("svg")
-        .attr("id", "ad_contributions_commits_chart")
-        .append("g") // group to enforce margins
-        .attr("transform", "translate(" + pieChartSize / 2 + "," + pieChartSize / 2 + ")");
+    // how many commits the author made compared to all other authors 
+    const contributionsDiv = root.append('div')
+        .attr('id', 'ad_contributions_row');
+    const contributionsCommitsDiv = contributionsDiv.append('div')
+        .attr('id', 'ad_contributions_commits');
+    contributionsCommitsDiv.append('span')
+        .attr('class', 'ad_row_title')
+        .text('Contributions (#Commits)');
+    const commitsChartDiv = contributionsCommitsDiv.append('div')
+        .attr('id', 'ad_contributions_commits_chart_div');
+    _createPieChart(commitsChartDiv, 'ad_contributions_commits_chart', pieChartSizeSmall);
 
-    const contributionsChangesDiv = contributionsDiv.append('div').attr('id', 'ad_contributions_changes');
-    contributionsChangesDiv.append('span').attr('class', 'ad_row_title').text('Contributions (#Changes)');
-    contributionsChangesDiv.append('div').attr('id', 'ad_contributions_changes_chart_div');
+    // how many lines the author changed compared to all other authors 
+    const contributionsChangesDiv = contributionsDiv.append('div')
+        .attr('id', 'ad_contributions_changes');
+    contributionsChangesDiv.append('span')
+        .attr('class', 'ad_row_title')
+        .text('Contributions (#Changes)');
+    const changesChartDiv = contributionsChangesDiv.append('div')
+        .attr('id', 'ad_contributions_changes_chart_div');
+    _createPieChart(changesChartDiv, 'ad_contributions_changes_chart', pieChartSizeSmall);
 }
 
 function updateAuthorDetailsVis(author) {
@@ -36,47 +51,26 @@ function updateAuthorDetailsVis(author) {
     d3.select('#ad_name').text(author.login);
     d3.select('#ad_github').text(author.html_url);
 
-    const contributionsColor = d3.scaleOrdinal()
+    const contributionsPiechartColorScale = d3.scaleOrdinal()
         .domain(['a', 'b'])
         .range(['#64ACFF', '#F9F9F9']);
 
     // TODO: prepare data for visualization
     const contributionsCommitsData = { a: 10, b: 57 };
+    _updatePieChart(
+        '#ad_contributions_commits_chart',
+        contributionsCommitsData,
+        contributionsPiechartColorScale,
+        pieChartRadiusSmall
+    );
 
-    // utility to compute startAngle and endAngle for every data item 
-    // will be passed to the arc shape generator
-    const pie = d3.pie()
-        .value(d => d.value);
-
-    // d3.entries(...) maps the object to an array of key-value pairs
-    const commitsPieChartAngles = pie(d3.entries(contributionsCommitsData));
-
-    // helps to build arc shapes
-    const arcGenerator = d3.arc()
-        .innerRadius(0)
-        .outerRadius(pieChartRadius);
-
-    // build the pie chart
-    d3.select('#ad_contributions_commits_chart')
-        .select('g')
-        .selectAll('slices')
-        .data(commitsPieChartAngles)
-        .enter()
-        .append('path')
-        .attr('d', arcGenerator)
-        .attr('fill', d => contributionsColor(d.data.key));
-
-    // add annotation
-    /*d3.select('#ad_contributions_commits_chart')
-        .selectAll('slices')
-        .data(contributionsCommitsData)
-        .enter()
-        .append('path')
-        .attr('d', arcGenerator)
-        .attr('fill', d => contributionsColor(d.data.key))
-        .attr('stroke', 'black')
-        .style('stroke-width', '2px')
-        .style('opacity', 0.7);*/
+    const contributionsChangesData = { a: 5, b: 5 };
+    _updatePieChart(
+        '#ad_contributions_changes_chart',
+        contributionsChangesData,
+        contributionsPiechartColorScale,
+        pieChartRadiusSmall
+    );
 
     _showAuthorDetailsVis();
 }
@@ -91,4 +85,48 @@ function _hideAuthorDetailsVis() {
     d3.select('#details')
         .select('#ad_root')
         .style('display', 'none');
+}
+
+function _createPieChart(parentElem, id, size) {
+    parentElem.append("svg")
+        .attr("id", id)
+        .append("g") // group to center chart
+        .attr("transform", "translate(" + size / 2 + "," + size / 2 + ")");
+}
+
+function _updatePieChart(id, data, colorScale, radius) {
+    // utility function to compute startAngle and endAngle for every data item 
+    // will be passed to the arc shape generator
+    const pie = d3.pie()
+        .value(d => d.value);
+
+    // d3.entries(...) maps the object to an array of key-value pairs
+    const arcAngles = pie(d3.entries(data));
+
+    // helps to build arc shapes
+    const arcGenerator = d3.arc()
+        .innerRadius(0)
+        .outerRadius(radius);
+
+    // build the pie chart
+    d3.select(id)
+        .select('g')
+        .selectAll('slices')
+        .data(arcAngles)
+        .enter()
+        .append('path')
+        .attr('d', arcGenerator)
+        .attr('fill', d => colorScale(d.data.key));
+
+    // TODO: add annotation
+    /*d3.select('#ad_contributions_commits_chart')
+        .selectAll('slices')
+        .data(contributionsCommitsData)
+        .enter()
+        .append('path')
+        .attr('d', arcGenerator)
+        .attr('fill', d => contributionsColor(d.data.key))
+        .attr('stroke', 'black')
+        .style('stroke-width', '2px')
+        .style('opacity', 0.7);*/
 }
