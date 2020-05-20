@@ -2,9 +2,67 @@ var gr;
 var render = new dagreD3.render();
 
 
+
 function updateHistoryVis(new_data) {
     let nodewidth = 300;
     let nodeheight = 100;
+
+    // let width = d3.select('#dagresvg').style("width");
+    // let height = d3.select('#dagresvg').style("height");
+
+
+
+    // debugger
+    // //get the date in order to create the timeline boundaries
+    // //source of the basic idea: https://stackoverflow.com/questions/46052688/put-a-timeline-to-a-d3-js-tree-graph
+    // let currdate;
+    // let maxdate = d3.max(new_data, function (e) {
+    //     currdate = e.commit.author.date.getFullYear() + '-' + e.commit.author.date.getMonth() + '-' + e.commit.author.date.getDate() + '-' + e.commit.author.date.getHours() + ':' + e.commit.author.date.getMinutes();
+    //     return new Date(currdate);
+    // });
+    // let mindate = d3.min(new_data, function (e) {
+    //     currdate = e.commit.author.date.getFullYear() + '-' + e.commit.author.date.getMonth() + '-' + e.commit.author.date.getDate() + '-' + e.commit.author.date.getHours() + ':' + e.commit.author.date.getMinutes();
+    //     return new Date(currdate);
+    // });
+    //
+    // // let date;
+    // // let maxdate = d3.max(new_data, function (e) {
+    // //     date = e.commit.author.date.getFullYear() + '-' + e.commit.author.date.getMonth() + '-' + e.commit.author.date.getDate();
+    // //     return new Date(date.replace(/(\d{2})-(\d{2})-(\d{4})/, "$1/$2/$3"));
+    // // });
+    // // let mindate = d3.min(new_data, function (e) {
+    // //     date = e.commit.author.date.getFullYear() + '-' + e.commit.author.date.getMonth() + '-' + e.commit.author.date.getDate();
+    // //     return new Date(date.replace(/(\d{2})-(\d{2})-(\d{4})/, "$1/$2/$3"));
+    // // });
+    //
+    //
+    // mindate.setDate(mindate.getDate() - 2);
+    // maxdate.setDate(maxdate.getDate() + 2);
+    //
+    //
+    //
+    // var y = d3.scaleTime()
+    //     .domain([mindate, maxdate])
+    //     .range([0, width]);
+    //
+    //
+    // var yAxis = d3.axisLeft(y).ticks(10);
+    // // var xAxis = d3.svg.axis()
+    // //     .orient("bottom")
+    // //     .scale(x)
+    // //     .ticks(10);
+    //
+    // g.append('g')
+    //     .attr('transform', 'translate(0,' + height + ')') .attr("class", "axis")
+    //     .call(customYAxis);
+    // var linksg =    g.append("g");
+    //
+    // function customYAxis(g) {
+    //     g.call(yAxis);
+    //     //g.select('.domain').remove();
+    // };
+
+
 
     new_data.forEach(function (e, k) {
 
@@ -40,12 +98,23 @@ function updateHistoryVis(new_data) {
 
     render(d3.select("#dagresvg g"), gr);
 
+
+    // let transnodes = d3.selectAll('g.node');
+    // transnodes._groups[0].forEach(function(n){
+    //     print(n.attr("transform"))
+    // });
+    // let transnodes = d3.selectAll('g.node');
+    // transnodes.attr("class","node bingo");
+    // transnodes.attr("transform","translate(180,99)");
+
+
+    debugger
+
     d3.selectAll('g.node').on("click", function (n) {
+        debugger
         d3.selectAll('g.node').classed('selected', false);
 
-
         d3.select(this).classed("selected", true);
-
 
         state.selectedCommit = gr.node(n).commitdata;
         console.log(state.selectedCommit);
