@@ -7,6 +7,7 @@ const state = {
     selectedCommit: null,
     selectedAuthor: null,
     authors: [],
+    historyloaded: false,
 }
 
 function filterData() {
@@ -47,7 +48,10 @@ function createVis() {
     function update(new_data) {
         // updates the specific visualizations with the new data
         updateHeaderVis(new_data);
-        updateHistoryVis(new_data);
+        if(!state.historyloaded){
+            updateHistoryVis(new_data);
+            state.historyloaded = true;
+        }
         updateCommitDetails(state.selectedCommit);    //must be a single commit
         updateAuthorDetailsVis(state.authors, state.selectedAuthor, state.data);
     }
