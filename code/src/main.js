@@ -49,7 +49,7 @@ function createVis() {
         updateHeaderVis(new_data);
         updateHistoryVis(new_data);
         updateCommitDetails(state.selectedCommit);    //must be a single commit
-        updateAuthorDetailsVis(state.selectedAuthor);
+        updateAuthorDetailsVis(state.authors, state.selectedAuthor, state.data);
     }
 
     // return the update function to be called
@@ -116,7 +116,6 @@ d3.json("./data/commithistory.json").then((data) => {
             }
         });
     state.authors = distinctAuthors;
-    console.log(state.authors);
-
+    
     updateApp();
 });

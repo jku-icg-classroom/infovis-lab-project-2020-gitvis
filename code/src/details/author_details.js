@@ -41,12 +41,13 @@ function createAuthorDetailsVis(parentDiv) {
     _createPieChart(changesChartDiv, 'ad_contributions_changes_chart', pieChartSizeSmall);
 }
 
-function updateAuthorDetailsVis(author) {
+function updateAuthorDetailsVis(authors, author, data) {
     if (author === null) {
         _hideAuthorDetailsVis();
         return;
     }
 
+    // basic profile informations about the author 
     d3.select('#ad_avatar').style('background-image', 'url(' + author.avatar_url + ')');
     d3.select('#ad_name').text(author.login);
     d3.select('#ad_github').text(author.html_url);
@@ -56,14 +57,39 @@ function updateAuthorDetailsVis(author) {
         .range(['#64ACFF', '#F9F9F9']);
 
     // TODO: prepare data for visualization
-    const contributionsCommitsData = { a: 10, b: 57 };
+    const authorCommitsInitial = authors.reduce((acc, cur) => {
+        acc["" + cur.id] = 0;
+        return acc;
+    }, {});
+    const commitsPerAuthor = data.reduce(
+        (acc, cur) => {
+            acc["" + cur.author.id]++;
+            return acc;
+        },
+        authorCommitsInitial
+    );
+
+    let commitsPerAuthorAggregated = {
+        others: 0
+    };
+    commitsPerAuthorAggregated = d3.entries(commitsPerAuthor)
+        .reduce((acc, cur) => {
+            if (cur.key === "" + author.id) {
+                acc[cur.key] = cur.value;
+            } else {
+                acc["others"] += cur.value;
+            }
+            return acc;
+        }, commitsPerAuthorAggregated);
+
     _updatePieChart(
         '#ad_contributions_commits_chart',
-        contributionsCommitsData,
+        commitsPerAuthorAggregated,
         contributionsPiechartColorScale,
         pieChartRadiusSmall
     );
 
+    // TODO: prepare data for visualization
     const contributionsChangesData = { a: 5, b: 5 };
     _updatePieChart(
         '#ad_contributions_changes_chart',
@@ -71,6 +97,8 @@ function updateAuthorDetailsVis(author) {
         contributionsPiechartColorScale,
         pieChartRadiusSmall
     );
+
+    // TODO: ratio added-deleted
 
     _showAuthorDetailsVis();
 }
