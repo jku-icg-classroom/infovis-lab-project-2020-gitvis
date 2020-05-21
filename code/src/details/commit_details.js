@@ -20,9 +20,10 @@ let g_xaxis_files;
 let yaxis_files;
 let g_yaxis_files;
 function createCommitDetailsVis(visElement) {
+    const commitDetailsDiv = visElement.append("div").attr("id", "cmt_details");
 
     //create the description part (top) of the commit details
-    const desc = visElement.append("div").attr("id", "cmt_desc");
+    const desc = commitDetailsDiv.append("div").attr("id", "cmt_desc");
 
     desc.append("h1").attr("id", "cmt_title");
     desc.append("p").attr("id", "cmt_long_title");
@@ -98,10 +99,22 @@ function _createFileTypeChart(div) {
 
 function updateCommitDetails(new_commit) {
     //todo switch to repository-overview if new_commit is undefined
-    if(new_commit === null) return _updateRepoOverview();
+    if (new_commit === null) {
+        // TODO hide vis ?
+        d3.select('#details')
+            .select('#cmt_details')
+            .style('display', 'none');
+
+        return _updateRepoOverview();
+    }
+
+    // TODO show vis ?
+    d3.select('#details')
+    .select('#cmt_details')
+    .style('display', 'block');
 
     const msg = new_commit.commit.message;
-    if(msg.length < 30) {
+    if (msg.length < 30) {
         d3.select("#cmt_title").text(msg);
         d3.select("#cmt_long_title").text("");
     } else {
@@ -160,32 +173,32 @@ function _updateAddsDelsChart(new_commit) {
 
 function _updateFileTypeChart(new_commit) {
     const map = new Map();  // maps each file-type to its number of addtions and deletions
-    
+
     //debugger
     //prepare data for visualizing
     new_commit.files.forEach((f) => {
         const dotIndex = f.filename.lastIndexOf(".");
         const ending = f.filename.substring(dotIndex + 1); //+1 because we don't need the .
-        
+
         const old = map.get(ending);
-        if(old) {   //update the existing entry
+        if (old) {   //update the existing entry
             old.additions += f.additions;
             old.deletions += f.deletions;
         } else {    //add a new entry for this filetype
-            const entry = { 
+            const entry = {
                 "type": ending,
-                "additions": f.additions, 
-                "deletions": f.deletions 
+                "additions": f.additions,
+                "deletions": f.deletions
             };
             map.set(ending, entry);
         }
     });
 
     const parsed_data = [];
-    for(const item of map.values()) {
+    for (const item of map.values()) {
         //parsed_data.push(item);
-        parsed_data.push( { offset: 0, additions: true, width: item.additions, type: item.type });
-        parsed_data.push( { offset: item.additions, additions: false, width: item.deletions, type: item.type });
+        parsed_data.push({ offset: 0, additions: true, width: item.additions, type: item.type });
+        parsed_data.push({ offset: item.additions, additions: false, width: item.deletions, type: item.type });
         //const type = item.type;
         //const additions = item.additions;
         //const deletions = item.deletions;

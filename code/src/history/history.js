@@ -2,59 +2,145 @@ var gr;
 var render = new dagreD3.render();
 
 
+
 function updateHistoryVis(new_data) {
+    let nodewidth = 300;
+    let nodeheight = 100;
+
+    let width = d3.select('#dagresvg').style("width");
+    let height = d3.select('#dagresvg').style("height");
+
+
+    //how to append div to svg
+    //https://stackoverflow.com/questions/11322711/append-div-to-node-in-svg-with-d3
+
+    //tried timeline
+    // debugger
+    // //get the date in order to create the timeline boundaries
+    // //source of the basic idea: https://stackoverflow.com/questions/46052688/put-a-timeline-to-a-d3-js-tree-graph
+    // let currdate;
+    // let maxdate = d3.max(new_data, function (e) {
+    //     currdate = e.commit.author.date.getFullYear() + '-' + e.commit.author.date.getMonth() + '-' + e.commit.author.date.getDate() + '-' + e.commit.author.date.getHours() + ':' + e.commit.author.date.getMinutes();
+    //     return new Date(currdate);
+    // });
+    // let mindate = d3.min(new_data, function (e) {
+    //     currdate = e.commit.author.date.getFullYear() + '-' + e.commit.author.date.getMonth() + '-' + e.commit.author.date.getDate() + '-' + e.commit.author.date.getHours() + ':' + e.commit.author.date.getMinutes();
+    //     return new Date(currdate);
+    // });
+    //
+    //
+    // mindate.setDate(mindate.getDate() - 2);
+    // maxdate.setDate(maxdate.getDate() + 2);
+    //
+    //
+    //
+    // var y = d3.scaleTime()
+    //     .domain([mindate, maxdate])
+    //     .range([0, width]);
+    //
+    //
+    // var yAxis = d3.axisLeft(y).ticks(10);
+    // // var xAxis = d3.svg.axis()
+    // //     .orient("bottom")
+    // //     .scale(x)
+    // //     .ticks(10);
+    //
+    // g.append('g')
+    //     .attr('transform', 'translate(0,' + height + ')') .attr("class", "axis")
+    //     .call(customYAxis);
+    // var linksg =    g.append("g");
+    //
+    // function customYAxis(g) {
+    //     g.call(yAxis);
+    //     //g.select('.domain').remove();
+    // };
+
+
 
     new_data.forEach(function (e, k) {
-        //debugger
-        var html = "<div class='commitcontainer'>";
-        html += "<span class=message>Title: "+(e.commit.message.length > 20 ? e.commit.message.substr(0,20)+'...' : e.commit.message)+"</span><br>";
-        html += "<span class=author>Author: "+e.commit.author.name+"</span><br>";
-        html += "<span class=date>Date: "+e.commit.author.date+"</span><br>";
-        // html += "<span class=queue><span class=counter>"+worker.count+"</span></span>";
-        html += "</div>";
 
-        gr.setNode(k,{
+        var html = "<div class='commitcontainer'><div class='textinfo'>";
+        html += "<span class=message> \t&#8226; " + (e.commit.message.length > 18 ? e.commit.message.substr(0, 18) + '...' : e.commit.message) + "</span><br>";
+        html += "<span class=author> \t&#8226; " + e.commit.author.name + "</span><br>";
+        // html += "<span class=date>"+e.commit.author.date.getFullYear()+"-"+e.commit.author.date.getMonth()+"-"+e.commit.author.date.getDate()+"</span><br>";
+        html += "<span class=date> \t&#8226; " + e.commit.author.date.getFullYear() + '-' + ('0' + (e.commit.author.date.getMonth() + 1)).slice(-2) + '-' + ('0' + e.commit.author.date.getDate()).slice(-2) + "</span><br>";
+        html += "</div></div>";
+
+        //https://codepen.io/lechat/pen/RNrXxZ
+
+        gr.setNode(k, {
             labelType: "html",
             label: html,
-            rx: 5,
-            ry: 5,
-            width: 220,
-            height: 100,
-            commitdata: e});
+            width: nodewidth,
+            // height: nodeheight,
+            commitdata: e
+        });
     });
 
-    gr.nodes().forEach(function(v) {
+
+    gr.nodes().forEach(function (v) {
         var node = gr.node(v);
         // Round the corners of the nodes
         node.rx = node.ry = 5;
     });
 
     var nodes = gr.nodes();
-    for(let i=0;i<nodes.length-1;i++){
-        gr.setEdge(nodes[i],nodes[i+1]);
+    for (let i = 0; i < nodes.length - 1; i++) {
+        gr.setEdge(nodes[i], nodes[i + 1]);
     }
 
-    render(d3.select("#dagresvg g"),gr);
+    render(d3.select("#dagresvg g"), gr);
 
-    d3.selectAll('g.node').on("click", function(n) {
-        d3.selectAll('g.node').classed('selected',false);
+    // let transnodes = d3.selectAll('g.node');
+    // transnodes.attr("class","node bingo");
+    // transnodes.attr("transform","translate(180,99)");
 
+    debugger
 
+    d3.selectAll('g.node').on("click", function (n) {
+        debugger
+        d3.selectAll('g.node').classed('selected', false);
         d3.select(this).classed("selected", true);
-
-        //debugger
-        state.selectedCommit = gr.node(n).commitdata;
-        console.log(state.selectedCommit);
-
-        updateCommitDetails(state.selectedCommit);
+        selectCommit(gr.node(n).commitdata);
     });
 
 
     //Append the visualizations of each commit
-    d3.selectAll(".commitcontainer").append("span").text("asdf");
 
+    d3.selectAll(".commitcontainer").attr("style", "min-width:" + nodewidth + "px");
+    d3.selectAll(".commitcontainer").append("div").attr("class", "lineschanged");
+    d3.selectAll(".lineschanged").append("span").text("asdf");
+
+    // https://groups.google.com/forum/#!topic/d3-js/fMh1Sr7QFEA
+
+
+    d3.selectAll("foreignObject").attr("width", nodewidth).attr("height", nodeheight);
+
+
+    let transx = -(nodewidth) / 6 + 4;
+    let transy = 0
+    d3.selectAll(".node").selectAll(".label").attr("transform", "translate(" + transx + "," + transy + ")");
+
+
+    //barchart for lines added:
+    var svg = d3.selectAll(".lineschanged");
+
+
+
+    let maxdate = d3.max(new_data, function (e) {
+        return e.commit.author.date;
+    });
+    let mindate = d3.min(new_data, function (e) {
+        return e.commit.author.date;
+    });
+    d3.select("#dagrediv").append("label").attr("id","datelabel").text("Showing commits from: "+mindate.getFullYear() + '-' + ('0' + (mindate.getMonth() + 1)).slice(-2) + '-' + ('0' + mindate.getDate()).slice(-2)
+        +" until: "+maxdate.getFullYear() + '-' + ('0' + (maxdate.getMonth() + 1)).slice(-2) + '-' + ('0' + maxdate.getDate()).slice(-2));
 
 }
+
+
+
+
 
 function createHistoryVis(visElement){
     //-------------------------------------------------------------------------------
@@ -62,13 +148,18 @@ function createHistoryVis(visElement){
 
     var dagrediv = visElement.append("div").attr("id","dagrediv").attr("position","relative");
     dagrediv.append("svg").attr("id","dagresvg").attr("width","100%").attr("height","100%");
-    
+
 
     gr = new dagreD3.graphlib.Graph()
-        .setGraph({})
+        .setGraph({
+            nodesep: 70,
+            ranksep: 100,
+            marginx: 20,
+            marginy: 20
+        })
         .setDefaultEdgeLabel(function() { return {}; });
 
-    
+
     var svg = d3.select("#dagresvg"),
         svgGroup = svg.append("g");
     render(d3.select("#dagresvg g"),gr);

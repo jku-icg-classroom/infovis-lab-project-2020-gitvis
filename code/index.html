@@ -5,13 +5,18 @@
     <meta charset="UTF-8">
     <title>InfoVis Lab Project Template</title>
     <link rel="stylesheet" href="./src/style.css">
-    <link rel="stylesheet" href="./src/details/commit_details.css">
+    
+    <link rel="stylesheet" href="./src/header/header.css">
     <link rel="stylesheet" href="./src/history/history.css">
-
+    <link rel="stylesheet" href="./src/details/commit_details.css">
+    <link rel="stylesheet" href="./src/details/author_details.css">
 </head>
 
 <body>
     <div id="vis"></div>
+
+    <!-- include thrid party scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.5.11/split.min.js"></script>
 
     <!-- include D3 library -->
     <script src="./web_modules/d3/d3.js"></script>
@@ -24,12 +29,11 @@
     <script src=".\web_modules\dagre-d3.core.js"></script>
     <script src=".\web_modules\dagre-d3.js"></script>
 
-
-
-
     <!-- include selfmade scripts -->
+    <script src="src/header/header.js" defer async></script>
     <script src="src/history/history.js" defer async></script>
     <script src="src/details/commit_details.js" defer async></script>
+    <script src="src/details/author_details.js" defer async></script>
 
     <!-- include the main script -->
     <script src="src/main.js" defer async></script>
