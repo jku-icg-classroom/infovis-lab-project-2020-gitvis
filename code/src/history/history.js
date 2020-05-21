@@ -1,15 +1,13 @@
 var gr;
 var render = new dagreD3.render();
-
+var nodewidth = 300;
+var nodeheight = 100;
 
 
 function updateHistoryVis(new_data) {
-    let nodewidth = 300;
-    let nodeheight = 100;
 
     let width = d3.select('#dagresvg').style("width");
     let height = d3.select('#dagresvg').style("height");
-
 
     //how to append div to svg
     //https://stackoverflow.com/questions/11322711/append-div-to-node-in-svg-with-d3
@@ -57,13 +55,17 @@ function updateHistoryVis(new_data) {
 
 
 
-    new_data.forEach(function (e, k) {
+    //clear of all nodes
+    gr.nodes().forEach(function (v) {
+      gr.removeNode(v);
+    });
 
+    new_data.forEach(function (e, k) {
         var html = "<div class='commitcontainer'><div class='textinfo'>";
         html += "<span class=message> \t&#8226; " + (e.commit.message.length > 18 ? e.commit.message.substr(0, 18) + '...' : e.commit.message) + "</span><br>";
         html += "<span class=author> \t&#8226; " + e.commit.author.name + "</span><br>";
         // html += "<span class=date>"+e.commit.author.date.getFullYear()+"-"+e.commit.author.date.getMonth()+"-"+e.commit.author.date.getDate()+"</span><br>";
-        html += "<span class=date> \t&#8226; " + e.commit.author.date.getFullYear() + '-' + ('0' + (e.commit.author.date.getMonth() + 1)).slice(-2) + '-' + ('0' + e.commit.author.date.getDate()).slice(-2) + "</span><br>";
+        html += "<span class=date> \t&#8226; " + formatDate(e.commit.author.date) + "</span><br>";
         html += "</div></div>";
 
         //https://codepen.io/lechat/pen/RNrXxZ
@@ -94,9 +96,14 @@ function updateHistoryVis(new_data) {
     // let transnodes = d3.selectAll('g.node');
     // transnodes.attr("class","node bingo");
     // transnodes.attr("transform","translate(180,99)");
+    renderAfterDagreRender();
 
-    debugger
 
+
+}
+
+// I need this, since I have to change width, height and other attributes in the HTML inside the nodes after letting dagre-d3 do the graphrendering
+function renderAfterDagreRender(){
     d3.selectAll('g.node').on("click", function (n) {
         debugger
         d3.selectAll('g.node').classed('selected', false);
@@ -124,29 +131,14 @@ function updateHistoryVis(new_data) {
 
     //barchart for lines added:
     var svg = d3.selectAll(".lineschanged");
-
-
-
-    let maxdate = d3.max(new_data, function (e) {
-        return e.commit.author.date;
-    });
-    let mindate = d3.min(new_data, function (e) {
-        return e.commit.author.date;
-    });
-    d3.select("#dagrediv").append("label").attr("id","datelabel").text("Showing commits from: "+mindate.getFullYear() + '-' + ('0' + (mindate.getMonth() + 1)).slice(-2) + '-' + ('0' + mindate.getDate()).slice(-2)
-        +" until: "+maxdate.getFullYear() + '-' + ('0' + (maxdate.getMonth() + 1)).slice(-2) + '-' + ('0' + maxdate.getDate()).slice(-2));
-
 }
-
-
-
-
 
 function createHistoryVis(visElement){
     //-------------------------------------------------------------------------------
     //https://stackoverflow.com/tags/dagre-d3/hot?filter=all
 
     var dagrediv = visElement.append("div").attr("id","dagrediv").attr("position","relative");
+    dagrediv.append("div").attr("id","datepicker");
     dagrediv.append("svg").attr("id","dagresvg").attr("width","100%").attr("height","100%");
 
 
@@ -160,13 +152,13 @@ function createHistoryVis(visElement){
         .setDefaultEdgeLabel(function() { return {}; });
 
 
-    var svg = d3.select("#dagresvg"),
+    let svg = d3.select("#dagresvg"),
         svgGroup = svg.append("g");
     render(d3.select("#dagresvg g"),gr);
 
     // Set up zoom support
-    var svg = d3.select("svg"),
-        inner = svg.select("g"),
+     svg = d3.select("svg");
+     let inner = svg.select("g"),
         zoom = d3.zoom().on("zoom", function() {
             inner.attr("transform", d3.event.transform);
         });
@@ -182,6 +174,78 @@ function createHistoryVis(visElement){
 
 
 }
+
+function formatDate(date){
+    return date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2)
+}
+
+function renderHistoryGraphFromTo() {
+    state.selectMinDate = new Date(document.getElementById('fieldMin').value);
+    state.selectMaxDate = new Date(document.getElementById('fieldMax').value);
+
+    // d3.select("#dateLabel").text("Loaded commits from "+state.selectMinDate.getFullYear() + '-' + ('0' + (state.selectMinDate.getMonth() + 1)).slice(-2) + '-' + ('0' + state.selectMinDate.getDate()).slice(-2)
+    //     +" to "+state.selectMaxDate.getFullYear() + '-' + ('0' + (state.selectMaxDate.getMonth() + 1)).slice(-2) + '-' + ('0' + state.selectMaxDate.getDate()).slice(-2));
+
+    let filteredData = state.data.filter(function(d) {
+        return (d.commit.author.date >= state.selectMinDate) && (d.commit.author.date <= state.selectMaxDate) ;
+    });
+
+    let svg = d3.select("svg"),
+        inner = svg.select("g"),
+        zoom = d3.zoom().on("zoom", function() {
+            inner.attr("transform", d3.event.transform);
+        });
+    svg.call(zoom.transform, d3.zoomIdentity);
+
+    updateHistoryVis(filteredData);
+}
+
+function createDatePicker(new_data){
+    let maxdate = d3.max(new_data, function (e) {
+        return e.commit.author.date;
+    });
+    let mindate = d3.min(new_data, function (e) {
+        return e.commit.author.date;
+    });
+
+    let datepicker = d3.select("#datepicker");
+    datepicker.append("br");
+    datepicker.append("label").text("From: ");
+    debugger
+    datepicker.append("input").attr("type","date").attr("id","fieldMin").attr("value",formatDate(mindate));
+    datepicker.append("label").text(" To: ");
+    datepicker.append("input").attr("type","date").attr("id","fieldMax").attr("value",formatDate(maxdate));
+    datepicker.append("label").text(" ");
+    datepicker.append("input").attr("type","button").attr("onclick","renderHistoryGraphFromTo()").attr("value","Submit");
+}
+
+
+
+//A lot of this code/idea is from: http://jsfiddle.net/jxd5s01q/2/
+function renderDatepicker(datepicker, mindate, maxdate){
+//     datepicker.append("label").attr("id","dateLabel").text("Loaded commits from "+mindate.getFullYear() + '-' + ('0' + (mindate.getMonth() + 1)).slice(-2) + '-' + ('0' + mindate.getDate()).slice(-2)
+//         +" to "+maxdate.getFullYear() + '-' + ('0' + (maxdate.getMonth() + 1)).slice(-2) + '-' + ('0' + maxdate.getDate()).slice(-2));
+
+
+
+
+    // From : <input type="date" name="field1" id="field1" /> To : <input type="date" name="field2" id="field2" /><br /><br />
+    //     <input type="button" onclick="render(true)" value="Submit" />
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

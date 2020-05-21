@@ -8,6 +8,8 @@ const state = {
     selectedAuthor: null,
     authors: [],
     historyloaded: false,
+    selectMinDate: new Date(),
+    selectMaxDate: new Date()
 }
 
 function filterData() {
@@ -49,6 +51,7 @@ function createVis() {
         // updates the specific visualizations with the new data
         updateHeaderVis(new_data);
         if(!state.historyloaded){
+            createDatePicker(new_data);
             updateHistoryVis(new_data);
             state.historyloaded = true;
         }
