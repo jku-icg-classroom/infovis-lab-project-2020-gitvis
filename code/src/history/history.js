@@ -105,7 +105,6 @@ function updateHistoryVis(new_data) {
 // I need this, since I have to change width, height and other attributes in the HTML inside the nodes after letting dagre-d3 do the graphrendering
 function renderAfterDagreRender(){
     d3.selectAll('g.node').on("click", function (n) {
-        debugger
         d3.selectAll('g.node').classed('selected', false);
         d3.select(this).classed("selected", true);
         selectCommit(gr.node(n).commitdata);
@@ -211,7 +210,6 @@ function createDatePicker(new_data){
     let datepicker = d3.select("#datepicker");
     datepicker.append("br");
     datepicker.append("label").text("From: ");
-    debugger
     datepicker.append("input").attr("type","date").attr("id","fieldMin").attr("value",formatDate(mindate));
     datepicker.append("label").text(" To: ");
     datepicker.append("input").attr("type","date").attr("id","fieldMax").attr("value",formatDate(maxdate));
