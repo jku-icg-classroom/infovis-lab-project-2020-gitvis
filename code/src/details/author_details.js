@@ -222,7 +222,7 @@ function _updateFileTypesChart(author, data) {
     // create color scale based on data
     const colorScale = d3.scaleOrdinal()
         .domain(d3.entries(visData).map(e => e.key))
-        .range(d3.schemeSet3);
+        .range(d3.schemeCategory10);
 
     _updatePieChart(
         '#ad_file_types_chart',
@@ -246,10 +246,12 @@ function _hideAuthorDetailsVis() {
 }
 
 function _createPieChart(parentElem, id, size) {
-    parentElem.append("svg")
-        .attr("id", id)
-        .append("g") // group to center chart
+    const svg = parentElem.append("svg")
+        .attr("id", id);
+    svg.append("g") // group to center chart
         .attr("transform", "translate(" + size / 2 + "," + size / 2 + ")");
+    svg.append("g")
+        .attr('class', 'legend');
 }
 
 function _updatePieChart(id, data, colorScale, radius, showLegend) {
@@ -272,12 +274,13 @@ function _updatePieChart(id, data, colorScale, radius, showLegend) {
     // build the pie chart
     // TODO: pie charts somehow overdraw each other :O
     // when changing authors 
-    const slices = d3.select(id)
+    const svg = d3.select(id);
+    const slices = svg
         .select('g')
         .selectAll('.slice')
         .data(arcAngles)
         .attr('d', arcGenerator)
-        .style('fill', d => colorScale(d.data.key));        
+        .style('fill', d => colorScale(d.data.key));
     slices
         .enter()
         .append('path')
@@ -288,40 +291,43 @@ function _updatePieChart(id, data, colorScale, radius, showLegend) {
 
     if (showLegend) {
         // TODO: still buggy 
-        console.log(arcAngles);
-
         // again rebind for legend
-        var legend = d3.select(id)
-            .select(".legend")
-            .data(arcAngles);
 
-        legend.enter()
-            .append("g")
-            .attr("transform", function (d, i) {
-                return "translate(" + (radius + 110) + "," + (i * 15 + 20) + ")";
-            })
-            .attr("class", "legend")
-            .append("rect") // label color rects
-            .attr("width", 10)
-            .attr("height", 10)
-            .attr("fill", function (d, i) {
-                return colorScale(d.data.key);
-            });
+        const legend = svg.select('.legend')
+            .attr("transform", "translate(" + radius * 2 * 1.5 + "," + 14 + ")");
 
-        legend
-            .append("text") // label text
-            .text(function (d) {
-                return d.data.key + "  (" + d.data.value + " changes)";
-            })
-            .style("font-size", 12)
-            .attr("y", 10)
-            .attr("x", 11);
+        // add a dot for each data item
+        const dots = legend.selectAll(".dot")
+            .data(arcAngles)
+            .style("fill", function (d) { return colorScale(d.data.key) });
+        dots.enter()
+            .append("circle")
+            .attr('class', 'dot')
+            .attr("cx", 0)
+            .attr("cy", function (d, i) { return 0 + i * 20 }) 
+            .attr("r", 5)
+            .style("fill", function (d) { return colorScale(d.data.key) })
+        dots.exit().remove();
 
-        legend.exit().remove();
+        // add a label for each data item
+        const labels = legend.selectAll("text")
+            .data(arcAngles)
+            .attr("y", function (d, i) { return i * 20 }) 
+            .style("fill", function (d) { return colorScale(d.data.key) })
+            .text(function (d) { return d.data.key });
+        labels.enter()
+            .append("text")
+            .attr("x", 14)
+            .attr("y", function (d, i) { return i * 20 })
+            .style("fill", function (d) { return colorScale(d.data.key) })
+            .text(function (d) { return d.data.key })
+            .attr("text-anchor", "left")
+            .style("alignment-baseline", "middle");
+        labels.exit().remove();
     } else {
-        d3.select(id)
+        /*d3.select(id)
             .selectAll(".legend")
-            .remove();
+            .remove();*/
     }
 
     // TODO: animate pie chart on changes
