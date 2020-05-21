@@ -270,14 +270,21 @@ function _updatePieChart(id, data, colorScale, radius, showLegend) {
         .outerRadius(radius);
 
     // build the pie chart
-    d3.select(id)
+    // TODO: pie charts somehow overdraw each other :O
+    // when changing authors 
+    const slices = d3.select(id)
         .select('g')
-        .selectAll('slices')
+        .selectAll('.slice')
         .data(arcAngles)
+        .attr('d', arcGenerator)
+        .style('fill', d => colorScale(d.data.key));        
+    slices
         .enter()
         .append('path')
+        .attr('class', 'slice')
         .attr('d', arcGenerator)
-        .attr('fill', d => colorScale(d.data.key));
+        .style('fill', d => colorScale(d.data.key));
+    slices.exit().remove();
 
     if (showLegend) {
         // TODO: still buggy 
@@ -285,7 +292,7 @@ function _updatePieChart(id, data, colorScale, radius, showLegend) {
 
         // again rebind for legend
         var legend = d3.select(id)
-            .selectAll(".legend")
+            .select(".legend")
             .data(arcAngles);
 
         legend.enter()
