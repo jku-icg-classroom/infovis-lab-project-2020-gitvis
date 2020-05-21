@@ -286,7 +286,18 @@ function _updatePieChart(id, data, colorScale, radius, showLegend) {
         .append('path')
         .attr('class', 'slice')
         .attr('d', arcGenerator)
-        .style('fill', d => colorScale(d.data.key));
+        .style('fill', d => colorScale(d.data.key))
+        .each(d => { this._current = d; });
+    slices.transition()
+        .duration(500)
+        .attrTween('d', function (d) {
+            let interpolateFn = d3.interpolate(this._current, d);
+            let _this = this;
+            return function(t) {
+                _this._current = interpolateFn(t);
+                return arcGenerator(this._current);
+            } 
+        });
     slices.exit().remove();
 
     if (showLegend) {
@@ -304,7 +315,7 @@ function _updatePieChart(id, data, colorScale, radius, showLegend) {
             .append("circle")
             .attr('class', 'dot')
             .attr("cx", 0)
-            .attr("cy", function (d, i) { return 0 + i * 20 }) 
+            .attr("cy", function (d, i) { return 0 + i * 20 })
             .attr("r", 5)
             .style("fill", function (d) { return colorScale(d.data.key) })
         dots.exit().remove();
@@ -312,7 +323,7 @@ function _updatePieChart(id, data, colorScale, radius, showLegend) {
         // add a label for each data item
         const labels = legend.selectAll("text")
             .data(arcAngles)
-            .attr("y", function (d, i) { return i * 20 }) 
+            .attr("y", function (d, i) { return i * 20 })
             .style("fill", function (d) { return colorScale(d.data.key) })
             .text(function (d) { return d.data.key });
         labels.enter()
