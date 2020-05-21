@@ -34,7 +34,7 @@ function createCommitDetailsVis(visElement) {
 
     //create the part for the filetypes-graph (bottom) of the commit details
     desc.append("h3").text("File Types");
-    const files = visElement.append("div").attr("id", "cmt_files");
+    const files = commitDetailsDiv.append("div").attr("id", "cmt_files");
     _createFileTypeChart(files);
 }
 
