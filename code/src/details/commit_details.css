@@ -1,16 +1,36 @@
 
 
-
-#cmt_desc {
+#cmt_desc_head {
     width: 100%;
-    height: 50%;
-    /*background-color: green;*/
+    display: inline-block;
 }
 
-#cmt_files {
+#cmt_avatar {
+    width: 74px;
+    height: 74px;
+    background-size: cover;
+    background-position: top center;  
+    border-radius: 50%;
+    float: left;
+}
+
+#cmt_desc {
+    height: 74px;
+    width: 80%;
+}
+
+#cmt_author_date {
     width: 100%;
-    height: 50%;
-    /*background-color: greenyellow;*/
+    align-content: space-between;
+    align-items: space-between;
+}
+
+#cmt_author {
+    float: left;
+}
+
+#cmt_date {
+    float: right;
 }
 
 #adds_dels_chart {
@@ -23,4 +43,10 @@
     width: 90%;
     height: 90%;
     margin: 5%;
+}
+
+#cmt_files {
+    width: 100%;
+    height: 50%;
+    /*background-color: greenyellow;*/
 }

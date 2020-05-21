@@ -23,17 +23,21 @@ function createCommitDetailsVis(visElement) {
     const commitDetailsDiv = visElement.append("div").attr("id", "cmt_details");
 
     //create the description part (top) of the commit details
-    const desc = commitDetailsDiv.append("div").attr("id", "cmt_desc");
+    const headDiv = commitDetailsDiv.append('div').attr('id', 'cmt_desc_head');
+    headDiv.append('div').attr('id', 'cmt_avatar');  //for displaying avatar icon
+    const desc = headDiv.append('div').attr('id', 'cmt_desc');
+    desc.append('h1').attr('id', 'cmt_title');
+    const authorDate = desc.append('div').attr('id', 'cmt_author_date');
+    authorDate.append('span').attr('id', 'cmt_author');
+    authorDate.append('span').attr('id', 'cmt_date');
 
-    desc.append("h1").attr("id", "cmt_title");
-    desc.append("p").attr("id", "cmt_long_title");
-    desc.append("p").attr("id", "cmt_author");
-    desc.append("p").attr("id", "cmt_date");
-    _createAddsDelsChart(desc);
+
+    commitDetailsDiv.append("p").attr("id", "cmt_long_title");
+    _createAddsDelsChart(commitDetailsDiv);
 
 
     //create the part for the filetypes-graph (bottom) of the commit details
-    desc.append("h3").text("File Types");
+    commitDetailsDiv.append("h3").text("File Types");
     const files = commitDetailsDiv.append("div").attr("id", "cmt_files");
     _createFileTypeChart(files);
 }
@@ -100,7 +104,7 @@ function _createFileTypeChart(div) {
 function updateCommitDetails(new_commit) {
     //todo switch to repository-overview if new_commit is undefined
     if (new_commit === null) {
-        // TODO hide vis ?
+        // TODO hide vis ?  [comment from Elias]
         d3.select('#details')
             .select('#cmt_details')
             .style('display', 'none');
@@ -108,10 +112,17 @@ function updateCommitDetails(new_commit) {
         return _updateRepoOverview();
     }
 
-    // TODO show vis ?
+    // TODO show vis ? [comment from Elias]
     d3.select('#details')
     .select('#cmt_details')
     .style('display', 'block');
+
+
+    
+    d3.select('#cmt_avatar')
+        .style('background-image', 'url(' + new_commit.author.avatar_url + ')');
+
+
 
     const msg = new_commit.commit.message;
     if (msg.length < 30) {
@@ -122,10 +133,11 @@ function updateCommitDetails(new_commit) {
         d3.select("#cmt_long_title").text(msg);
     }
     d3.select("#cmt_author").text(new_commit.commit.author.name);
-    d3.select("#cmt_date").text(new_commit.commit.author.date);
+
+    const date_text = new_commit.commit.author.date.toDateString().substring(4);
+    d3.select("#cmt_date").text(date_text);
 
     _updateAddsDelsChart(new_commit);
-
     _updateFileTypeChart(new_commit);
 }
 
