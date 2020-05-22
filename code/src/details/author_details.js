@@ -272,8 +272,6 @@ function _updatePieChart(id, data, colorScale, radius, showLegend) {
         .outerRadius(radius);
 
     // build the pie chart
-    // TODO: pie charts somehow overdraw each other :O
-    // when changing authors 
     const svg = d3.select(id);
     const slices = svg
         .select('g')
@@ -301,9 +299,6 @@ function _updatePieChart(id, data, colorScale, radius, showLegend) {
     slices.exit().remove();
 
     if (showLegend) {
-        // TODO: still buggy 
-        // again rebind for legend
-
         const legend = svg.select('.legend')
             .attr("transform", "translate(" + radius * 2 * 1.5 + "," + 14 + ")");
 
@@ -335,36 +330,5 @@ function _updatePieChart(id, data, colorScale, radius, showLegend) {
             .attr("text-anchor", "left")
             .style("alignment-baseline", "middle");
         labels.exit().remove();
-    } else {
-        /*d3.select(id)
-            .selectAll(".legend")
-            .remove();*/
-    }
-
-    // TODO: animate pie chart on changes
-    /*d3.select(id)
-    .selectAll('slices')
-    .selectAll('path')
-    .transition()
-    .duration(500)
-    .attrTween("d", function (d) {
-        var interpolate = d3.interpolate(0, d);
-        var _this = this;
-        return function (t) {
-            _this._current = interpolate(t);
-            return arcGenerator(_this._current);
-        };
-    });*/
-
-    // TODO: add annotation
-    /*d3.select('#ad_contributions_commits_chart')
-        .selectAll('slices')
-        .data(contributionsCommitsData)
-        .enter()
-        .append('path')
-        .attr('d', arcGenerator)
-        .attr('fill', d => contributionsColor(d.data.key))
-        .attr('stroke', 'black')
-        .style('stroke-width', '2px')
-        .style('opacity', 0.7);*/
+    } 
 }
