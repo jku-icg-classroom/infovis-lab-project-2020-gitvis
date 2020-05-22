@@ -55,6 +55,14 @@ function createAuthorDetailsVis(parentDiv) {
         .attr('class', 'ad_row_title')
         .text('Frequently Changed Filetypes');
     _createPieChart(fileTypesDiv, 'ad_file_types_chart', pieChartSize);
+
+    // on what days did the author commit and how much
+    const commitHistoryDiv = root.append('div')
+        .attr('id', 'ad_commit_history_row');
+    commitHistoryDiv.append('span')
+        .attr('class', 'ad_row_title')
+        .text('Commit History');
+    _createCommitHistoryChart(commitHistoryDiv);
 }
 
 function updateAuthorDetailsVis(authors, author, data) {
@@ -72,6 +80,7 @@ function updateAuthorDetailsVis(authors, author, data) {
     _updateChangesChart(authors, author, data);
     _updateAddVsDelChart(author, data);
     _updateFileTypesChart(author, data);
+    _updateCommitHistoryChart(author, data);
 
     _showAuthorDetailsVis();
 }
@@ -217,8 +226,6 @@ function _updateFileTypesChart(author, data) {
         });
     }
 
-    console.log(visData);
-
     // create color scale based on data
     const colorScale = d3.scaleOrdinal()
         .domain(d3.entries(visData).map(e => e.key))
@@ -233,9 +240,50 @@ function _updateFileTypesChart(author, data) {
     );
 }
 
-function _updateAuthorCommitHistory() {
+function _createCommitHistoryChart(parentElem) {
+    const svg = parentElem.append("svg")
+        .attr("id", "ad_commit_history_chart");
+    svg.append("g").attr("class", "grid");
+    // TODO: group for axis/labels?
+}
+
+function _updateCommitHistoryChart(author, data) {
     // TODO: from minDate to maxDate
-    // TODO: max. 10 weeks
+    // TODO: max. 10 week
+
+    // contains an entry for every day the author has commited 
+    const days = [];
+
+    const commitsPerDay = data.filter(d => d.author.id === author.id)
+        .map(d => {
+            const dateWithTime = new Date(d.commit.author.date);
+            // remove time information from date
+            const dateWithoutTime = dateWithTime.setHours(0, 0, 0,);
+            return {
+                date: dateWithoutTime,
+                commitCount: 0
+            };
+        })
+        .reduce((acc, cur) => {
+            if (!acc[cur.date]) {
+                acc[cur.date] = cur.commitCount;
+            }
+            // increase number of commits for that day
+            acc[cur.date]++;
+            return acc;
+        }, {});
+
+    const width = 100;
+    const colCount = 10;
+    const cellSize = width / colCount;
+    const height = 7 * cellSize;
+
+    // update 
+
+    const svg = d3.select('#ad_commit_history_chart');
+    svg.style('width', width).style('height', height);
+
+    svg.select('.grid')
 }
 
 function _createPieChart(parentElem, id, size) {
@@ -284,10 +332,10 @@ function _updatePieChart(id, data, colorScale, radius, showLegend) {
         .attrTween('d', function (d) {
             let interpolateFn = d3.interpolate(this._current, d);
             let _this = this;
-            return function(t) {
+            return function (t) {
                 _this._current = interpolateFn(t);
                 return arcGenerator(this._current);
-            } 
+            }
         });
     slices.exit().remove();
 
@@ -323,7 +371,7 @@ function _updatePieChart(id, data, colorScale, radius, showLegend) {
             .attr("text-anchor", "left")
             .style("alignment-baseline", "middle");
         labels.exit().remove();
-    } 
+    }
 }
 
 function _showAuthorDetailsVis() {
