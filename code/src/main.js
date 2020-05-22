@@ -8,6 +8,8 @@ const state = {
     selectedAuthor: null,
     authors: [],
     historyloaded: false,
+    minDate: new Date(2020, 3, 24),
+    maxDate: new Date(2020, 4, 15),
     selectMinDate: new Date(),
     selectMaxDate: new Date()
 }

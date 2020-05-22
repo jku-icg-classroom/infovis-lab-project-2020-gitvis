@@ -233,16 +233,9 @@ function _updateFileTypesChart(author, data) {
     );
 }
 
-function _showAuthorDetailsVis() {
-    d3.select('#details')
-        .select('#ad_root')
-        .style('display', 'block');
-}
-
-function _hideAuthorDetailsVis() {
-    d3.select('#details')
-        .select('#ad_root')
-        .style('display', 'none');
+function _updateAuthorCommitHistory() {
+    // TODO: from minDate to maxDate
+    // TODO: max. 10 weeks
 }
 
 function _createPieChart(parentElem, id, size) {
@@ -331,4 +324,16 @@ function _updatePieChart(id, data, colorScale, radius, showLegend) {
             .style("alignment-baseline", "middle");
         labels.exit().remove();
     } 
+}
+
+function _showAuthorDetailsVis() {
+    d3.select('#details')
+        .select('#ad_root')
+        .style('display', 'block');
+}
+
+function _hideAuthorDetailsVis() {
+    d3.select('#details')
+        .select('#ad_root')
+        .style('display', 'none');
 }
