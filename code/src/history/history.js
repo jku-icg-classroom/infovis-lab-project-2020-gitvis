@@ -1,7 +1,10 @@
 var gr;
 var render = new dagreD3.render();
 var nodewidth = 300;
-var nodeheight = 100;
+var nodeheight = 80;
+var dagresvg;
+var dagresvggroup;
+var zoom;
 
 
 function updateHistoryVis(new_data) {
@@ -32,7 +35,7 @@ function updateHistoryVis(new_data) {
             labelType: "html",
             label: html,
             width: nodewidth,
-            // height: nodeheight,
+            height: nodeheight,
             commitdata: e
         });
     });
@@ -49,15 +52,21 @@ function updateHistoryVis(new_data) {
         gr.setEdge(nodes[i], nodes[i + 1]);
     }
 
+    
+    // get the scale of the graph in order to translate the inner html of the nodes correctly. Just some stringoperations
+    let scale = 1;
+    let zoomvalue = d3.select("#zoomgroup").attr("transform");
+    if(zoomvalue){
+        zoomvalue = zoomvalue.slice(zoomvalue.indexOf("scale")+6);
+        scale = zoomvalue.slice(0,zoomvalue.length-1);
+    }
+
+    // The idea is:   Zoom back to normal, render with dagred3, fix the positions in renderAfterDagreRender, zoom to the previous zoom setting.
+    // Seems a bit hacky, but I could not fix the core problem of having to reposition the HMTL inside the nodes so I had to fall back to this.
+    zoom.scaleTo(dagresvg,1);
     render(d3.select("#dagresvg g"), gr);
-
-    // let transnodes = d3.selectAll('g.node');
-    // transnodes.attr("class","node bingo");
-    // transnodes.attr("transform","translate(180,99)");
     renderAfterDagreRender();
-
-
-
+    zoom.scaleTo(dagresvg,scale);
 }
 
 function renderLinesChanged(div,data){
@@ -96,13 +105,14 @@ function renderAfterDagreRender(){
     d3.selectAll("foreignObject").attr("width", nodewidth).attr("height", nodeheight);
 
 
-    let transx = -(nodewidth) / 6 + 4;
-    let transy = 0
-    d3.selectAll(".node").selectAll(".label").attr("transform", "translate(" + transx + "," + transy + ")");
+    // let transx = -(nodewidth) / 6 + 4;
+    // let transy = 8
+    // d3.selectAll(".node").selectAll(".label").attr("transform", "translate(" + transx + "," + transy + ")");
 
 
-    //barchart for lines added:
-    var svg = d3.selectAll(".lineschanged");
+    let transx = (-(nodewidth) / 6 + 4);
+    let transy = 8;
+    d3.selectAll(".node").selectAll("foreignObject").attr("transform", "translate(" + transx + "," + transy + ")");
 }
 
 function createHistoryVis(visElement){
@@ -123,24 +133,25 @@ function createHistoryVis(visElement){
         .setDefaultEdgeLabel(function() { return {}; });
 
 
-    let svg = d3.select("#dagresvg"),
-        svgGroup = svg.append("g");
+    dagresvg = d3.select("#dagresvg");
+    dagresvggroup = dagresvg.append("g").attr("id","zoomgroup");
     render(d3.select("#dagresvg g"),gr);
 
+
     // Set up zoom support
-     svg = d3.select("svg");
-     let inner = svg.select("g"),
-        zoom = d3.zoom().on("zoom", function() {
-            inner.attr("transform", d3.event.transform);
-        });
-    svg.call(zoom);
+    let inner = dagresvg.select("g");
+    zoom = d3.zoom().on("zoom", function() {
+       inner.attr("transform", d3.event.transform);
+    });
+    dagresvg.call(zoom);
+
 
 
 
     // // Center the graph
     // var xCenterOffset = (svg.attr("width") - gr.graph().width) / 2;
-    // svgGroup.attr("transform", "translate(" + xCenterOffset + ", 20)");
-    // svg.attr("height", gr.graph().height + 40);
+    // dagresvggroup.attr("transform", "translate(" + xCenterOffset + ", 20)");
+    // dagresvg.attr("height", gr.graph().height + 40);
 
 
 
@@ -154,19 +165,10 @@ function renderHistoryGraphFromTo() {
     state.selectMinDate = new Date(document.getElementById('fieldMin').value);
     state.selectMaxDate = new Date(document.getElementById('fieldMax').value);
 
-    // d3.select("#dateLabel").text("Loaded commits from "+state.selectMinDate.getFullYear() + '-' + ('0' + (state.selectMinDate.getMonth() + 1)).slice(-2) + '-' + ('0' + state.selectMinDate.getDate()).slice(-2)
-    //     +" to "+state.selectMaxDate.getFullYear() + '-' + ('0' + (state.selectMaxDate.getMonth() + 1)).slice(-2) + '-' + ('0' + state.selectMaxDate.getDate()).slice(-2));
-
     state.filteredData = state.data.filter(function(d) {
         return (d.commit.author.date >= state.selectMinDate) && (d.commit.author.date <= state.selectMaxDate) ;
     });
 
-    let svg = d3.select("svg"),
-        inner = svg.select("g"),
-        zoom = d3.zoom().on("zoom", function() {
-            inner.attr("transform", d3.event.transform);
-        });
-    svg.call(zoom.transform, d3.zoomIdentity);
 
     updateHistoryVis(state.filteredData);
 }

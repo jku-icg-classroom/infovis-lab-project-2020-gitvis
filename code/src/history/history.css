@@ -6,9 +6,9 @@ text {
 }
 
 .node rect {
-    stroke: #999;
-    fill: #77ff77;
-    stroke-width: 1.5px;
+    stroke: #595f61;
+    fill: #F5F5F5;
+    stroke-width: 2px;
 }
 
 
@@ -29,25 +29,24 @@ text {
 
 
 .selected > rect {
-    stroke-width: 5px;
-    stroke: forestgreen;
-    fill: orange;
+    stroke-width:7px;
+    stroke: #2dc1f7;
 }
 
 .commitcontainer {
     min-width: 174px;
-    border: 1px solid;
+    /*border: 1px solid;*/
     overflow: hidden; /* will contain if #first is longer than #second */
 }
 .lineschanged {
     min-width: 40%;
     float:left ;
-    border: 1px solid;
+    /*border: 1px solid;*/
 }
 .textinfo {
     min-width: 60%;
     max-width: 80%;
-    border: 1px solid ;
+    /*border: 1px solid ;*/
     float: right;
     overflow: hidden;
 }
@@ -69,12 +68,12 @@ svg {
 
 .author{
     font-size: 13px;
-    color: #666666;
+    color: #555555;
 }
 
 .date{
     font-size: 13px;
-    color: #666666;
+    color: #555555;
 }
 
 #datepicker {
