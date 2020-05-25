@@ -68,9 +68,14 @@ function renderLinesChanged(div,data){
 // I need this, since I have to change width, height and other attributes in the HTML inside the nodes after letting dagre-d3 do the graphrendering
 function renderAfterDagreRender(){
     d3.selectAll('g.node').on("click", function (n) {
-        d3.selectAll('g.node').classed('selected', false);
-        d3.select(this).classed("selected", true);
-        selectCommit(gr.node(n).commitdata);
+        if(d3.select(this).classed('selected')){
+            d3.selectAll('g.node').classed('selected', false);
+            selectCommit(null);
+        }else{
+            d3.selectAll('g.node').classed('selected', false);
+            d3.select(this).classed("selected", true);
+            selectCommit(gr.node(n).commitdata);
+        }
     });
 
 
