@@ -3,6 +3,7 @@ const COMMIT_DETAILS = 1;
 const AUTHOR_DETAILS = 2;
 const state = {
     data: [],
+    filteredData: [],
     details: COMMIT_DETAILS,
     selectedCommit: null,
     selectedAuthor: null,

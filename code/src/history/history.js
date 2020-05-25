@@ -152,7 +152,7 @@ function renderHistoryGraphFromTo() {
     // d3.select("#dateLabel").text("Loaded commits from "+state.selectMinDate.getFullYear() + '-' + ('0' + (state.selectMinDate.getMonth() + 1)).slice(-2) + '-' + ('0' + state.selectMinDate.getDate()).slice(-2)
     //     +" to "+state.selectMaxDate.getFullYear() + '-' + ('0' + (state.selectMaxDate.getMonth() + 1)).slice(-2) + '-' + ('0' + state.selectMaxDate.getDate()).slice(-2));
 
-    let filteredData = state.data.filter(function(d) {
+    state.filteredData = state.data.filter(function(d) {
         return (d.commit.author.date >= state.selectMinDate) && (d.commit.author.date <= state.selectMaxDate) ;
     });
 
@@ -163,7 +163,7 @@ function renderHistoryGraphFromTo() {
         });
     svg.call(zoom.transform, d3.zoomIdentity);
 
-    updateHistoryVis(filteredData);
+    updateHistoryVis(state.filteredData);
 }
 
 function createDatePicker(new_data){
