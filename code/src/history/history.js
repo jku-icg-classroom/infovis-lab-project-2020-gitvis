@@ -145,9 +145,14 @@ function renderLinesChanged(div, commit, id) {
 // I need this, since I have to change width, height and other attributes in the HTML inside the nodes after letting dagre-d3 do the graphrendering
 function renderAfterDagreRender(){
     d3.selectAll('g.node').on("click", function (n) {
-        d3.selectAll('g.node').classed('selected', false);
-        d3.select(this).classed("selected", true);
-        selectCommit(gr.node(n).commitdata);
+        if(d3.select(this).classed('selected')){
+            d3.selectAll('g.node').classed('selected', false);
+            selectCommit(null);
+        }else{
+            d3.selectAll('g.node').classed('selected', false);
+            d3.select(this).classed("selected", true);
+            selectCommit(gr.node(n).commitdata);
+        }
     });
 
 
@@ -229,7 +234,7 @@ function renderHistoryGraphFromTo() {
     // d3.select("#dateLabel").text("Loaded commits from "+state.selectMinDate.getFullYear() + '-' + ('0' + (state.selectMinDate.getMonth() + 1)).slice(-2) + '-' + ('0' + state.selectMinDate.getDate()).slice(-2)
     //     +" to "+state.selectMaxDate.getFullYear() + '-' + ('0' + (state.selectMaxDate.getMonth() + 1)).slice(-2) + '-' + ('0' + state.selectMaxDate.getDate()).slice(-2));
 
-    let filteredData = state.data.filter(function(d) {
+    state.filteredData = state.data.filter(function(d) {
         return (d.commit.author.date >= state.selectMinDate) && (d.commit.author.date <= state.selectMaxDate) ;
     });
 
@@ -240,7 +245,7 @@ function renderHistoryGraphFromTo() {
         });
     svg.call(zoom.transform, d3.zoomIdentity);
 
-    updateHistoryVis(filteredData);
+    updateHistoryVis(state.filteredData);
 }
 
 function createDatePicker(new_data){
