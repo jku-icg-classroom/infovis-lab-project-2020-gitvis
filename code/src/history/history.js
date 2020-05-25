@@ -114,7 +114,7 @@ function renderLinesChanged(div, commit, id) {
         // new elements
         (enter) => {
           const rect_enter = enter.append('rect')
-                        .attr('fill', d => d.title === '+' ? color_adds : color_dels)
+                        .attr('fill', d => d.title === '+' ? COLOR_ADDS : COLOR_DELS)
                         .attr('class', 'node rect cmt_node_a');
           rect_enter.append('title').text(d => d.title);
           return rect_enter;

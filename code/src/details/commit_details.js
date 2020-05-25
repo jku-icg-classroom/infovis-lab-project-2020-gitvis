@@ -1,7 +1,4 @@
 
-const color_adds = "rgb(70, 200, 70)";
-const color_dels = "rgb(255, 25, 50)";
-
 const colors = d3.schemePaired;
 
 let g_ad;
@@ -159,7 +156,7 @@ function _updateAddsDelsChart(new_commit) {
         // ENTER
         // new elements
         (enter) => {
-          const rect_enter = enter.append('rect').attr('fill', (d, i) => i === 0 ? color_adds : color_dels);
+          const rect_enter = enter.append('rect').attr('fill', (d, i) => i === 0 ? COLOR_ADDS : COLOR_DELS);
           rect_enter.append('title');
           return rect_enter;
         },

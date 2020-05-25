@@ -15,6 +15,9 @@ const state = {
     selectMaxDate: new Date()
 }
 
+const COLOR_ADDS = "rgb(70, 200, 70)";
+const COLOR_DELS = "rgb(255, 25, 50)";
+
 function filterData() {
     // filter the raw data according to user selection
     return state.data;
