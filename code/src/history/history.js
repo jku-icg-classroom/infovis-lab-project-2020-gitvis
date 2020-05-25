@@ -5,6 +5,7 @@ var nodeheight = 100;
 
 
 function updateHistoryVis(new_data) {
+    updateChartScales(new_data);    //by Mike
 
     let width = d3.select('#dagresvg').style("width");
     let height = d3.select('#dagresvg').style("height");
@@ -60,10 +61,86 @@ function updateHistoryVis(new_data) {
 
 }
 
-function renderLinesChanged(div,data){
-    // TODO mike, thanks
-    div.append("span").text(data.commitdata.files[0].additions);
+
+//############################ Mike #############################################
+function createLinesChangedChart() {
+
 }
+
+const xscale = d3.scaleLog().range([0, 117]);  //width of the svg
+const yscale = d3.scaleLinear().range([0, 117]);
+function updateChartScales(data) {
+    let maxChanges = 0;  //we need to know the maximum amount of changes a commit of the repo had
+    data.forEach(commit => {
+        const changes = commit.stats.additions + commit.stats.deletions;
+        if(changes > maxChanges) maxChanges = changes;
+    });
+    //xscale = d3.scaleLog().range([0, maxChanges]);
+    xscale.domain([0, maxChanges]);
+}
+
+//const color_adds = "rgb(70, 200, 70)";
+//const color_dels = "rgb(255, 25, 50)";
+function renderLinesChanged(div, commit, id) {
+
+    const svg = div.append("svg").attr("id", "change_chart_" + id)
+                    .attr('height', 100)    
+                    .attr('width', 100);    //it seems as if this sets the width to 100%, which is what we want
+    const svg_jq = $('#change_chart_' + id);
+    //svg_jq.css('width', '100%');
+    console.log(svg_jq.width());
+
+    const adds = commit.stats.additions;
+    const dels = commit.stats.deletions;
+    const changes =  adds + dels;
+    const data = [  
+        { title: "+", y: 0, height: commit.stats.additions, width: changes }, 
+        { title: "-", y: adds, height: commit.stats.deletions, width: changes } 
+    ];
+    //create visualization
+    //update the scales
+    //xscale_ad.domain([0, d3.max(data, d => d.width)]);
+    
+    //const yscale = d3.scaleLinear().range([0, changes]);
+    yscale.domain([0, changes]);
+    //render the axis
+    //g_xaxis_ad.transition().call(xaxis_ad);
+    //g_yaxis_ad.transition().call(yaxis_ad);
+
+    // Render the chart with new data
+    // DATA JOIN use the key argument for ensurign that the same DOM element is bound to the same data-item
+    const rect = svg.selectAll('rect').data(data, d => d.title).join(
+        // ENTER
+        // new elements
+        (enter) => {
+          const rect_enter = enter.append('rect')
+                        .attr('fill', d => d.title === '+' ? color_adds : color_dels)
+                        .attr('class', 'node rect cmt_node_a');
+          rect_enter.append('title').text(d => d.title);
+          return rect_enter;
+        },
+        // UPDATE
+        // update existing elements
+        (update) => update,
+        // EXIT
+        // elements that aren't associated with data
+        (exit) => exit.remove()
+    );
+
+    // ENTER + UPDATE
+    // both old and new elements
+    rect.transition()
+        .attr('y', d => yscale(d.y))
+        .attr('height', d => yscale(d.height))
+        .attr('width', d => d.width)    //todo scale based on xscale
+        //.attr('x', (d, i) => i * 30)
+        ;
+
+    /*
+    rect.select('title').text(d => d.title);
+    */
+}
+//###############################################################################
 
 // I need this, since I have to change width, height and other attributes in the HTML inside the nodes after letting dagre-d3 do the graphrendering
 function renderAfterDagreRender(){
@@ -80,7 +157,7 @@ function renderAfterDagreRender(){
     // d3.selectAll(".lineschanged").append("span").text("asdf");
     let nodes = d3.selectAll('.lineschanged');
     nodes.each(function (e, k) {
-        renderLinesChanged(d3.select(this),gr.node(k));
+        renderLinesChanged(d3.select(this),gr.node(k).commitdata, k);  //I only need the commitdata #Mike
     });
 
 
