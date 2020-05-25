@@ -226,16 +226,26 @@ function _updateFileTypeChart(new_commit) {
     g_xaxis_files.transition().call(xaxis_files);
     g_yaxis_files.transition().call(yaxis_files);
 
+    const colorScale = d3.scaleOrdinal()
+        .domain(d3.entries(map.values()).map(d => d.type))
+        .range(d3.schemeCategory10);
+    colorScale('php');  //don't ask me why, but if I delete this line, the coloring doesn't work anymore.............................
+
+
+
+
     // Render the chart with new data
     // DATA JOIN use the key argument for ensurign that the same DOM element is bound to the same data-item
     const rect = g_files.selectAll('rect').data(parsed_data, d => d.type + (d.additions ? '_a' : '_d')).join(
         // ENTER
         // new elements
         (enter) => {
-          const rect_enter = enter.append('rect').attr('fill', (d, i) => {
-            let index = i;
-            while(index > colors.length) index -= colors.length;  
-            return colors[index];
+          const rect_enter = enter.append('rect').attr('fill', d => {
+                const c = colorScale(d.type);
+                const color = d.additions ? 
+                            _getAdditionsShade(c) :
+                            _getDeletionsShade(c);
+                return color;
           });
           rect_enter.append('title');
           return rect_enter;
@@ -261,4 +271,33 @@ function _updateFileTypeChart(new_commit) {
 
 function _updateRepoOverview() {
 
+}
+
+const shading = 10;
+function _getAdditionsShade(color) {
+    return _shadeColor(color, shading);
+}
+
+function _getDeletionsShade(color) {
+    return _shadeColor(color, -shading);
+}
+
+function _shadeColor(color, percent) {
+    let R = parseInt(color.substring(1,3),16);
+    let G = parseInt(color.substring(3,5),16);
+    let B = parseInt(color.substring(5,7),16);
+
+    R = parseInt(R * (100 + percent) / 100);
+    G = parseInt(G * (100 + percent) / 100);
+    B = parseInt(B * (100 + percent) / 100);
+
+    R = (R<255)?R:255;  
+    G = (G<255)?G:255;  
+    B = (B<255)?B:255;  
+
+    const RR = ((R.toString(16).length==1) ? "0" + R.toString(16) : R.toString(16));
+    const GG = ((G.toString(16).length==1) ? "0" + G.toString(16) : G.toString(16));
+    const BB = ((B.toString(16).length==1) ? "0" + B.toString(16) : B.toString(16));
+
+    return "#"+RR+GG+BB;
 }
