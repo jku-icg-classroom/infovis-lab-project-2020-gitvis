@@ -41,6 +41,8 @@ function createVis() {
     createCommitDetailsVis(detailsDiv);
     createAuthorDetailsVis(detailsDiv);
 
+
+
     // split the history and details divs 
     // history div has an initial width of 70%
     // details div has an initial width of 30%
@@ -125,6 +127,6 @@ d3.json("./data/commithistory.json").then((data) => {
             }
         });
     state.authors = distinctAuthors;
-    
+
     updateApp();
 });
