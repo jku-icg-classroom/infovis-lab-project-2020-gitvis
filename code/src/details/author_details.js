@@ -6,6 +6,9 @@ const pieChartSizeSmall = 80;
 const pieChartMarginSmall = 5;
 const pieChartRadiusSmall = pieChartSizeSmall / 2 - pieChartMarginSmall;
 
+const kCellSize = 15;
+const kCellSizeWithPadding = 17;
+
 function createAuthorDetailsVis(parentDiv) {
     const root = parentDiv.append("div").attr("id", "ad_root");
 
@@ -243,22 +246,35 @@ function _updateFileTypesChart(author, data) {
 function _createCommitHistoryChart(parentElem) {
     const svg = parentElem.append("svg")
         .attr("id", "ad_commit_history_chart");
-    svg.append("g").attr("class", "grid");
+
+    // the grid with days as rows and weeks as columns
+    svg.append("g").attr("class", "cell-group")
+        .attr("transform", "translate(" + (kCellSizeWithPadding + 3) + ", 15)");
+
+    // the two y-axis labels (Mo and Fr) 
+    svg.append("text")
+        .attr("x", 10)
+        .attr("y", 15 + kCellSizeWithPadding + 10)
+        .attr("text-anchor", "middle")
+        .style("fill", "#000000")
+        .text("Mo");
+    svg.append("text")
+        .attr("x", 10)
+        .attr("y", 15 + 5 * kCellSizeWithPadding + 10)
+        .attr("text-anchor", "middle")
+        .style("fill", "#000000")
+        .text("Fr");
+
     // TODO: group for axis/labels?
 }
 
 function _updateCommitHistoryChart(author, data) {
-    // TODO: from minDate to maxDate
-    // TODO: max. 10 week
-
-    // contains an entry for every day the author has commited 
-    const days = [];
-
+    // map to every day the number of commits the author has made on that day
     const commitsPerDay = data.filter(d => d.author.id === author.id)
         .map(d => {
             const dateWithTime = new Date(d.commit.author.date);
             // remove time information from date
-            const dateWithoutTime = dateWithTime.setHours(0, 0, 0,);
+            const dateWithoutTime = dateWithTime.setHours(0, 0, 0, 0);
             return {
                 date: dateWithoutTime,
                 commitCount: 0
@@ -273,17 +289,155 @@ function _updateCommitHistoryChart(author, data) {
             return acc;
         }, {});
 
-    const width = 100;
-    const colCount = 10;
-    const cellSize = width / colCount;
-    const height = 7 * cellSize;
+    // only show days within this interval
+    let startDate = state.minDate;
+    let endDate = state.maxDate;
 
-    // update 
+    // compute number of days between this interval
+    const kOneDayInMs = 1000 * 60 * 60 * 24;
+    const intervalLengthInMs = endDate - startDate;
+    let numDays = Math.round(intervalLengthInMs / kOneDayInMs);
 
+    // show only a maximum of 20 weeks history (i.e. 140 days)
+    if (numDays > 140) {
+        // determine the new startDate for a 20 week history
+        let newStartDate = new Date(endDate);
+        newStartDate.setDate(endDate.getDate() - 140);
+        startDate = newStartDate;
+        numDays = 140;
+    }
+
+    // TODO: show exactly 20 weeks ???
+    if (numDays < 140) {
+        // determine the new startDate for a 20 week history
+        let newStartDate = new Date(endDate);
+        newStartDate.setDate(endDate.getDate() - 140);
+        startDate = newStartDate;
+        numDays = 140;
+    }
+
+    // remove time information from these dates
+    startDate = startDate.setHours(0, 0, 0, 0);
+    endDate = endDate.setHours(0, 0, 0, 0);
+
+    // sunday is 0th day of week
+    const kSunday = 0;
+    const kSaturday = 6;
+
+    // contains an entry for every day the author has commited 
+    const days = [];
+
+    // contains the x-axis labels (i.e. the months)
+    const xLabels = [];
+
+    // the current date (or day) that is being processed
+    let curDate = new Date(startDate);
+
+    // the current column to which the current date should belong
+    let curCol = 0;
+
+    let prevMonth = -1;
+
+    let maxNumCommits = 0;
+
+    let first = true;
+
+    for (let i = 0; i <= numDays; i++) {
+        // current day of week (sunday, monday, tuesday, etc.)
+        let dayOfWeek = curDate.getDay();
+
+        if (dayOfWeek === kSunday && prevMonth != curDate.getMonth() && !first) {
+            // it´s a sunday and a new month so remember to add a label
+            let monthStr = '';
+            switch (curDate.getMonth()) {
+                case 0: monthStr = 'Jan'; break;
+                case 1: monthStr = 'Feb'; break;
+                case 2: monthStr = 'Mar'; break;
+                case 3: monthStr = 'Apr'; break;
+                case 4: monthStr = 'May'; break;
+                case 5: monthStr = 'Jun'; break;
+                case 6: monthStr = 'Jul'; break;
+                case 7: monthStr = 'Aug'; break;
+                case 8: monthStr = 'Sep'; break;
+                case 9: monthStr = 'Oct'; break;
+                case 10: monthStr = 'Nov'; break;
+                case 11: monthStr = 'Dez'; break;
+            }
+            xLabels.push({
+                text: monthStr,
+                col: curCol
+            });
+            
+            prevMonth = curDate.getMonth();
+        }
+        if (dayOfWeek === kSunday && prevMonth != curDate.getMonth()) {
+            first = false;
+        }
+
+        let numCommitsForDay = commitsPerDay[curDate.setHours(0, 0, 0, 0)] || 0;
+        if (numCommitsForDay > maxNumCommits) {
+            maxNumCommits = numCommitsForDay;
+        }
+        days.push({
+            day: curDate,
+            numCommits: numCommitsForDay,
+            row: dayOfWeek,
+            col: curCol
+        });
+
+        if (dayOfWeek === kSaturday) {
+            // start a new column for the next sunday
+            curCol++;
+        }
+
+        // process the next day in the next iteration
+        let nextDate = new Date(curDate);
+        nextDate.setDate(curDate.getDate() + 1);
+        curDate = nextDate;
+    }
+
+    const numCols = curCol;
+    const width = Math.max(kCellSize, kCellSize + numCols * kCellSizeWithPadding) + 2 * kCellSizeWithPadding;
+    const height = 25 + kCellSize + 6 * kCellSizeWithPadding;
+
+    // update vis
     const svg = d3.select('#ad_commit_history_chart');
     svg.style('width', width).style('height', height);
 
-    svg.select('.grid')
+    // update all single grid cells 
+    const cellsColorScale = d3.scaleLinear()
+        .domain([0, maxNumCommits])
+        .range(['#DCEFFD', '#005CE6']);
+    const cells = svg.select('.cell-group')
+        .selectAll('.cell')
+        .data(days)
+        .attr('x', function (d, i) { return d.col * kCellSizeWithPadding; })
+        .attr('y', function (d, i) { return d.row * kCellSizeWithPadding; })
+        .style('width', kCellSize)
+        .style('height', kCellSize)
+        .style('fill', function (d, i) { return cellsColorScale(d.numCommits); });
+    cells.enter()
+        .append('rect')
+        .attr('class', 'cell')
+        .attr('x', function (d, i) { return d.col * kCellSizeWithPadding; })
+        .attr('y', function (d, i) { return d.row * kCellSizeWithPadding; })
+        .style('width', kCellSize)
+        .style('height', kCellSize)
+        .style('fill', function (d, i) { return cellsColorScale(d.numCommits); });
+    cells.exit().remove();
+    
+    // update x-axis labels
+    let xAxisLabels = svg.selectAll('.x-label')
+        .data(xLabels);
+    xAxisLabels.enter()
+        .append('text')
+        .attr('class', 'x-label')
+        .attr('x', function (d, i) { return (kCellSizeWithPadding + 3) + d.col * kCellSizeWithPadding; })
+        .attr('y', 10)
+        .attr('text-anchor', 'start')
+        .style("fill", "#000000")
+        .text(function (d) { return d.text; });
+    xAxisLabels.exit().remove();
 }
 
 function _createPieChart(parentElem, id, size) {
