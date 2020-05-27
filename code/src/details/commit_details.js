@@ -1,6 +1,4 @@
 
-const colors = d3.schemePaired;
-
 let g_ad;
 let xscale_ad;
 let yscale_ad;

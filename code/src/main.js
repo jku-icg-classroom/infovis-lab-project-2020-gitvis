@@ -42,6 +42,7 @@ function createVis() {
 
     createHeaderVis(headerDiv);
     createHistoryVis(historyDiv);
+    createRepoDetails(detailsDiv);
     createCommitDetailsVis(detailsDiv);
     createAuthorDetailsVis(detailsDiv);
 
@@ -63,7 +64,7 @@ function createVis() {
             updateHistoryVis(new_data);
             state.historyloaded = true;
         }
-        if(state.selectedCommit === null && state.selectedAuthor === null) showRepoDetails(state.filteredData);
+        showRepoDetails(state.selectedCommit === null && state.selectedAuthor === null);    //true = show, false = hide
         updateCommitDetails(state.selectedCommit);    //must be a single commit
         updateAuthorDetailsVis(state.authors, state.selectedAuthor, state.data);    //TODO Elias change to state.filteredData? [by Mike]
     }
@@ -105,6 +106,8 @@ function updateApp() {
     // updates the application
     const filtered = filterData();
     const new_data = wrangleData(filtered);
+
+    updateRepoDetails(filtered);    //TODO check if this is the right position; Repo-Details just need to be updated if the repository changes
 
     // update visualization
     vis(new_data);
