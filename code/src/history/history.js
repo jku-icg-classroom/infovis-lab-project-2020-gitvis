@@ -72,49 +72,44 @@ function updateHistoryVis(new_data) {
 
 
 //############################ Mike #############################################
-function createLinesChangedChart() {
+const svgWidth = 120;
+const svgHeight = 80;
+const xscale = d3.scaleLinear().range([1, svgWidth]);  //start with 1 because of log (0 not allowed)
+const yscale = d3.scaleLinear().range([0, svgHeight]);
 
+function createLinesChangedChart() {
+    
 }
 
-const xscale = d3.scaleLog().range([0, 117]);  //width of the svg
-const yscale = d3.scaleLinear().range([0, 117]);
 function updateChartScales(data) {
-    let maxChanges = 0;  //we need to know the maximum amount of changes a commit of the repo had
+    let maxChanges = 1;  //we need to know the maximum amount of changes a commit of the repo had
     data.forEach(commit => {
         const changes = commit.stats.additions + commit.stats.deletions;
         if(changes > maxChanges) maxChanges = changes;
     });
-    //xscale = d3.scaleLog().range([0, maxChanges]);
-    xscale.domain([0, maxChanges]);
+    xscale.domain([1, maxChanges]); //start with 1 because 0 is not allowed for log
 }
 
-//const color_adds = "rgb(70, 200, 70)";
-//const color_dels = "rgb(255, 25, 50)";
 function renderLinesChanged(div, commit, id) {
 
     const svg = div.append("svg").attr("id", "change_chart_" + id)
-                    .attr('height', 100)    
-                    .attr('width', 100);    //it seems as if this sets the width to 100%, which is what we want
-    const svg_jq = $('#change_chart_' + id);
-    //svg_jq.css('width', '100%');
-    console.log(svg_jq.width());
-
+                    .attr('height', svgHeight)    
+                    .attr('width', svgWidth);    //it seems as if this sets the width to 100%, which is what we want
+    
+    //const svg_jq = $('#change_chart_' + id);
+    //svg_jq.css('width', svgWidth + 'px');
+    //svg_jq.css('height', svgHeight + 'px');
+    
     const adds = commit.stats.additions;
     const dels = commit.stats.deletions;
     const changes =  adds + dels;
     const data = [  
-        { title: "+", y: 0, height: commit.stats.additions, width: changes }, 
-        { title: "-", y: adds, height: commit.stats.deletions, width: changes } 
+        { adds: true, y: 0, height: commit.stats.additions, width: changes }, 
+        { adds: false, y: adds, height: commit.stats.deletions, width: changes } 
     ];
-    //create visualization
-    //update the scales
-    //xscale_ad.domain([0, d3.max(data, d => d.width)]);
-    
+    //create visualization    
     //const yscale = d3.scaleLinear().range([0, changes]);
     yscale.domain([0, changes]);
-    //render the axis
-    //g_xaxis_ad.transition().call(xaxis_ad);
-    //g_yaxis_ad.transition().call(yaxis_ad);
 
     // Render the chart with new data
     // DATA JOIN use the key argument for ensurign that the same DOM element is bound to the same data-item
@@ -122,11 +117,11 @@ function renderLinesChanged(div, commit, id) {
         // ENTER
         // new elements
         (enter) => {
-          const rect_enter = enter.append('rect')
-                        .attr('fill', d => d.title === '+' ? COLOR_ADDS : COLOR_DELS)
+            const rect_enter = enter.append('rect')
+                        .attr('fill', d => d.adds ? COLOR_ADDS : COLOR_DELS)
                         .attr('class', 'node rect cmt_node_a');
-          rect_enter.append('title').text(d => d.title);
-          return rect_enter;
+            rect_enter.append('title');
+            return rect_enter;
         },
         // UPDATE
         // update existing elements
@@ -141,13 +136,13 @@ function renderLinesChanged(div, commit, id) {
     rect.transition()
         .attr('y', d => yscale(d.y))
         .attr('height', d => yscale(d.height))
-        .attr('width', d => d.width)    //todo scale based on xscale
-        //.attr('x', (d, i) => i * 30)
+        .attr('width', d => xscale(d.width))
         ;
 
-    /*
-    rect.select('title').text(d => d.title);
-    */
+    rect.select('title').text(d => {
+        if(d.adds)  return "Additions";
+        else        return "Deletions";
+    });
 }
 //###############################################################################
 
@@ -231,7 +226,7 @@ function createHistoryVis(visElement){
     // dagresvg.attr("height", gr.graph().height + 40);
 
 
-
+    createLinesChangedChart();      //#Mike
 }
 
 function formatDate(date){
@@ -246,6 +241,7 @@ function renderHistoryGraphFromTo() {
         return (d.commit.author.date >= state.selectMinDate) && (d.commit.author.date <= state.selectMaxDate) ;
     });
 
+    createLinesChangedChart();      //#Mike
 
     updateHistoryVis(state.filteredData);
 }
