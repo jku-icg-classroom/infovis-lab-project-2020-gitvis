@@ -63,8 +63,9 @@ function createVis() {
             updateHistoryVis(new_data);
             state.historyloaded = true;
         }
+        if(state.selectedCommit === null && state.selectedAuthor === null) showRepoDetails(state.filteredData);
         updateCommitDetails(state.selectedCommit);    //must be a single commit
-        updateAuthorDetailsVis(state.authors, state.selectedAuthor, state.data);
+        updateAuthorDetailsVis(state.authors, state.selectedAuthor, state.data);    //TODO Elias change to state.filteredData? [by Mike]
     }
 
     // return the update function to be called

@@ -106,7 +106,7 @@ function updateCommitDetails(new_commit) {
             .select('#cmt_details')
             .style('display', 'none');
 
-        return _updateRepoOverview();
+        return;// _updateRepoOverview();
     }
 
     // TODO show vis ? [comment from Elias]
