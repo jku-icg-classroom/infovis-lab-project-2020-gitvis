@@ -18,9 +18,6 @@
 
         // curl -i https:/api.github.com/users/richardwolfmayr
 
-
-
-
         var untildate = new Date();
 		untildate.setDate(untildate.getDate()-19);
 		var sincedate = new Date(untildate);
@@ -36,10 +33,6 @@
 		//document.write("<br>");
 		//document.write(until);
 
-
-
-
-		
 		var webservice1 = "https://api.github.com/repos/gtn/exacomp/commits?sha="+branchname1+"&since="+since+"&until="+until;
 		// var webservice = "https://api.github.com/repos/gtn/exacomp/commits?sha=experimental&since="+since+"&until="+until;
         // var webservice = "https://api.github.com/repos/richardwolfmayr/diablo2d/commits?sha=master&since="+since+"&until="+until;
@@ -54,7 +47,7 @@
 			queue.awaitAll(function(error,details) {
 				if(error) throw error;
 				details.forEach(function(commit,index,arr){
-                    commit.branchname = branchname1;
+                    // commit.branchname = branchname1;
 					commit.files.forEach(function(file){
 						file.patch = null; //commit->file->patch creates a problem sometimes
 					});
@@ -70,37 +63,37 @@
 
 
 
-        d3.select("branch1").append("br");
-
-        //same thing for different branch
-        var branchname2 = "ics-import-for-weekly-schedule";
-        var webservice2 = "https://api.github.com/repos/gtn/exacomp/commits?sha="+branchname2+"&since="+since+"&until="+until;
-        // var webservice = "https://api.github.com/repos/gtn/exacomp/commits?sha=experimental&since="+since+"&until="+until;
-        // var webservice = "https://api.github.com/repos/richardwolfmayr/diablo2d/commits?sha=master&since="+since+"&until="+until;
-        //document.write(webservice);
-        d3.json(webservice2, function(commits) {
-            let queue = d3.queue();
-            let text = "[<br>";
-            commits.forEach(function(singlecommit){
-                queue.defer(d3.json,'https://api.github.com/repos/gtn/exacomp/commits/'+singlecommit.sha);
-            });
-
-            queue.awaitAll(function(error,details) {
-                if(error) throw error;
-                details.forEach(function(commit,index,arr){
-                    commit.branchname = branchname2;
-                    commit.files.forEach(function(file){
-                        file.patch = null; //commit->file->patch creates a problem sometimes
-                    });
-                    if(index === arr.length-1){ //for last element: dont print ","
-                        text += JSON.stringify(commit,null,4);
-                    }else{
-                        text += JSON.stringify(commit,null,4)+',<br>';
-                    }
-                });
-                d3.select("#branch2").append("html").html( "<pre>"+text+"<br>]  </pre>");
-            });
-        });
+        // d3.select("branch1").append("br");
+        //
+        // //same thing for different branch
+        // var branchname2 = "ics-import-for-weekly-schedule";
+        // var webservice2 = "https://api.github.com/repos/gtn/exacomp/commits?sha="+branchname2+"&since="+since+"&until="+until;
+        // // var webservice = "https://api.github.com/repos/gtn/exacomp/commits?sha=experimental&since="+since+"&until="+until;
+        // // var webservice = "https://api.github.com/repos/richardwolfmayr/diablo2d/commits?sha=master&since="+since+"&until="+until;
+        // //document.write(webservice);
+        // d3.json(webservice2, function(commits) {
+        //     let queue = d3.queue();
+        //     let text = "[<br>";
+        //     commits.forEach(function(singlecommit){
+        //         queue.defer(d3.json,'https://api.github.com/repos/gtn/exacomp/commits/'+singlecommit.sha);
+        //     });
+        //
+        //     queue.awaitAll(function(error,details) {
+        //         if(error) throw error;
+        //         details.forEach(function(commit,index,arr){
+        //             commit.branchname = branchname2;
+        //             commit.files.forEach(function(file){
+        //                 file.patch = null; //commit->file->patch creates a problem sometimes
+        //             });
+        //             if(index === arr.length-1){ //for last element: dont print ","
+        //                 text += JSON.stringify(commit,null,4);
+        //             }else{
+        //                 text += JSON.stringify(commit,null,4)+',<br>';
+        //             }
+        //         });
+        //         d3.select("#branch2").append("html").html( "<pre>"+text+"<br>]  </pre>");
+        //     });
+        // });
 
     </script>
 </body>
