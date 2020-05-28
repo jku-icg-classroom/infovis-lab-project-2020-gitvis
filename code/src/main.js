@@ -119,7 +119,7 @@ d3.select().on('click', () => {
     updateApp();
 })
 
-d3.json("./data/commithistory.json").then((data) => {
+d3.json("./data/commits_exacomp_20200528.json").then((data) => {
     // load data, e.g. via d3.json and update app afterwards
 
     data.reverse();
