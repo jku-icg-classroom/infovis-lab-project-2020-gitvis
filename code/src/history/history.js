@@ -64,7 +64,7 @@ function updateHistoryVis(new_data) {
     // The idea is:   Zoom back to normal, render with dagred3, fix the positions in renderAfterDagreRender, zoom to the previous zoom setting.
     // Seems a bit hacky, but I could not fix the core problem of having to reposition the HMTL inside the nodes so I had to fall back to this.
     zoom.scaleTo(dagresvg,1);
-    debugger
+    //debugger
     render(d3.select("#dagresvg g"), gr);
     renderAfterDagreRender();
     zoom.scaleTo(dagresvg,scale);

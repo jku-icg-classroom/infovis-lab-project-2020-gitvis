@@ -31,22 +31,21 @@ function createRepoDetails(visElement) {
     const files = repoDetailsDiv.append("div").attr("id", "repo_files");
     _repoCreateFileTypeChart(files);
 }
-
+const repo_margin = { 
+    top: 20,
+    //bottom: 0,
+    left: 40,
+    //right: 10
+};
 function _repoCreateAddsDelsChart(div) {
     const svg = div.append("svg").attr("id", "repo_adds_dels_chart");
     const ad_chart = $('#repo_adds_dels_chart');    //get svg as jquery-object
     const width = ad_chart.width();
     const height = ad_chart.height();
-    const margin = { 
-        top: parseFloat(ad_chart.css('margin-top')), 
-        bottom: parseFloat(ad_chart.css('margin-bottom')), 
-        left: parseFloat(ad_chart.css('margin-left')), 
-        right: parseFloat(ad_chart.css('margin-right')) 
-    };
 
     // Group used to enforce margin
     rd_g_ad = svg.append('g')
-            .attr('transform', `translate(${margin.left},${margin.top})`);
+            .attr('transform', `translate(${repo_margin.left},${repo_margin.top})`);
 
     // Scales setup
     rd_xscale_ad = d3.scaleLinear().range([0, width]);
@@ -68,17 +67,11 @@ function _repoCreateFileTypeChart(div) {
     const file_chart = $('#repo_file_chart');    //get svg as jquery-object
     const width = file_chart.width();
     const height = file_chart.height();
-    const margin = { 
-        top: parseFloat(file_chart.css('margin-top')), 
-        bottom: parseFloat(file_chart.css('margin-bottom')), 
-        left: parseFloat(file_chart.css('margin-left')), 
-        right: parseFloat(file_chart.css('margin-right')) 
-    };
 
-    // Group used to enforce margin
+    // Group used to enforce repo_margin
     const fileTypeSpacing = 20;     //so the text of the fileTypes isn't cut off
     rd_g_files = svg.append('g')
-            .attr('transform', `translate(${margin.left + fileTypeSpacing},${margin.top})`);
+            .attr('transform', `translate(${repo_margin.left + fileTypeSpacing},${repo_margin.top})`);
 
     // Scales setup
     rd_xscale_files = d3.scaleLinear().range([0, width]);
@@ -112,8 +105,8 @@ function _repoUpdateAddsDelsChart(repo_data) {
     rd_xscale_ad.domain([0, d3.max(data, d => d.width)]);
     rd_yscale_ad.domain(data.map(d => d.title));
     //render the axis
-    rd_g_xaxis_ad.transition().call(xaxis_ad);
-    rd_g_yaxis_ad.transition().call(yaxis_ad);
+    rd_g_xaxis_ad.transition().call(rd_xaxis_ad);
+    rd_g_yaxis_ad.transition().call(rd_yaxis_ad);
 
     // Render the chart with new data
     // DATA JOIN use the key argument for ensurign that the same DOM element is bound to the same data-item
@@ -141,7 +134,7 @@ function _repoUpdateAddsDelsChart(repo_data) {
         .attr('y', d => rd_yscale_ad(d.title))
         ;
 
-    rect.select('title').text(d => d.title);
+    rect.select('title').text(d => d.width);
 }
 
 function _repoUpdateFileTypeChart(repo_data) {
@@ -224,7 +217,7 @@ function _repoUpdateFileTypeChart(repo_data) {
         .attr('x', d => rd_xscale_files(d.offset))
         ;
 
-    rect.select('title').text((d) => d.type);
+    rect.select('title').text((d) => d.width);
 }
 
 /**
