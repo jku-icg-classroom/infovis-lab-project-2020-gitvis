@@ -22,7 +22,7 @@ function updateHistoryVis(new_data) {
     });
 
     new_data.forEach(function (e, k) {
-        var html = "<div class='commitcontainer'><div class ='lineschanged'></div>";
+        var html = "<div class='commitcontainer'><div class ='lineschanged' id="+e.sha+"></div>";
         html += "<div class='textinfo'>";
         html += "<span class=message> \t&#8226; " + (e.commit.message.length > 18 ? e.commit.message.substr(0, 18) + '...' : e.commit.message) + "</span><br>";
         html += "<span class=author> \t&#8226; " + e.commit.author.name + "</span><br>";
@@ -31,8 +31,7 @@ function updateHistoryVis(new_data) {
         html += "</div></div>";
 
         //https://codepen.io/lechat/pen/RNrXxZ
-
-        gr.setNode(k, {
+        gr.setNode(e.sha, {
             labelType: "html",
             label: html,
             width: nodewidth,
@@ -41,18 +40,18 @@ function updateHistoryVis(new_data) {
         });
     });
 
-
+    let nodes = gr.nodes();
     gr.nodes().forEach(function (v) {
         var node = gr.node(v);
         // Round the corners of the nodes
         node.rx = node.ry = 5;
+        var parentnodes = node.commitdata.parents;
+        parentnodes.forEach(function(p){
+            if(nodes.includes(p.sha)){ //important check, otherwise there would be an edge from null to the first node (which has a parent of course, but it is not in our data)
+                gr.setEdge(p.sha, v);
+            }
+        });
     });
-
-    var nodes = gr.nodes();
-    for (let i = 0; i < nodes.length - 1; i++) {
-        gr.setEdge(nodes[i], nodes[i + 1]);
-    }
-
     
     // get the scale of the graph in order to translate the inner html of the nodes correctly. Just some stringoperations
     let scale = 1;
@@ -65,6 +64,7 @@ function updateHistoryVis(new_data) {
     // The idea is:   Zoom back to normal, render with dagred3, fix the positions in renderAfterDagreRender, zoom to the previous zoom setting.
     // Seems a bit hacky, but I could not fix the core problem of having to reposition the HMTL inside the nodes so I had to fall back to this.
     zoom.scaleTo(dagresvg,1);
+    debugger
     render(d3.select("#dagresvg g"), gr);
     renderAfterDagreRender();
     zoom.scaleTo(dagresvg,scale);
@@ -165,8 +165,8 @@ function renderAfterDagreRender(){
     //Append the visualizations of each commit
     // d3.selectAll(".lineschanged").append("span").text("asdf");
     let nodes = d3.selectAll('.lineschanged');
-    nodes.each(function (e, k) {
-        renderLinesChanged(d3.select(this),gr.node(k).commitdata, k);  //I only need the commitdata #Mike
+    nodes.each(function () {
+        renderLinesChanged(d3.select(this),gr.node(this.id).commitdata, this.id);  //I only need the commitdata #Mike
     });
 
 
