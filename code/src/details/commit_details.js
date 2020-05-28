@@ -37,21 +37,21 @@ function createCommitDetailsVis(visElement) {
     _createFileTypeChart(files);
 }
 
+const cmt_margin = { 
+    top: 20,
+    //bottom: 0,
+    left: 40,
+    //right: 10
+};
 function _createAddsDelsChart(div) {
     const svg = div.append("svg").attr("id", "adds_dels_chart");
     const ad_chart = $('#adds_dels_chart');    //get svg as jquery-object
     const width = ad_chart.width();
     const height = ad_chart.height();
-    const margin = { 
-        top: parseFloat(ad_chart.css('margin-top')), 
-        bottom: parseFloat(ad_chart.css('margin-bottom')), 
-        left: parseFloat(ad_chart.css('margin-left')), 
-        right: parseFloat(ad_chart.css('margin-right')) 
-    };
 
     // Group used to enforce margin
     g_ad = svg.append('g')
-            .attr('transform', `translate(${margin.left},${margin.top})`);
+            .attr('transform', `translate(${cmt_margin.left},${cmt_margin.top})`);
 
     // Scales setup
     xscale_ad = d3.scaleLinear().range([0, width]);
@@ -73,17 +73,11 @@ function _createFileTypeChart(div) {
     const file_chart = $('#file_chart');    //get svg as jquery-object
     const width = file_chart.width();
     const height = file_chart.height();
-    const margin = { 
-        top: parseFloat(file_chart.css('margin-top')), 
-        bottom: parseFloat(file_chart.css('margin-bottom')), 
-        left: parseFloat(file_chart.css('margin-left')), 
-        right: parseFloat(file_chart.css('margin-right')) 
-    };
 
-    // Group used to enforce margin
-    const fileTypeSpacing = 20;     //so the text of the fileTypes isn't cut off
+    // Group used to enforce cmt_margin
+//    const fileTypeSpacing = 20;     //so the text of the fileTypes isn't cut off
     g_files = svg.append('g')
-            .attr('transform', `translate(${margin.left + fileTypeSpacing},${margin.top})`);
+            .attr('transform', `translate(${cmt_margin.left},${cmt_margin.top})`);
 
     // Scales setup
     xscale_files = d3.scaleLinear().range([0, width]);
@@ -175,7 +169,7 @@ function _updateAddsDelsChart(new_commit) {
         //.attr('x', (d, i) => i * 30)
         ;
 
-    rect.select('title').text(d => d.title);
+    rect.select('title').text(d => d.width);
 }
 
 function _updateFileTypeChart(new_commit) {
@@ -261,7 +255,7 @@ function _updateFileTypeChart(new_commit) {
         .attr('y', d => yscale_files(d.type))
         .attr('x', d => xscale_files(d.offset));
 
-    rect.select('title').text((d) => d.type);
+    rect.select('title').text((d) => d.width);
 }
 
 function _updateRepoOverview() {

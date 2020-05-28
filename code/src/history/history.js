@@ -52,7 +52,7 @@ function updateHistoryVis(new_data) {
             }
         });
     });
-    
+
     // get the scale of the graph in order to translate the inner html of the nodes correctly. Just some stringoperations
     let scale = 1;
     let zoomvalue = d3.select("#zoomgroup").attr("transform");
@@ -77,7 +77,7 @@ const xscale = d3.scaleLinear().range([1, svgWidth]);  //start with 1 because of
 const yscale = d3.scaleLinear().range([0, svgHeight]);
 
 function createLinesChangedChart() {
-    
+
 }
 
 function updateChartScales(data) {
@@ -92,21 +92,21 @@ function updateChartScales(data) {
 function renderLinesChanged(div, commit, id) {
 
     const svg = div.append("svg").attr("id", "change_chart_" + id)
-                    .attr('height', svgHeight)    
+                    .attr('height', svgHeight)
                     .attr('width', svgWidth);    //it seems as if this sets the width to 100%, which is what we want
-    
+
     //const svg_jq = $('#change_chart_' + id);
     //svg_jq.css('width', svgWidth + 'px');
     //svg_jq.css('height', svgHeight + 'px');
-    
+
     const adds = commit.stats.additions;
     const dels = commit.stats.deletions;
     const changes =  adds + dels;
-    const data = [  
-        { adds: true, y: 0, height: commit.stats.additions, width: changes }, 
-        { adds: false, y: adds, height: commit.stats.deletions, width: changes } 
+    const data = [
+        { adds: true, y: 0, height: commit.stats.additions, width: changes },
+        { adds: false, y: adds, height: commit.stats.deletions, width: changes }
     ];
-    //create visualization    
+    //create visualization
     //const yscale = d3.scaleLinear().range([0, changes]);
     yscale.domain([0, changes]);
 
