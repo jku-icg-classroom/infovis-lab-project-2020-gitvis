@@ -71,9 +71,10 @@ function updateHistoryVis(new_data) {
 
 
 //############################ Mike #############################################
+const barMinWidth = 5;
 const svgWidth = 120;
 const svgHeight = 80;
-const xscale = d3.scaleLinear().range([1, svgWidth]);  //start with 1 because of log (0 not allowed)
+const xscale = d3.scaleLinear().range([barMinWidth, svgWidth]);  //start with 1 because of log (0 not allowed)
 const yscale = d3.scaleLinear().range([0, svgHeight]);
 
 function createLinesChangedChart() {
@@ -138,10 +139,7 @@ function renderLinesChanged(div, commit, id) {
         .attr('width', d => xscale(d.width))
         ;
 
-    rect.select('title').text(d => {
-        if(d.adds)  return "Additions";
-        else        return "Deletions";
-    });
+    rect.select('title').text(d => d.height);
 }
 //###############################################################################
 
