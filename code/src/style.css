@@ -39,7 +39,6 @@ body{
 p {display: table}
 div {display: table}
 
-
 #history {
     /* TODO: delete bec Split library handles width */
     /*width: 70%;*/

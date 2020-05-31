@@ -1,9 +1,21 @@
 
 function createHeaderVis(parentDiv) {
-    let logo = parentDiv.append("img")
-    .attr("src", "img/logo.png")
-    .attr("height", 100)
-    .attr("width", "auto");
+    parentDiv.append("img")
+        .attr("src", "img/logo.png")
+        .attr("height", 100)
+        .attr("width", "auto");
+
+    let datasetsDropdown = parentDiv.append("select")
+        .attr("id", "datasets");
+    datasetsDropdown.append("option")
+        .attr("value", "d1")
+        .text("Dataset 1");
+    datasetsDropdown.append("option")
+        .attr("value", "d2")
+        .text("Dataset 2");
+    datasetsDropdown.append("option")
+        .attr("value", "d3")
+        .text("Dataset 3");
 
     let authorsDiv = parentDiv.append("div").attr("id", "authors");
     authorsDiv.append("h4").attr("id", "authors_label").text("Authors");
