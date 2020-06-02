@@ -217,7 +217,7 @@ function _repoUpdateFileTypeChart(repo_data) {
         .attr('x', d => rd_xscale_files(d.offset))
         ;
 
-    rect.select('title').text((d) => d.width);
+    rect.select('title').text(d => d.width + (d.additions ? " Additions" : " Deletions"));
 }
 
 /**

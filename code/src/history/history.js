@@ -139,7 +139,7 @@ function renderLinesChanged(div, commit, id) {
         .attr('width', d => xscale(d.width))
         ;
 
-    rect.select('title').text(d => d.height);
+    rect.select('title').text(d => d.height + (d.adds ? " Additions" : " Deletions"));
 }
 //###############################################################################
 

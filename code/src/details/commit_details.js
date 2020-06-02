@@ -255,7 +255,7 @@ function _updateFileTypeChart(new_commit) {
         .attr('y', d => yscale_files(d.type))
         .attr('x', d => xscale_files(d.offset));
 
-    rect.select('title').text((d) => d.width);
+    rect.select('title').text((d) => d.width + (d.additions ? " Additions" : " Deletions"));
 }
 
 function _updateRepoOverview() {
