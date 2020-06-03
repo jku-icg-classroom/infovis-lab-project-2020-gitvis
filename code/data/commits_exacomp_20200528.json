@@ -14059,5 +14059,3042 @@
                 "patch": null
             }
         ]
+    },
+    {
+        "sha": "99c0ef773891c099cf017f13e2a40b20a1cec93b",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzo5OWMwZWY3NzM4OTFjMDk5Y2YwMTdmMTNlMmE0MGIyMGExY2VjOTNi",
+        "commit": {
+            "author": {
+                "name": "Richard Wolfmayr",
+                "email": "richard.wolfmayr@gmail.com",
+                "date": "2020-03-17T17:28:02Z"
+            },
+            "committer": {
+                "name": "Richard Wolfmayr",
+                "email": "richard.wolfmayr@gmail.com",
+                "date": "2020-03-17T17:28:02Z"
+            },
+            "message": "hide LFS(niveau/parentdescriptor) in Kopetence Profile for Crosssubjects if not used",
+            "tree": {
+                "sha": "dbf1ce0b5f8d0ed5850b6448f19e2f6281f64283",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/dbf1ce0b5f8d0ed5850b6448f19e2f6281f64283"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/99c0ef773891c099cf017f13e2a40b20a1cec93b",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/99c0ef773891c099cf017f13e2a40b20a1cec93b",
+        "html_url": "https://github.com/gtn/exacomp/commit/99c0ef773891c099cf017f13e2a40b20a1cec93b",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/99c0ef773891c099cf017f13e2a40b20a1cec93b/comments",
+        "author": {
+            "login": "richardwolfmayr",
+            "id": 24298463,
+            "node_id": "MDQ6VXNlcjI0Mjk4NDYz",
+            "avatar_url": "https://avatars0.githubusercontent.com/u/24298463?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/richardwolfmayr",
+            "html_url": "https://github.com/richardwolfmayr",
+            "followers_url": "https://api.github.com/users/richardwolfmayr/followers",
+            "following_url": "https://api.github.com/users/richardwolfmayr/following{/other_user}",
+            "gists_url": "https://api.github.com/users/richardwolfmayr/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/richardwolfmayr/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/richardwolfmayr/subscriptions",
+            "organizations_url": "https://api.github.com/users/richardwolfmayr/orgs",
+            "repos_url": "https://api.github.com/users/richardwolfmayr/repos",
+            "events_url": "https://api.github.com/users/richardwolfmayr/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/richardwolfmayr/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "richardwolfmayr",
+            "id": 24298463,
+            "node_id": "MDQ6VXNlcjI0Mjk4NDYz",
+            "avatar_url": "https://avatars0.githubusercontent.com/u/24298463?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/richardwolfmayr",
+            "html_url": "https://github.com/richardwolfmayr",
+            "followers_url": "https://api.github.com/users/richardwolfmayr/followers",
+            "following_url": "https://api.github.com/users/richardwolfmayr/following{/other_user}",
+            "gists_url": "https://api.github.com/users/richardwolfmayr/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/richardwolfmayr/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/richardwolfmayr/subscriptions",
+            "organizations_url": "https://api.github.com/users/richardwolfmayr/orgs",
+            "repos_url": "https://api.github.com/users/richardwolfmayr/repos",
+            "events_url": "https://api.github.com/users/richardwolfmayr/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/richardwolfmayr/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "65455682e0945f76b5c62e67ffda3fb2a9cb4a36",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/65455682e0945f76b5c62e67ffda3fb2a9cb4a36",
+                "html_url": "https://github.com/gtn/exacomp/commit/65455682e0945f76b5c62e67ffda3fb2a9cb4a36"
+            }
+        ],
+        "stats": {
+            "total": 111,
+            "additions": 82,
+            "deletions": 29
+        },
+        "files": [
+            {
+                "sha": "1015b78e420392d4278c7612da937268a45a36f8",
+                "filename": "lib/lib.php",
+                "status": "modified",
+                "additions": 60,
+                "deletions": 22,
+                "changes": 82,
+                "blob_url": "https://github.com/gtn/exacomp/blob/99c0ef773891c099cf017f13e2a40b20a1cec93b/lib/lib.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/99c0ef773891c099cf017f13e2a40b20a1cec93b/lib/lib.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/lib/lib.php?ref=99c0ef773891c099cf017f13e2a40b20a1cec93b",
+                "patch": null
+            },
+            {
+                "sha": "9da498b216093324408695616708b6a86009b44f",
+                "filename": "renderer.php",
+                "status": "modified",
+                "additions": 22,
+                "deletions": 7,
+                "changes": 29,
+                "blob_url": "https://github.com/gtn/exacomp/blob/99c0ef773891c099cf017f13e2a40b20a1cec93b/renderer.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/99c0ef773891c099cf017f13e2a40b20a1cec93b/renderer.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/renderer.php?ref=99c0ef773891c099cf017f13e2a40b20a1cec93b",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "65455682e0945f76b5c62e67ffda3fb2a9cb4a36",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzo2NTQ1NTY4MmUwOTQ1Zjc2YjVjNjJlNjdmZmRhM2ZiMmE5Y2I0YTM2",
+        "commit": {
+            "author": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-17T14:29:45Z"
+            },
+            "committer": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-17T14:29:45Z"
+            },
+            "message": "warning",
+            "tree": {
+                "sha": "ed6b66b3a0e9cd7d36f60766962dec0b7df02f55",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/ed6b66b3a0e9cd7d36f60766962dec0b7df02f55"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/65455682e0945f76b5c62e67ffda3fb2a9cb4a36",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/65455682e0945f76b5c62e67ffda3fb2a9cb4a36",
+        "html_url": "https://github.com/gtn/exacomp/commit/65455682e0945f76b5c62e67ffda3fb2a9cb4a36",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/65455682e0945f76b5c62e67ffda3fb2a9cb4a36/comments",
+        "author": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "3ff80057547d4bc1c4bfe19753be6cc004183ec5",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/3ff80057547d4bc1c4bfe19753be6cc004183ec5",
+                "html_url": "https://github.com/gtn/exacomp/commit/3ff80057547d4bc1c4bfe19753be6cc004183ec5"
+            }
+        ],
+        "stats": {
+            "total": 3,
+            "additions": 1,
+            "deletions": 2
+        },
+        "files": [
+            {
+                "sha": "9f0cef021096d3ea546a1ee07089e93abb93a863",
+                "filename": "classes/data.php",
+                "status": "modified",
+                "additions": 1,
+                "deletions": 2,
+                "changes": 3,
+                "blob_url": "https://github.com/gtn/exacomp/blob/65455682e0945f76b5c62e67ffda3fb2a9cb4a36/classes/data.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/65455682e0945f76b5c62e67ffda3fb2a9cb4a36/classes/data.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/classes/data.php?ref=65455682e0945f76b5c62e67ffda3fb2a9cb4a36",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "3ff80057547d4bc1c4bfe19753be6cc004183ec5",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzozZmY4MDA1NzU0N2Q0YmMxYzRiZmUxOTc1M2JlNmNjMDA0MTgzZWM1",
+        "commit": {
+            "author": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-17T14:26:13Z"
+            },
+            "committer": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-17T14:26:13Z"
+            },
+            "message": "import issue on windows",
+            "tree": {
+                "sha": "d27fb522b889dc111ee55b248d75befa545d05ac",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/d27fb522b889dc111ee55b248d75befa545d05ac"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/3ff80057547d4bc1c4bfe19753be6cc004183ec5",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/3ff80057547d4bc1c4bfe19753be6cc004183ec5",
+        "html_url": "https://github.com/gtn/exacomp/commit/3ff80057547d4bc1c4bfe19753be6cc004183ec5",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/3ff80057547d4bc1c4bfe19753be6cc004183ec5/comments",
+        "author": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "a7b26d5f4533323f189a5e62cd18b92b43561218",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/a7b26d5f4533323f189a5e62cd18b92b43561218",
+                "html_url": "https://github.com/gtn/exacomp/commit/a7b26d5f4533323f189a5e62cd18b92b43561218"
+            }
+        ],
+        "stats": {
+            "total": 35,
+            "additions": 25,
+            "deletions": 10
+        },
+        "files": [
+            {
+                "sha": "e8b5959b1b9ef32a61be03e4a51bb9c8741ab78e",
+                "filename": "classes/data.php",
+                "status": "modified",
+                "additions": 25,
+                "deletions": 10,
+                "changes": 35,
+                "blob_url": "https://github.com/gtn/exacomp/blob/3ff80057547d4bc1c4bfe19753be6cc004183ec5/classes/data.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/3ff80057547d4bc1c4bfe19753be6cc004183ec5/classes/data.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/classes/data.php?ref=3ff80057547d4bc1c4bfe19753be6cc004183ec5",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "a7b26d5f4533323f189a5e62cd18b92b43561218",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzphN2IyNmQ1ZjQ1MzMzMjNmMTg5YTVlNjJjZDE4YjkyYjQzNTYxMjE4",
+        "commit": {
+            "author": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-17T10:31:22Z"
+            },
+            "committer": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-17T10:31:22Z"
+            },
+            "message": "import rear issue",
+            "tree": {
+                "sha": "30226e2b09d0a97042cd2873755fb6395d83e337",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/30226e2b09d0a97042cd2873755fb6395d83e337"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/a7b26d5f4533323f189a5e62cd18b92b43561218",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/a7b26d5f4533323f189a5e62cd18b92b43561218",
+        "html_url": "https://github.com/gtn/exacomp/commit/a7b26d5f4533323f189a5e62cd18b92b43561218",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/a7b26d5f4533323f189a5e62cd18b92b43561218/comments",
+        "author": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "3f0581dac809329398dd5a8fd5696a69e8e81cdd",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/3f0581dac809329398dd5a8fd5696a69e8e81cdd",
+                "html_url": "https://github.com/gtn/exacomp/commit/3f0581dac809329398dd5a8fd5696a69e8e81cdd"
+            }
+        ],
+        "stats": {
+            "total": 192,
+            "additions": 98,
+            "deletions": 94
+        },
+        "files": [
+            {
+                "sha": "fc7bc811ef9fca66e5224fba25cda7e3b90727fc",
+                "filename": "classes/data.php",
+                "status": "modified",
+                "additions": 14,
+                "deletions": 11,
+                "changes": 25,
+                "blob_url": "https://github.com/gtn/exacomp/blob/a7b26d5f4533323f189a5e62cd18b92b43561218/classes/data.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/a7b26d5f4533323f189a5e62cd18b92b43561218/classes/data.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/classes/data.php?ref=a7b26d5f4533323f189a5e62cd18b92b43561218",
+                "patch": null
+            },
+            {
+                "sha": "53f982f0dfc1a1f8cac6d7bf63899729fa8038c4",
+                "filename": "javascript/weekly_schedule.js",
+                "status": "modified",
+                "additions": 84,
+                "deletions": 83,
+                "changes": 167,
+                "blob_url": "https://github.com/gtn/exacomp/blob/a7b26d5f4533323f189a5e62cd18b92b43561218/javascript/weekly_schedule.js",
+                "raw_url": "https://github.com/gtn/exacomp/raw/a7b26d5f4533323f189a5e62cd18b92b43561218/javascript/weekly_schedule.js",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/javascript/weekly_schedule.js?ref=a7b26d5f4533323f189a5e62cd18b92b43561218",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "3f0581dac809329398dd5a8fd5696a69e8e81cdd",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzozZjA1ODFkYWM4MDkzMjkzOThkZDVhOGZkNTY5NmE2OWU4ZTgxY2Rk",
+        "commit": {
+            "author": {
+                "name": "Dietmar Angerer",
+                "email": "uab.katzinger@gmail.com",
+                "date": "2020-03-16T19:04:06Z"
+            },
+            "committer": {
+                "name": "Dietmar Angerer",
+                "email": "uab.katzinger@gmail.com",
+                "date": "2020-03-16T20:19:42Z"
+            },
+            "message": "align in competence grid, profile,",
+            "tree": {
+                "sha": "a5b8b837dc416fd42ff57602468c2b87b79a6277",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/a5b8b837dc416fd42ff57602468c2b87b79a6277"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/3f0581dac809329398dd5a8fd5696a69e8e81cdd",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/3f0581dac809329398dd5a8fd5696a69e8e81cdd",
+        "html_url": "https://github.com/gtn/exacomp/commit/3f0581dac809329398dd5a8fd5696a69e8e81cdd",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/3f0581dac809329398dd5a8fd5696a69e8e81cdd/comments",
+        "author": {
+            "login": "dangerer",
+            "id": 1820610,
+            "node_id": "MDQ6VXNlcjE4MjA2MTA=",
+            "avatar_url": "https://avatars2.githubusercontent.com/u/1820610?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/dangerer",
+            "html_url": "https://github.com/dangerer",
+            "followers_url": "https://api.github.com/users/dangerer/followers",
+            "following_url": "https://api.github.com/users/dangerer/following{/other_user}",
+            "gists_url": "https://api.github.com/users/dangerer/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/dangerer/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/dangerer/subscriptions",
+            "organizations_url": "https://api.github.com/users/dangerer/orgs",
+            "repos_url": "https://api.github.com/users/dangerer/repos",
+            "events_url": "https://api.github.com/users/dangerer/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/dangerer/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "dangerer",
+            "id": 1820610,
+            "node_id": "MDQ6VXNlcjE4MjA2MTA=",
+            "avatar_url": "https://avatars2.githubusercontent.com/u/1820610?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/dangerer",
+            "html_url": "https://github.com/dangerer",
+            "followers_url": "https://api.github.com/users/dangerer/followers",
+            "following_url": "https://api.github.com/users/dangerer/following{/other_user}",
+            "gists_url": "https://api.github.com/users/dangerer/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/dangerer/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/dangerer/subscriptions",
+            "organizations_url": "https://api.github.com/users/dangerer/orgs",
+            "repos_url": "https://api.github.com/users/dangerer/repos",
+            "events_url": "https://api.github.com/users/dangerer/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/dangerer/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "0ee786e72f8cce13a18c1fe285efcafd24c306ca",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/0ee786e72f8cce13a18c1fe285efcafd24c306ca",
+                "html_url": "https://github.com/gtn/exacomp/commit/0ee786e72f8cce13a18c1fe285efcafd24c306ca"
+            }
+        ],
+        "stats": {
+            "total": 11,
+            "additions": 10,
+            "deletions": 1
+        },
+        "files": [
+            {
+                "sha": "306a0765ff7807249bc4f5d9c8cf34755b4cd364",
+                "filename": "css/styles.css",
+                "status": "modified",
+                "additions": 10,
+                "deletions": 1,
+                "changes": 11,
+                "blob_url": "https://github.com/gtn/exacomp/blob/3f0581dac809329398dd5a8fd5696a69e8e81cdd/css/styles.css",
+                "raw_url": "https://github.com/gtn/exacomp/raw/3f0581dac809329398dd5a8fd5696a69e8e81cdd/css/styles.css",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/css/styles.css?ref=3f0581dac809329398dd5a8fd5696a69e8e81cdd",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "0ee786e72f8cce13a18c1fe285efcafd24c306ca",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzowZWU3ODZlNzJmOGNjZTEzYTE4YzFmZTI4NWVmY2FmZDI0YzMwNmNh",
+        "commit": {
+            "author": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T20:05:49Z"
+            },
+            "committer": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T20:05:49Z"
+            },
+            "message": "Dakora: student part",
+            "tree": {
+                "sha": "984bfe584e3ec8143c3ea374312e0af569a7bc9d",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/984bfe584e3ec8143c3ea374312e0af569a7bc9d"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/0ee786e72f8cce13a18c1fe285efcafd24c306ca",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/0ee786e72f8cce13a18c1fe285efcafd24c306ca",
+        "html_url": "https://github.com/gtn/exacomp/commit/0ee786e72f8cce13a18c1fe285efcafd24c306ca",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/0ee786e72f8cce13a18c1fe285efcafd24c306ca/comments",
+        "author": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "b39cef6c0869ea5536d35d7480b47c02159a58f5",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/b39cef6c0869ea5536d35d7480b47c02159a58f5",
+                "html_url": "https://github.com/gtn/exacomp/commit/b39cef6c0869ea5536d35d7480b47c02159a58f5"
+            }
+        ],
+        "stats": {
+            "total": 32,
+            "additions": 17,
+            "deletions": 15
+        },
+        "files": [
+            {
+                "sha": "4ab725f2ae5ea18328fc9e295079295671a11f40",
+                "filename": "lib/lib.php",
+                "status": "modified",
+                "additions": 17,
+                "deletions": 15,
+                "changes": 32,
+                "blob_url": "https://github.com/gtn/exacomp/blob/0ee786e72f8cce13a18c1fe285efcafd24c306ca/lib/lib.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/0ee786e72f8cce13a18c1fe285efcafd24c306ca/lib/lib.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/lib/lib.php?ref=0ee786e72f8cce13a18c1fe285efcafd24c306ca",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "b39cef6c0869ea5536d35d7480b47c02159a58f5",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzpiMzljZWY2YzA4NjllYTU1MzZkMzVkNzQ4MGI0N2MwMjE1OWE1OGY1",
+        "commit": {
+            "author": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T18:41:42Z"
+            },
+            "committer": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T18:41:42Z"
+            },
+            "message": "subject sorting",
+            "tree": {
+                "sha": "d43fe6cd45238073561e0c09048259d86af230c2",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/d43fe6cd45238073561e0c09048259d86af230c2"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/b39cef6c0869ea5536d35d7480b47c02159a58f5",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/b39cef6c0869ea5536d35d7480b47c02159a58f5",
+        "html_url": "https://github.com/gtn/exacomp/commit/b39cef6c0869ea5536d35d7480b47c02159a58f5",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/b39cef6c0869ea5536d35d7480b47c02159a58f5/comments",
+        "author": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "1be4c9605ef275f07f46a889c91f980607ccdab4",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/1be4c9605ef275f07f46a889c91f980607ccdab4",
+                "html_url": "https://github.com/gtn/exacomp/commit/1be4c9605ef275f07f46a889c91f980607ccdab4"
+            }
+        ],
+        "stats": {
+            "total": 3,
+            "additions": 2,
+            "deletions": 1
+        },
+        "files": [
+            {
+                "sha": "5f8a216bb5ff333d1a03b448b60235f205aa0050",
+                "filename": "lib/lib.php",
+                "status": "modified",
+                "additions": 2,
+                "deletions": 1,
+                "changes": 3,
+                "blob_url": "https://github.com/gtn/exacomp/blob/b39cef6c0869ea5536d35d7480b47c02159a58f5/lib/lib.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/b39cef6c0869ea5536d35d7480b47c02159a58f5/lib/lib.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/lib/lib.php?ref=b39cef6c0869ea5536d35d7480b47c02159a58f5",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "1be4c9605ef275f07f46a889c91f980607ccdab4",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzoxYmU0Yzk2MDVlZjI3NWYwN2Y0NmE4ODljOTFmOTgwNjA3Y2NkYWI0",
+        "commit": {
+            "author": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T15:23:24Z"
+            },
+            "committer": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T15:23:24Z"
+            },
+            "message": "Dakora: topics sorting",
+            "tree": {
+                "sha": "d65cef5f7b68913781471a0caf7e68c65a5c7c2d",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/d65cef5f7b68913781471a0caf7e68c65a5c7c2d"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/1be4c9605ef275f07f46a889c91f980607ccdab4",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/1be4c9605ef275f07f46a889c91f980607ccdab4",
+        "html_url": "https://github.com/gtn/exacomp/commit/1be4c9605ef275f07f46a889c91f980607ccdab4",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/1be4c9605ef275f07f46a889c91f980607ccdab4/comments",
+        "author": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "7a376e50a8108577be2e15973f44ede6d18d5d81",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/7a376e50a8108577be2e15973f44ede6d18d5d81",
+                "html_url": "https://github.com/gtn/exacomp/commit/7a376e50a8108577be2e15973f44ede6d18d5d81"
+            }
+        ],
+        "stats": {
+            "total": 2,
+            "additions": 2,
+            "deletions": 0
+        },
+        "files": [
+            {
+                "sha": "42dc5f3b45ece700fc5e53ed3fecfc5c9bbcb73a",
+                "filename": "lib/lib.php",
+                "status": "modified",
+                "additions": 2,
+                "deletions": 0,
+                "changes": 2,
+                "blob_url": "https://github.com/gtn/exacomp/blob/1be4c9605ef275f07f46a889c91f980607ccdab4/lib/lib.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/1be4c9605ef275f07f46a889c91f980607ccdab4/lib/lib.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/lib/lib.php?ref=1be4c9605ef275f07f46a889c91f980607ccdab4",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "7a376e50a8108577be2e15973f44ede6d18d5d81",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzo3YTM3NmU1MGE4MTA4NTc3YmUyZTE1OTczZjQ0ZWRlNmQxOGQ1ZDgx",
+        "commit": {
+            "author": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T15:10:41Z"
+            },
+            "committer": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T15:10:41Z"
+            },
+            "message": "Dakora: subject sorting",
+            "tree": {
+                "sha": "7228e44c43ae2f66279d74e4d6c46d8a7d8888e8",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/7228e44c43ae2f66279d74e4d6c46d8a7d8888e8"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/7a376e50a8108577be2e15973f44ede6d18d5d81",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/7a376e50a8108577be2e15973f44ede6d18d5d81",
+        "html_url": "https://github.com/gtn/exacomp/commit/7a376e50a8108577be2e15973f44ede6d18d5d81",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/7a376e50a8108577be2e15973f44ede6d18d5d81/comments",
+        "author": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "c49cb0c56b7052c1eb4af96bbec51be8971a33ea",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/c49cb0c56b7052c1eb4af96bbec51be8971a33ea",
+                "html_url": "https://github.com/gtn/exacomp/commit/c49cb0c56b7052c1eb4af96bbec51be8971a33ea"
+            }
+        ],
+        "stats": {
+            "total": 18,
+            "additions": 17,
+            "deletions": 1
+        },
+        "files": [
+            {
+                "sha": "ed01f1d50ab743209ad06db64a4fd4b0c4de25cd",
+                "filename": "lib/lib.php",
+                "status": "modified",
+                "additions": 17,
+                "deletions": 1,
+                "changes": 18,
+                "blob_url": "https://github.com/gtn/exacomp/blob/7a376e50a8108577be2e15973f44ede6d18d5d81/lib/lib.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/7a376e50a8108577be2e15973f44ede6d18d5d81/lib/lib.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/lib/lib.php?ref=7a376e50a8108577be2e15973f44ede6d18d5d81",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "c49cb0c56b7052c1eb4af96bbec51be8971a33ea",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzpjNDljYjBjNTZiNzA1MmMxZWI0YWY5NmJiZWM1MWJlODk3MWEzM2Vh",
+        "commit": {
+            "author": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T14:41:24Z"
+            },
+            "committer": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T14:41:24Z"
+            },
+            "message": "align in the Subject selection table",
+            "tree": {
+                "sha": "9a3f6f805111f2183362104255477eaf6f8534d4",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/9a3f6f805111f2183362104255477eaf6f8534d4"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/c49cb0c56b7052c1eb4af96bbec51be8971a33ea",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/c49cb0c56b7052c1eb4af96bbec51be8971a33ea",
+        "html_url": "https://github.com/gtn/exacomp/commit/c49cb0c56b7052c1eb4af96bbec51be8971a33ea",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/c49cb0c56b7052c1eb4af96bbec51be8971a33ea/comments",
+        "author": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "93756985f728c5889e1bf065a25e003bf1a2c6de",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/93756985f728c5889e1bf065a25e003bf1a2c6de",
+                "html_url": "https://github.com/gtn/exacomp/commit/93756985f728c5889e1bf065a25e003bf1a2c6de"
+            }
+        ],
+        "stats": {
+            "total": 10,
+            "additions": 8,
+            "deletions": 2
+        },
+        "files": [
+            {
+                "sha": "5c441dc6e752a18cc4105a947ac29306f6c67d4c",
+                "filename": "css/styles.css",
+                "status": "modified",
+                "additions": 6,
+                "deletions": 0,
+                "changes": 6,
+                "blob_url": "https://github.com/gtn/exacomp/blob/c49cb0c56b7052c1eb4af96bbec51be8971a33ea/css/styles.css",
+                "raw_url": "https://github.com/gtn/exacomp/raw/c49cb0c56b7052c1eb4af96bbec51be8971a33ea/css/styles.css",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/css/styles.css?ref=c49cb0c56b7052c1eb4af96bbec51be8971a33ea",
+                "patch": null
+            },
+            {
+                "sha": "9698c08e2631225eb35dca6524409d055657e981",
+                "filename": "weekly_schedule.php",
+                "status": "modified",
+                "additions": 2,
+                "deletions": 2,
+                "changes": 4,
+                "blob_url": "https://github.com/gtn/exacomp/blob/c49cb0c56b7052c1eb4af96bbec51be8971a33ea/weekly_schedule.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/c49cb0c56b7052c1eb4af96bbec51be8971a33ea/weekly_schedule.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/weekly_schedule.php?ref=c49cb0c56b7052c1eb4af96bbec51be8971a33ea",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "93756985f728c5889e1bf065a25e003bf1a2c6de",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzo5Mzc1Njk4NWY3MjhjNTg4OWUxYmYwNjVhMjVlMDAzYmYxYTJjNmRl",
+        "commit": {
+            "author": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T14:14:07Z"
+            },
+            "committer": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T14:14:07Z"
+            },
+            "message": "dakora: new free element issue",
+            "tree": {
+                "sha": "a5c94595df16b6e68426e4876c34f419336d835b",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/a5c94595df16b6e68426e4876c34f419336d835b"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/93756985f728c5889e1bf065a25e003bf1a2c6de",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/93756985f728c5889e1bf065a25e003bf1a2c6de",
+        "html_url": "https://github.com/gtn/exacomp/commit/93756985f728c5889e1bf065a25e003bf1a2c6de",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/93756985f728c5889e1bf065a25e003bf1a2c6de/comments",
+        "author": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "45769cfb8b121fa42e5fd4d4aa5276dbc3d7cbf6",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/45769cfb8b121fa42e5fd4d4aa5276dbc3d7cbf6",
+                "html_url": "https://github.com/gtn/exacomp/commit/45769cfb8b121fa42e5fd4d4aa5276dbc3d7cbf6"
+            }
+        ],
+        "stats": {
+            "total": 20,
+            "additions": 12,
+            "deletions": 8
+        },
+        "files": [
+            {
+                "sha": "cf3061afa59168bf42eb416844a0d9a53e5e70ee",
+                "filename": "db/upgrade.php",
+                "status": "modified",
+                "additions": 10,
+                "deletions": 0,
+                "changes": 10,
+                "blob_url": "https://github.com/gtn/exacomp/blob/93756985f728c5889e1bf065a25e003bf1a2c6de/db/upgrade.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/93756985f728c5889e1bf065a25e003bf1a2c6de/db/upgrade.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/db/upgrade.php?ref=93756985f728c5889e1bf065a25e003bf1a2c6de",
+                "patch": null
+            },
+            {
+                "sha": "e89bcfd0cb62ab00c5cbfeb4833378f60b54e06c",
+                "filename": "externallib.php",
+                "status": "modified",
+                "additions": 1,
+                "deletions": 7,
+                "changes": 8,
+                "blob_url": "https://github.com/gtn/exacomp/blob/93756985f728c5889e1bf065a25e003bf1a2c6de/externallib.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/93756985f728c5889e1bf065a25e003bf1a2c6de/externallib.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/externallib.php?ref=93756985f728c5889e1bf065a25e003bf1a2c6de",
+                "patch": null
+            },
+            {
+                "sha": "6328389a3a6758c02c73676abf265c60fc1cbdd4",
+                "filename": "version.php",
+                "status": "modified",
+                "additions": 1,
+                "deletions": 1,
+                "changes": 2,
+                "blob_url": "https://github.com/gtn/exacomp/blob/93756985f728c5889e1bf065a25e003bf1a2c6de/version.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/93756985f728c5889e1bf065a25e003bf1a2c6de/version.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/version.php?ref=93756985f728c5889e1bf065a25e003bf1a2c6de",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "45769cfb8b121fa42e5fd4d4aa5276dbc3d7cbf6",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzo0NTc2OWNmYjhiMTIxZmE0MmU1ZmQ0ZDRhYTUyNzZkYmMzZDdjYmY2",
+        "commit": {
+            "author": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T13:29:27Z"
+            },
+            "committer": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T13:29:27Z"
+            },
+            "message": "weekly scheduler",
+            "tree": {
+                "sha": "ff742f83aafaa5cf8b3f85e39ff95d50faa26748",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/ff742f83aafaa5cf8b3f85e39ff95d50faa26748"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/45769cfb8b121fa42e5fd4d4aa5276dbc3d7cbf6",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/45769cfb8b121fa42e5fd4d4aa5276dbc3d7cbf6",
+        "html_url": "https://github.com/gtn/exacomp/commit/45769cfb8b121fa42e5fd4d4aa5276dbc3d7cbf6",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/45769cfb8b121fa42e5fd4d4aa5276dbc3d7cbf6/comments",
+        "author": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "252e6c04d4fadcee02c751910b85a153ba77f066",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/252e6c04d4fadcee02c751910b85a153ba77f066",
+                "html_url": "https://github.com/gtn/exacomp/commit/252e6c04d4fadcee02c751910b85a153ba77f066"
+            }
+        ],
+        "stats": {
+            "total": 1,
+            "additions": 1,
+            "deletions": 0
+        },
+        "files": [
+            {
+                "sha": "98b6fb8219a93f4ec2ebb6cd589fa0f5db460709",
+                "filename": "weekly_schedule.php",
+                "status": "modified",
+                "additions": 1,
+                "deletions": 0,
+                "changes": 1,
+                "blob_url": "https://github.com/gtn/exacomp/blob/45769cfb8b121fa42e5fd4d4aa5276dbc3d7cbf6/weekly_schedule.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/45769cfb8b121fa42e5fd4d4aa5276dbc3d7cbf6/weekly_schedule.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/weekly_schedule.php?ref=45769cfb8b121fa42e5fd4d4aa5276dbc3d7cbf6",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "252e6c04d4fadcee02c751910b85a153ba77f066",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzoyNTJlNmMwNGQ0ZmFkY2VlMDJjNzUxOTEwYjg1YTE1M2JhNzdmMDY2",
+        "commit": {
+            "author": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T09:09:13Z"
+            },
+            "committer": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T09:09:13Z"
+            },
+            "message": "wrong in wording",
+            "tree": {
+                "sha": "7b04b8ddd094eede00a84cdf177b55f0007934da",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/7b04b8ddd094eede00a84cdf177b55f0007934da"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/252e6c04d4fadcee02c751910b85a153ba77f066",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/252e6c04d4fadcee02c751910b85a153ba77f066",
+        "html_url": "https://github.com/gtn/exacomp/commit/252e6c04d4fadcee02c751910b85a153ba77f066",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/252e6c04d4fadcee02c751910b85a153ba77f066/comments",
+        "author": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "52f96cacb5a2822ecb6d6834c45cce010359ddbc",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/52f96cacb5a2822ecb6d6834c45cce010359ddbc",
+                "html_url": "https://github.com/gtn/exacomp/commit/52f96cacb5a2822ecb6d6834c45cce010359ddbc"
+            }
+        ],
+        "stats": {
+            "total": 4,
+            "additions": 2,
+            "deletions": 2
+        },
+        "files": [
+            {
+                "sha": "b5d74e5322a027236c61f3805a296efa3c317859",
+                "filename": "renderer.php",
+                "status": "modified",
+                "additions": 2,
+                "deletions": 2,
+                "changes": 4,
+                "blob_url": "https://github.com/gtn/exacomp/blob/252e6c04d4fadcee02c751910b85a153ba77f066/renderer.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/252e6c04d4fadcee02c751910b85a153ba77f066/renderer.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/renderer.php?ref=252e6c04d4fadcee02c751910b85a153ba77f066",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "52f96cacb5a2822ecb6d6834c45cce010359ddbc",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzo1MmY5NmNhY2I1YTI4MjJlY2I2ZDY4MzRjNDVjY2UwMTAzNTlkZGJj",
+        "commit": {
+            "author": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T08:54:46Z"
+            },
+            "committer": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T08:54:46Z"
+            },
+            "message": "wordings",
+            "tree": {
+                "sha": "bd923c54cb0c1a005134e7834f5eded857db210e",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/bd923c54cb0c1a005134e7834f5eded857db210e"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/52f96cacb5a2822ecb6d6834c45cce010359ddbc",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/52f96cacb5a2822ecb6d6834c45cce010359ddbc",
+        "html_url": "https://github.com/gtn/exacomp/commit/52f96cacb5a2822ecb6d6834c45cce010359ddbc",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/52f96cacb5a2822ecb6d6834c45cce010359ddbc/comments",
+        "author": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "4eca19506f21b0e07613a11d6fefa1d1b0055782",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/4eca19506f21b0e07613a11d6fefa1d1b0055782",
+                "html_url": "https://github.com/gtn/exacomp/commit/4eca19506f21b0e07613a11d6fefa1d1b0055782"
+            }
+        ],
+        "stats": {
+            "total": 85,
+            "additions": 70,
+            "deletions": 15
+        },
+        "files": [
+            {
+                "sha": "f00dfbea344a418f28aefb871f577109d22611ab",
+                "filename": "lang/de/block_exacomp.php",
+                "status": "modified",
+                "additions": 4,
+                "deletions": 0,
+                "changes": 4,
+                "blob_url": "https://github.com/gtn/exacomp/blob/52f96cacb5a2822ecb6d6834c45cce010359ddbc/lang/de/block_exacomp.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/52f96cacb5a2822ecb6d6834c45cce010359ddbc/lang/de/block_exacomp.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/lang/de/block_exacomp.php?ref=52f96cacb5a2822ecb6d6834c45cce010359ddbc",
+                "patch": null
+            },
+            {
+                "sha": "d77a40b14544ca039b2179eb9277e88ebeb06e55",
+                "filename": "lang/en/block_exacomp.php",
+                "status": "modified",
+                "additions": 4,
+                "deletions": 0,
+                "changes": 4,
+                "blob_url": "https://github.com/gtn/exacomp/blob/52f96cacb5a2822ecb6d6834c45cce010359ddbc/lang/en/block_exacomp.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/52f96cacb5a2822ecb6d6834c45cce010359ddbc/lang/en/block_exacomp.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/lang/en/block_exacomp.php?ref=52f96cacb5a2822ecb6d6834c45cce010359ddbc",
+                "patch": null
+            },
+            {
+                "sha": "3227c4edd38ee53fb7a82d4e1cc721a26621867a",
+                "filename": "lang/total.php",
+                "status": "modified",
+                "additions": 16,
+                "deletions": 0,
+                "changes": 16,
+                "blob_url": "https://github.com/gtn/exacomp/blob/52f96cacb5a2822ecb6d6834c45cce010359ddbc/lang/total.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/52f96cacb5a2822ecb6d6834c45cce010359ddbc/lang/total.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/lang/total.php?ref=52f96cacb5a2822ecb6d6834c45cce010359ddbc",
+                "patch": null
+            },
+            {
+                "sha": "4caadccec971a4096c29c096422c20a7af162556",
+                "filename": "renderer.php",
+                "status": "modified",
+                "additions": 46,
+                "deletions": 15,
+                "changes": 61,
+                "blob_url": "https://github.com/gtn/exacomp/blob/52f96cacb5a2822ecb6d6834c45cce010359ddbc/renderer.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/52f96cacb5a2822ecb6d6834c45cce010359ddbc/renderer.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/renderer.php?ref=52f96cacb5a2822ecb6d6834c45cce010359ddbc",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "4eca19506f21b0e07613a11d6fefa1d1b0055782",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzo0ZWNhMTk1MDZmMjFiMGUwNzYxM2ExMWQ2ZmVmYTFkMWIwMDU1Nzgy",
+        "commit": {
+            "author": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T08:04:37Z"
+            },
+            "committer": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-16T08:04:37Z"
+            },
+            "message": "rarely cases: calendar is not shown",
+            "tree": {
+                "sha": "dd87749c1f07e52222411d825a59e8972130a016",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/dd87749c1f07e52222411d825a59e8972130a016"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/4eca19506f21b0e07613a11d6fefa1d1b0055782",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/4eca19506f21b0e07613a11d6fefa1d1b0055782",
+        "html_url": "https://github.com/gtn/exacomp/commit/4eca19506f21b0e07613a11d6fefa1d1b0055782",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/4eca19506f21b0e07613a11d6fefa1d1b0055782/comments",
+        "author": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "3709499e2caf8f41b1cd08d48ffee4ea00d8c9f7",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/3709499e2caf8f41b1cd08d48ffee4ea00d8c9f7",
+                "html_url": "https://github.com/gtn/exacomp/commit/3709499e2caf8f41b1cd08d48ffee4ea00d8c9f7"
+            }
+        ],
+        "stats": {
+            "total": 14,
+            "additions": 7,
+            "deletions": 7
+        },
+        "files": [
+            {
+                "sha": "1d7935f0caa00b408199890aa6a18395ca3bd8c1",
+                "filename": "javascript/weekly_schedule.js",
+                "status": "modified",
+                "additions": 7,
+                "deletions": 7,
+                "changes": 14,
+                "blob_url": "https://github.com/gtn/exacomp/blob/4eca19506f21b0e07613a11d6fefa1d1b0055782/javascript/weekly_schedule.js",
+                "raw_url": "https://github.com/gtn/exacomp/raw/4eca19506f21b0e07613a11d6fefa1d1b0055782/javascript/weekly_schedule.js",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/javascript/weekly_schedule.js?ref=4eca19506f21b0e07613a11d6fefa1d1b0055782",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "3709499e2caf8f41b1cd08d48ffee4ea00d8c9f7",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzozNzA5NDk5ZTJjYWY4ZjQxYjFjZDA4ZDQ4ZmZlZTRlYTAwZDhjOWY3",
+        "commit": {
+            "author": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-15T20:29:32Z"
+            },
+            "committer": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-15T20:29:32Z"
+            },
+            "message": "planning storage wording issue",
+            "tree": {
+                "sha": "67089f14e8eeb1df46738f8b7538706cd30fa04a",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/67089f14e8eeb1df46738f8b7538706cd30fa04a"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/3709499e2caf8f41b1cd08d48ffee4ea00d8c9f7",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/3709499e2caf8f41b1cd08d48ffee4ea00d8c9f7",
+        "html_url": "https://github.com/gtn/exacomp/commit/3709499e2caf8f41b1cd08d48ffee4ea00d8c9f7",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/3709499e2caf8f41b1cd08d48ffee4ea00d8c9f7/comments",
+        "author": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "8f3a2c1c6dbfd035750650b2bbc17f3aaf4e89a1",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/8f3a2c1c6dbfd035750650b2bbc17f3aaf4e89a1",
+                "html_url": "https://github.com/gtn/exacomp/commit/8f3a2c1c6dbfd035750650b2bbc17f3aaf4e89a1"
+            }
+        ],
+        "stats": {
+            "total": 1,
+            "additions": 1,
+            "deletions": 0
+        },
+        "files": [
+            {
+                "sha": "a6be8b84aff0e3efebd256c24531a574a1123b5e",
+                "filename": "lib/lib.php",
+                "status": "modified",
+                "additions": 1,
+                "deletions": 0,
+                "changes": 1,
+                "blob_url": "https://github.com/gtn/exacomp/blob/3709499e2caf8f41b1cd08d48ffee4ea00d8c9f7/lib/lib.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/3709499e2caf8f41b1cd08d48ffee4ea00d8c9f7/lib/lib.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/lib/lib.php?ref=3709499e2caf8f41b1cd08d48ffee4ea00d8c9f7",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "8f3a2c1c6dbfd035750650b2bbc17f3aaf4e89a1",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzo4ZjNhMmMxYzZkYmZkMDM1NzUwNjUwYjJiYmMxN2YzYWFmNGU4OWEx",
+        "commit": {
+            "author": {
+                "name": "Richard Wolfmayr",
+                "email": "richard.wolfmayr@gmail.com",
+                "date": "2020-03-14T13:14:50Z"
+            },
+            "committer": {
+                "name": "Richard Wolfmayr",
+                "email": "richard.wolfmayr@gmail.com",
+                "date": "2020-03-14T13:14:50Z"
+            },
+            "message": "competence profile statistics finished and cleanup",
+            "tree": {
+                "sha": "8eebebb534eaace8e2beacb4c7117a2b6fbd0b8e",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/8eebebb534eaace8e2beacb4c7117a2b6fbd0b8e"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/8f3a2c1c6dbfd035750650b2bbc17f3aaf4e89a1",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/8f3a2c1c6dbfd035750650b2bbc17f3aaf4e89a1",
+        "html_url": "https://github.com/gtn/exacomp/commit/8f3a2c1c6dbfd035750650b2bbc17f3aaf4e89a1",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/8f3a2c1c6dbfd035750650b2bbc17f3aaf4e89a1/comments",
+        "author": {
+            "login": "richardwolfmayr",
+            "id": 24298463,
+            "node_id": "MDQ6VXNlcjI0Mjk4NDYz",
+            "avatar_url": "https://avatars0.githubusercontent.com/u/24298463?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/richardwolfmayr",
+            "html_url": "https://github.com/richardwolfmayr",
+            "followers_url": "https://api.github.com/users/richardwolfmayr/followers",
+            "following_url": "https://api.github.com/users/richardwolfmayr/following{/other_user}",
+            "gists_url": "https://api.github.com/users/richardwolfmayr/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/richardwolfmayr/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/richardwolfmayr/subscriptions",
+            "organizations_url": "https://api.github.com/users/richardwolfmayr/orgs",
+            "repos_url": "https://api.github.com/users/richardwolfmayr/repos",
+            "events_url": "https://api.github.com/users/richardwolfmayr/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/richardwolfmayr/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "richardwolfmayr",
+            "id": 24298463,
+            "node_id": "MDQ6VXNlcjI0Mjk4NDYz",
+            "avatar_url": "https://avatars0.githubusercontent.com/u/24298463?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/richardwolfmayr",
+            "html_url": "https://github.com/richardwolfmayr",
+            "followers_url": "https://api.github.com/users/richardwolfmayr/followers",
+            "following_url": "https://api.github.com/users/richardwolfmayr/following{/other_user}",
+            "gists_url": "https://api.github.com/users/richardwolfmayr/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/richardwolfmayr/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/richardwolfmayr/subscriptions",
+            "organizations_url": "https://api.github.com/users/richardwolfmayr/orgs",
+            "repos_url": "https://api.github.com/users/richardwolfmayr/repos",
+            "events_url": "https://api.github.com/users/richardwolfmayr/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/richardwolfmayr/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "db558b0931a4dc8e4a28e90c8fdc516cdf9fcea2",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/db558b0931a4dc8e4a28e90c8fdc516cdf9fcea2",
+                "html_url": "https://github.com/gtn/exacomp/commit/db558b0931a4dc8e4a28e90c8fdc516cdf9fcea2"
+            }
+        ],
+        "stats": {
+            "total": 78,
+            "additions": 19,
+            "deletions": 59
+        },
+        "files": [
+            {
+                "sha": "d94c89f4a8c62b2ba2fb7cfcfcd1d6076cee3bd7",
+                "filename": "competence_profile.php",
+                "status": "modified",
+                "additions": 1,
+                "deletions": 4,
+                "changes": 5,
+                "blob_url": "https://github.com/gtn/exacomp/blob/8f3a2c1c6dbfd035750650b2bbc17f3aaf4e89a1/competence_profile.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/8f3a2c1c6dbfd035750650b2bbc17f3aaf4e89a1/competence_profile.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/competence_profile.php?ref=8f3a2c1c6dbfd035750650b2bbc17f3aaf4e89a1",
+                "patch": null
+            },
+            {
+                "sha": "9f37d06c132581b96f1cb40482c810123aa7b80d",
+                "filename": "lib/lib.php",
+                "status": "modified",
+                "additions": 18,
+                "deletions": 51,
+                "changes": 69,
+                "blob_url": "https://github.com/gtn/exacomp/blob/8f3a2c1c6dbfd035750650b2bbc17f3aaf4e89a1/lib/lib.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/8f3a2c1c6dbfd035750650b2bbc17f3aaf4e89a1/lib/lib.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/lib/lib.php?ref=8f3a2c1c6dbfd035750650b2bbc17f3aaf4e89a1",
+                "patch": null
+            },
+            {
+                "sha": "0b193f8bb45ccb9c9b127c2f85c76f50e25329d5",
+                "filename": "renderer.php",
+                "status": "modified",
+                "additions": 0,
+                "deletions": 4,
+                "changes": 4,
+                "blob_url": "https://github.com/gtn/exacomp/blob/8f3a2c1c6dbfd035750650b2bbc17f3aaf4e89a1/renderer.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/8f3a2c1c6dbfd035750650b2bbc17f3aaf4e89a1/renderer.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/renderer.php?ref=8f3a2c1c6dbfd035750650b2bbc17f3aaf4e89a1",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "db558b0931a4dc8e4a28e90c8fdc516cdf9fcea2",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzpkYjU1OGIwOTMxYTRkYzhlNGEyOGU5MGM4ZmRjNTE2Y2RmOWZjZWEy",
+        "commit": {
+            "author": {
+                "name": "Richard Wolfmayr",
+                "email": "richard.wolfmayr@gmail.com",
+                "date": "2020-03-13T17:20:05Z"
+            },
+            "committer": {
+                "name": "Richard Wolfmayr",
+                "email": "richard.wolfmayr@gmail.com",
+                "date": "2020-03-13T17:20:05Z"
+            },
+            "message": "competence profile statistics in progress",
+            "tree": {
+                "sha": "026ec51251770e5016f967f318113da660131753",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/026ec51251770e5016f967f318113da660131753"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/db558b0931a4dc8e4a28e90c8fdc516cdf9fcea2",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/db558b0931a4dc8e4a28e90c8fdc516cdf9fcea2",
+        "html_url": "https://github.com/gtn/exacomp/commit/db558b0931a4dc8e4a28e90c8fdc516cdf9fcea2",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/db558b0931a4dc8e4a28e90c8fdc516cdf9fcea2/comments",
+        "author": {
+            "login": "richardwolfmayr",
+            "id": 24298463,
+            "node_id": "MDQ6VXNlcjI0Mjk4NDYz",
+            "avatar_url": "https://avatars0.githubusercontent.com/u/24298463?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/richardwolfmayr",
+            "html_url": "https://github.com/richardwolfmayr",
+            "followers_url": "https://api.github.com/users/richardwolfmayr/followers",
+            "following_url": "https://api.github.com/users/richardwolfmayr/following{/other_user}",
+            "gists_url": "https://api.github.com/users/richardwolfmayr/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/richardwolfmayr/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/richardwolfmayr/subscriptions",
+            "organizations_url": "https://api.github.com/users/richardwolfmayr/orgs",
+            "repos_url": "https://api.github.com/users/richardwolfmayr/repos",
+            "events_url": "https://api.github.com/users/richardwolfmayr/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/richardwolfmayr/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "richardwolfmayr",
+            "id": 24298463,
+            "node_id": "MDQ6VXNlcjI0Mjk4NDYz",
+            "avatar_url": "https://avatars0.githubusercontent.com/u/24298463?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/richardwolfmayr",
+            "html_url": "https://github.com/richardwolfmayr",
+            "followers_url": "https://api.github.com/users/richardwolfmayr/followers",
+            "following_url": "https://api.github.com/users/richardwolfmayr/following{/other_user}",
+            "gists_url": "https://api.github.com/users/richardwolfmayr/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/richardwolfmayr/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/richardwolfmayr/subscriptions",
+            "organizations_url": "https://api.github.com/users/richardwolfmayr/orgs",
+            "repos_url": "https://api.github.com/users/richardwolfmayr/repos",
+            "events_url": "https://api.github.com/users/richardwolfmayr/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/richardwolfmayr/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "fc42d4a36cf7d2a6ef137a8a9c15aa172a9f7d5a",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/fc42d4a36cf7d2a6ef137a8a9c15aa172a9f7d5a",
+                "html_url": "https://github.com/gtn/exacomp/commit/fc42d4a36cf7d2a6ef137a8a9c15aa172a9f7d5a"
+            }
+        ],
+        "stats": {
+            "total": 44,
+            "additions": 26,
+            "deletions": 18
+        },
+        "files": [
+            {
+                "sha": "c413a9fce5fb7e1f476f3cd252614ce3c98bc01d",
+                "filename": "lib/lib.php",
+                "status": "modified",
+                "additions": 25,
+                "deletions": 17,
+                "changes": 42,
+                "blob_url": "https://github.com/gtn/exacomp/blob/db558b0931a4dc8e4a28e90c8fdc516cdf9fcea2/lib/lib.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/db558b0931a4dc8e4a28e90c8fdc516cdf9fcea2/lib/lib.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/lib/lib.php?ref=db558b0931a4dc8e4a28e90c8fdc516cdf9fcea2",
+                "patch": null
+            },
+            {
+                "sha": "798317adda38c4f40386fc53a0566b21b2fc64e3",
+                "filename": "renderer.php",
+                "status": "modified",
+                "additions": 1,
+                "deletions": 1,
+                "changes": 2,
+                "blob_url": "https://github.com/gtn/exacomp/blob/db558b0931a4dc8e4a28e90c8fdc516cdf9fcea2/renderer.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/db558b0931a4dc8e4a28e90c8fdc516cdf9fcea2/renderer.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/renderer.php?ref=db558b0931a4dc8e4a28e90c8fdc516cdf9fcea2",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "fc42d4a36cf7d2a6ef137a8a9c15aa172a9f7d5a",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzpmYzQyZDRhMzZjZjdkMmE2ZWYxMzdhOGE5YzE1YWExNzJhOWY3ZDVh",
+        "commit": {
+            "author": {
+                "name": "Richard Wolfmayr",
+                "email": "richard.wolfmayr@gmail.com",
+                "date": "2020-03-13T16:01:43Z"
+            },
+            "committer": {
+                "name": "Richard Wolfmayr",
+                "email": "richard.wolfmayr@gmail.com",
+                "date": "2020-03-13T16:01:43Z"
+            },
+            "message": "fixed flipped grading circle in exacomp, now is like dakora",
+            "tree": {
+                "sha": "e4251d470f3fe9e6ef4aa601fc9588f6aaf6ebc4",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/e4251d470f3fe9e6ef4aa601fc9588f6aaf6ebc4"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/fc42d4a36cf7d2a6ef137a8a9c15aa172a9f7d5a",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/fc42d4a36cf7d2a6ef137a8a9c15aa172a9f7d5a",
+        "html_url": "https://github.com/gtn/exacomp/commit/fc42d4a36cf7d2a6ef137a8a9c15aa172a9f7d5a",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/fc42d4a36cf7d2a6ef137a8a9c15aa172a9f7d5a/comments",
+        "author": {
+            "login": "richardwolfmayr",
+            "id": 24298463,
+            "node_id": "MDQ6VXNlcjI0Mjk4NDYz",
+            "avatar_url": "https://avatars0.githubusercontent.com/u/24298463?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/richardwolfmayr",
+            "html_url": "https://github.com/richardwolfmayr",
+            "followers_url": "https://api.github.com/users/richardwolfmayr/followers",
+            "following_url": "https://api.github.com/users/richardwolfmayr/following{/other_user}",
+            "gists_url": "https://api.github.com/users/richardwolfmayr/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/richardwolfmayr/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/richardwolfmayr/subscriptions",
+            "organizations_url": "https://api.github.com/users/richardwolfmayr/orgs",
+            "repos_url": "https://api.github.com/users/richardwolfmayr/repos",
+            "events_url": "https://api.github.com/users/richardwolfmayr/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/richardwolfmayr/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "richardwolfmayr",
+            "id": 24298463,
+            "node_id": "MDQ6VXNlcjI0Mjk4NDYz",
+            "avatar_url": "https://avatars0.githubusercontent.com/u/24298463?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/richardwolfmayr",
+            "html_url": "https://github.com/richardwolfmayr",
+            "followers_url": "https://api.github.com/users/richardwolfmayr/followers",
+            "following_url": "https://api.github.com/users/richardwolfmayr/following{/other_user}",
+            "gists_url": "https://api.github.com/users/richardwolfmayr/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/richardwolfmayr/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/richardwolfmayr/subscriptions",
+            "organizations_url": "https://api.github.com/users/richardwolfmayr/orgs",
+            "repos_url": "https://api.github.com/users/richardwolfmayr/repos",
+            "events_url": "https://api.github.com/users/richardwolfmayr/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/richardwolfmayr/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "e4c018ef05a2c77b069e4ea8401d73d4459559b6",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/e4c018ef05a2c77b069e4ea8401d73d4459559b6",
+                "html_url": "https://github.com/gtn/exacomp/commit/e4c018ef05a2c77b069e4ea8401d73d4459559b6"
+            }
+        ],
+        "stats": {
+            "total": 40,
+            "additions": 29,
+            "deletions": 11
+        },
+        "files": [
+            {
+                "sha": "a1246348413d67e9ede27fb1affa0d0b87d25ffd",
+                "filename": "pix/dynamic/ppie.php",
+                "status": "modified",
+                "additions": 27,
+                "deletions": 4,
+                "changes": 31,
+                "blob_url": "https://github.com/gtn/exacomp/blob/fc42d4a36cf7d2a6ef137a8a9c15aa172a9f7d5a/pix/dynamic/ppie.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/fc42d4a36cf7d2a6ef137a8a9c15aa172a9f7d5a/pix/dynamic/ppie.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/pix/dynamic/ppie.php?ref=fc42d4a36cf7d2a6ef137a8a9c15aa172a9f7d5a",
+                "patch": null
+            },
+            {
+                "sha": "b874d349cdcf110a56750fee0f77e49d28a8d6bf",
+                "filename": "renderer.php",
+                "status": "modified",
+                "additions": 2,
+                "deletions": 7,
+                "changes": 9,
+                "blob_url": "https://github.com/gtn/exacomp/blob/fc42d4a36cf7d2a6ef137a8a9c15aa172a9f7d5a/renderer.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/fc42d4a36cf7d2a6ef137a8a9c15aa172a9f7d5a/renderer.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/renderer.php?ref=fc42d4a36cf7d2a6ef137a8a9c15aa172a9f7d5a",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "e4c018ef05a2c77b069e4ea8401d73d4459559b6",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzplNGMwMThlZjA1YTJjNzdiMDY5ZTRlYTg0MDFkNzNkNDQ1OTU1OWI2",
+        "commit": {
+            "author": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-13T12:59:38Z"
+            },
+            "committer": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-13T12:59:38Z"
+            },
+            "message": "bug in: autotest with new model of activity-competence relation",
+            "tree": {
+                "sha": "dc5ab0f3764a113caad3fa94a409fa2e0b4a37eb",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/dc5ab0f3764a113caad3fa94a409fa2e0b4a37eb"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/e4c018ef05a2c77b069e4ea8401d73d4459559b6",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/e4c018ef05a2c77b069e4ea8401d73d4459559b6",
+        "html_url": "https://github.com/gtn/exacomp/commit/e4c018ef05a2c77b069e4ea8401d73d4459559b6",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/e4c018ef05a2c77b069e4ea8401d73d4459559b6/comments",
+        "author": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "9feb955a3c773c258626efb7d1fb70bfb5a3cd06",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/9feb955a3c773c258626efb7d1fb70bfb5a3cd06",
+                "html_url": "https://github.com/gtn/exacomp/commit/9feb955a3c773c258626efb7d1fb70bfb5a3cd06"
+            }
+        ],
+        "stats": {
+            "total": 2,
+            "additions": 1,
+            "deletions": 1
+        },
+        "files": [
+            {
+                "sha": "fa465e9746a92dc4b1274cdd8fea39e57b4eeff2",
+                "filename": "lib/lib.php",
+                "status": "modified",
+                "additions": 1,
+                "deletions": 1,
+                "changes": 2,
+                "blob_url": "https://github.com/gtn/exacomp/blob/e4c018ef05a2c77b069e4ea8401d73d4459559b6/lib/lib.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/e4c018ef05a2c77b069e4ea8401d73d4459559b6/lib/lib.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/lib/lib.php?ref=e4c018ef05a2c77b069e4ea8401d73d4459559b6",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "9feb955a3c773c258626efb7d1fb70bfb5a3cd06",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzo5ZmViOTU1YTNjNzczYzI1ODYyNmVmYjdkMWZiNzBiZmI1YTNjZDA2",
+        "commit": {
+            "author": {
+                "name": "Richard Wolfmayr",
+                "email": "richard.wolfmayr@gmail.com",
+                "date": "2020-03-13T12:40:14Z"
+            },
+            "committer": {
+                "name": "Richard Wolfmayr",
+                "email": "richard.wolfmayr@gmail.com",
+                "date": "2020-03-13T12:40:14Z"
+            },
+            "message": "bugfix topic grading in competence profile",
+            "tree": {
+                "sha": "88bc77f1ededac46d1b40926d8b1934bafe9cf10",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/88bc77f1ededac46d1b40926d8b1934bafe9cf10"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/9feb955a3c773c258626efb7d1fb70bfb5a3cd06",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/9feb955a3c773c258626efb7d1fb70bfb5a3cd06",
+        "html_url": "https://github.com/gtn/exacomp/commit/9feb955a3c773c258626efb7d1fb70bfb5a3cd06",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/9feb955a3c773c258626efb7d1fb70bfb5a3cd06/comments",
+        "author": {
+            "login": "richardwolfmayr",
+            "id": 24298463,
+            "node_id": "MDQ6VXNlcjI0Mjk4NDYz",
+            "avatar_url": "https://avatars0.githubusercontent.com/u/24298463?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/richardwolfmayr",
+            "html_url": "https://github.com/richardwolfmayr",
+            "followers_url": "https://api.github.com/users/richardwolfmayr/followers",
+            "following_url": "https://api.github.com/users/richardwolfmayr/following{/other_user}",
+            "gists_url": "https://api.github.com/users/richardwolfmayr/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/richardwolfmayr/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/richardwolfmayr/subscriptions",
+            "organizations_url": "https://api.github.com/users/richardwolfmayr/orgs",
+            "repos_url": "https://api.github.com/users/richardwolfmayr/repos",
+            "events_url": "https://api.github.com/users/richardwolfmayr/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/richardwolfmayr/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "richardwolfmayr",
+            "id": 24298463,
+            "node_id": "MDQ6VXNlcjI0Mjk4NDYz",
+            "avatar_url": "https://avatars0.githubusercontent.com/u/24298463?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/richardwolfmayr",
+            "html_url": "https://github.com/richardwolfmayr",
+            "followers_url": "https://api.github.com/users/richardwolfmayr/followers",
+            "following_url": "https://api.github.com/users/richardwolfmayr/following{/other_user}",
+            "gists_url": "https://api.github.com/users/richardwolfmayr/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/richardwolfmayr/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/richardwolfmayr/subscriptions",
+            "organizations_url": "https://api.github.com/users/richardwolfmayr/orgs",
+            "repos_url": "https://api.github.com/users/richardwolfmayr/repos",
+            "events_url": "https://api.github.com/users/richardwolfmayr/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/richardwolfmayr/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "595360e11ad71f4f6fabb8e32e21420225ba1aa4",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/595360e11ad71f4f6fabb8e32e21420225ba1aa4",
+                "html_url": "https://github.com/gtn/exacomp/commit/595360e11ad71f4f6fabb8e32e21420225ba1aa4"
+            }
+        ],
+        "stats": {
+            "total": 9,
+            "additions": 8,
+            "deletions": 1
+        },
+        "files": [
+            {
+                "sha": "7362543b764f09d44c78010d6dd028032fe58567",
+                "filename": "renderer.php",
+                "status": "modified",
+                "additions": 8,
+                "deletions": 1,
+                "changes": 9,
+                "blob_url": "https://github.com/gtn/exacomp/blob/9feb955a3c773c258626efb7d1fb70bfb5a3cd06/renderer.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/9feb955a3c773c258626efb7d1fb70bfb5a3cd06/renderer.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/renderer.php?ref=9feb955a3c773c258626efb7d1fb70bfb5a3cd06",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "595360e11ad71f4f6fabb8e32e21420225ba1aa4",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzo1OTUzNjBlMTFhZDcxZjRmNmZhYmI4ZTMyZTIxNDIwMjI1YmExYWE0",
+        "commit": {
+            "author": {
+                "name": "Richard Wolfmayr",
+                "email": "richard.wolfmayr@gmail.com",
+                "date": "2020-03-13T12:04:11Z"
+            },
+            "committer": {
+                "name": "Richard Wolfmayr",
+                "email": "richard.wolfmayr@gmail.com",
+                "date": "2020-03-13T12:04:11Z"
+            },
+            "message": "Merge branch 'experimental' of https://github.com/gtn/exacomp into experimental",
+            "tree": {
+                "sha": "cfea23d16b205c8a4bf73649f95512e314cf57d5",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/cfea23d16b205c8a4bf73649f95512e314cf57d5"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/595360e11ad71f4f6fabb8e32e21420225ba1aa4",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/595360e11ad71f4f6fabb8e32e21420225ba1aa4",
+        "html_url": "https://github.com/gtn/exacomp/commit/595360e11ad71f4f6fabb8e32e21420225ba1aa4",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/595360e11ad71f4f6fabb8e32e21420225ba1aa4/comments",
+        "author": {
+            "login": "richardwolfmayr",
+            "id": 24298463,
+            "node_id": "MDQ6VXNlcjI0Mjk4NDYz",
+            "avatar_url": "https://avatars0.githubusercontent.com/u/24298463?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/richardwolfmayr",
+            "html_url": "https://github.com/richardwolfmayr",
+            "followers_url": "https://api.github.com/users/richardwolfmayr/followers",
+            "following_url": "https://api.github.com/users/richardwolfmayr/following{/other_user}",
+            "gists_url": "https://api.github.com/users/richardwolfmayr/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/richardwolfmayr/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/richardwolfmayr/subscriptions",
+            "organizations_url": "https://api.github.com/users/richardwolfmayr/orgs",
+            "repos_url": "https://api.github.com/users/richardwolfmayr/repos",
+            "events_url": "https://api.github.com/users/richardwolfmayr/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/richardwolfmayr/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "richardwolfmayr",
+            "id": 24298463,
+            "node_id": "MDQ6VXNlcjI0Mjk4NDYz",
+            "avatar_url": "https://avatars0.githubusercontent.com/u/24298463?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/richardwolfmayr",
+            "html_url": "https://github.com/richardwolfmayr",
+            "followers_url": "https://api.github.com/users/richardwolfmayr/followers",
+            "following_url": "https://api.github.com/users/richardwolfmayr/following{/other_user}",
+            "gists_url": "https://api.github.com/users/richardwolfmayr/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/richardwolfmayr/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/richardwolfmayr/subscriptions",
+            "organizations_url": "https://api.github.com/users/richardwolfmayr/orgs",
+            "repos_url": "https://api.github.com/users/richardwolfmayr/repos",
+            "events_url": "https://api.github.com/users/richardwolfmayr/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/richardwolfmayr/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "2806e87dc42160d86f531937b6f2f248a58dcb92",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/2806e87dc42160d86f531937b6f2f248a58dcb92",
+                "html_url": "https://github.com/gtn/exacomp/commit/2806e87dc42160d86f531937b6f2f248a58dcb92"
+            },
+            {
+                "sha": "572d0974a5b4f33b2462a25277fb2ad5b5870728",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/572d0974a5b4f33b2462a25277fb2ad5b5870728",
+                "html_url": "https://github.com/gtn/exacomp/commit/572d0974a5b4f33b2462a25277fb2ad5b5870728"
+            }
+        ],
+        "stats": {
+            "total": 139,
+            "additions": 98,
+            "deletions": 41
+        },
+        "files": [
+            {
+                "sha": "770971253b633d1f5a5341f1917adb255fcb73db",
+                "filename": "lib/lib.php",
+                "status": "modified",
+                "additions": 98,
+                "deletions": 41,
+                "changes": 139,
+                "blob_url": "https://github.com/gtn/exacomp/blob/595360e11ad71f4f6fabb8e32e21420225ba1aa4/lib/lib.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/595360e11ad71f4f6fabb8e32e21420225ba1aa4/lib/lib.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/lib/lib.php?ref=595360e11ad71f4f6fabb8e32e21420225ba1aa4",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "2806e87dc42160d86f531937b6f2f248a58dcb92",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzoyODA2ZTg3ZGM0MjE2MGQ4NmY1MzE5MzdiNmYyZjI0OGE1OGRjYjky",
+        "commit": {
+            "author": {
+                "name": "Richard Wolfmayr",
+                "email": "richard.wolfmayr@gmail.com",
+                "date": "2020-03-13T12:04:08Z"
+            },
+            "committer": {
+                "name": "Richard Wolfmayr",
+                "email": "richard.wolfmayr@gmail.com",
+                "date": "2020-03-13T12:04:08Z"
+            },
+            "message": "competence profile grid in progress",
+            "tree": {
+                "sha": "757b3cf1ece3b3cb9cdae0f8cd5b560d6ae87d23",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/757b3cf1ece3b3cb9cdae0f8cd5b560d6ae87d23"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/2806e87dc42160d86f531937b6f2f248a58dcb92",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/2806e87dc42160d86f531937b6f2f248a58dcb92",
+        "html_url": "https://github.com/gtn/exacomp/commit/2806e87dc42160d86f531937b6f2f248a58dcb92",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/2806e87dc42160d86f531937b6f2f248a58dcb92/comments",
+        "author": {
+            "login": "richardwolfmayr",
+            "id": 24298463,
+            "node_id": "MDQ6VXNlcjI0Mjk4NDYz",
+            "avatar_url": "https://avatars0.githubusercontent.com/u/24298463?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/richardwolfmayr",
+            "html_url": "https://github.com/richardwolfmayr",
+            "followers_url": "https://api.github.com/users/richardwolfmayr/followers",
+            "following_url": "https://api.github.com/users/richardwolfmayr/following{/other_user}",
+            "gists_url": "https://api.github.com/users/richardwolfmayr/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/richardwolfmayr/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/richardwolfmayr/subscriptions",
+            "organizations_url": "https://api.github.com/users/richardwolfmayr/orgs",
+            "repos_url": "https://api.github.com/users/richardwolfmayr/repos",
+            "events_url": "https://api.github.com/users/richardwolfmayr/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/richardwolfmayr/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "richardwolfmayr",
+            "id": 24298463,
+            "node_id": "MDQ6VXNlcjI0Mjk4NDYz",
+            "avatar_url": "https://avatars0.githubusercontent.com/u/24298463?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/richardwolfmayr",
+            "html_url": "https://github.com/richardwolfmayr",
+            "followers_url": "https://api.github.com/users/richardwolfmayr/followers",
+            "following_url": "https://api.github.com/users/richardwolfmayr/following{/other_user}",
+            "gists_url": "https://api.github.com/users/richardwolfmayr/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/richardwolfmayr/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/richardwolfmayr/subscriptions",
+            "organizations_url": "https://api.github.com/users/richardwolfmayr/orgs",
+            "repos_url": "https://api.github.com/users/richardwolfmayr/repos",
+            "events_url": "https://api.github.com/users/richardwolfmayr/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/richardwolfmayr/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "be751350b25a41fe847e5b5ad696faa5c852e75c",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/be751350b25a41fe847e5b5ad696faa5c852e75c",
+                "html_url": "https://github.com/gtn/exacomp/commit/be751350b25a41fe847e5b5ad696faa5c852e75c"
+            }
+        ],
+        "stats": {
+            "total": 133,
+            "additions": 104,
+            "deletions": 29
+        },
+        "files": [
+            {
+                "sha": "992e4fe08a280747a94fdf2bb992424317e692f0",
+                "filename": "competence_profile.php",
+                "status": "modified",
+                "additions": 2,
+                "deletions": 2,
+                "changes": 4,
+                "blob_url": "https://github.com/gtn/exacomp/blob/2806e87dc42160d86f531937b6f2f248a58dcb92/competence_profile.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/2806e87dc42160d86f531937b6f2f248a58dcb92/competence_profile.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/competence_profile.php?ref=2806e87dc42160d86f531937b6f2f248a58dcb92",
+                "patch": null
+            },
+            {
+                "sha": "585f4a9ecbcfc0811a9d2bbf48f4394287e21228",
+                "filename": "lib/lib.php",
+                "status": "modified",
+                "additions": 89,
+                "deletions": 25,
+                "changes": 114,
+                "blob_url": "https://github.com/gtn/exacomp/blob/2806e87dc42160d86f531937b6f2f248a58dcb92/lib/lib.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/2806e87dc42160d86f531937b6f2f248a58dcb92/lib/lib.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/lib/lib.php?ref=2806e87dc42160d86f531937b6f2f248a58dcb92",
+                "patch": null
+            },
+            {
+                "sha": "9dcc8f1b63a83b9353ff978a36f31ecb55b601fc",
+                "filename": "renderer.php",
+                "status": "modified",
+                "additions": 13,
+                "deletions": 2,
+                "changes": 15,
+                "blob_url": "https://github.com/gtn/exacomp/blob/2806e87dc42160d86f531937b6f2f248a58dcb92/renderer.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/2806e87dc42160d86f531937b6f2f248a58dcb92/renderer.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/renderer.php?ref=2806e87dc42160d86f531937b6f2f248a58dcb92",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "572d0974a5b4f33b2462a25277fb2ad5b5870728",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzo1NzJkMDk3NGE1YjRmMzNiMjQ2MmEyNTI3N2ZiMmFkNWI1ODcwNzI4",
+        "commit": {
+            "author": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-13T10:26:50Z"
+            },
+            "committer": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-13T10:27:00Z"
+            },
+            "message": "autotest with new model of activity-competence relation",
+            "tree": {
+                "sha": "ca03b4d10cb99c6251995444ccb980c55c69e0d0",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/ca03b4d10cb99c6251995444ccb980c55c69e0d0"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/572d0974a5b4f33b2462a25277fb2ad5b5870728",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/572d0974a5b4f33b2462a25277fb2ad5b5870728",
+        "html_url": "https://github.com/gtn/exacomp/commit/572d0974a5b4f33b2462a25277fb2ad5b5870728",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/572d0974a5b4f33b2462a25277fb2ad5b5870728/comments",
+        "author": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "be751350b25a41fe847e5b5ad696faa5c852e75c",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/be751350b25a41fe847e5b5ad696faa5c852e75c",
+                "html_url": "https://github.com/gtn/exacomp/commit/be751350b25a41fe847e5b5ad696faa5c852e75c"
+            }
+        ],
+        "stats": {
+            "total": 139,
+            "additions": 98,
+            "deletions": 41
+        },
+        "files": [
+            {
+                "sha": "a3362608dd970fea024f0a8d09aaa2c42ed8c11f",
+                "filename": "lib/lib.php",
+                "status": "modified",
+                "additions": 98,
+                "deletions": 41,
+                "changes": 139,
+                "blob_url": "https://github.com/gtn/exacomp/blob/572d0974a5b4f33b2462a25277fb2ad5b5870728/lib/lib.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/572d0974a5b4f33b2462a25277fb2ad5b5870728/lib/lib.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/lib/lib.php?ref=572d0974a5b4f33b2462a25277fb2ad5b5870728",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "be751350b25a41fe847e5b5ad696faa5c852e75c",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzpiZTc1MTM1MGIyNWE0MWZlODQ3ZTViNWFkNjk2ZmFhNWM4NTJlNzVj",
+        "commit": {
+            "author": {
+                "name": "GTN-FabioPernegger",
+                "email": "fpernegger@gtn-solutions.com",
+                "date": "2020-03-10T15:41:13Z"
+            },
+            "committer": {
+                "name": "GTN-FabioPernegger",
+                "email": "fpernegger@gtn-solutions.com",
+                "date": "2020-03-10T15:41:13Z"
+            },
+            "message": "course select in import",
+            "tree": {
+                "sha": "97df0803e21f19ef808a347d3387f426edda5756",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/97df0803e21f19ef808a347d3387f426edda5756"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/be751350b25a41fe847e5b5ad696faa5c852e75c",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/be751350b25a41fe847e5b5ad696faa5c852e75c",
+        "html_url": "https://github.com/gtn/exacomp/commit/be751350b25a41fe847e5b5ad696faa5c852e75c",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/be751350b25a41fe847e5b5ad696faa5c852e75c/comments",
+        "author": {
+            "login": "FabioPernegger",
+            "id": 22474674,
+            "node_id": "MDQ6VXNlcjIyNDc0Njc0",
+            "avatar_url": "https://avatars1.githubusercontent.com/u/22474674?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/FabioPernegger",
+            "html_url": "https://github.com/FabioPernegger",
+            "followers_url": "https://api.github.com/users/FabioPernegger/followers",
+            "following_url": "https://api.github.com/users/FabioPernegger/following{/other_user}",
+            "gists_url": "https://api.github.com/users/FabioPernegger/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/FabioPernegger/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/FabioPernegger/subscriptions",
+            "organizations_url": "https://api.github.com/users/FabioPernegger/orgs",
+            "repos_url": "https://api.github.com/users/FabioPernegger/repos",
+            "events_url": "https://api.github.com/users/FabioPernegger/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/FabioPernegger/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "FabioPernegger",
+            "id": 22474674,
+            "node_id": "MDQ6VXNlcjIyNDc0Njc0",
+            "avatar_url": "https://avatars1.githubusercontent.com/u/22474674?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/FabioPernegger",
+            "html_url": "https://github.com/FabioPernegger",
+            "followers_url": "https://api.github.com/users/FabioPernegger/followers",
+            "following_url": "https://api.github.com/users/FabioPernegger/following{/other_user}",
+            "gists_url": "https://api.github.com/users/FabioPernegger/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/FabioPernegger/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/FabioPernegger/subscriptions",
+            "organizations_url": "https://api.github.com/users/FabioPernegger/orgs",
+            "repos_url": "https://api.github.com/users/FabioPernegger/repos",
+            "events_url": "https://api.github.com/users/FabioPernegger/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/FabioPernegger/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "d0b2663fef81ea9d1b2612de537c33d3f9f2522c",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/d0b2663fef81ea9d1b2612de537c33d3f9f2522c",
+                "html_url": "https://github.com/gtn/exacomp/commit/d0b2663fef81ea9d1b2612de537c33d3f9f2522c"
+            }
+        ],
+        "stats": {
+            "total": 171,
+            "additions": 26,
+            "deletions": 145
+        },
+        "files": [
+            {
+                "sha": "36e2d4d5d00996a854d1f23513bca6e2d2f4a9fa",
+                "filename": "backup/moodle2/restore_exacomp_activity_stepslib.php",
+                "status": "removed",
+                "additions": 0,
+                "deletions": 63,
+                "changes": 63,
+                "blob_url": "https://github.com/gtn/exacomp/blob/d0b2663fef81ea9d1b2612de537c33d3f9f2522c/backup/moodle2/restore_exacomp_activity_stepslib.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/d0b2663fef81ea9d1b2612de537c33d3f9f2522c/backup/moodle2/restore_exacomp_activity_stepslib.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/backup/moodle2/restore_exacomp_activity_stepslib.php?ref=d0b2663fef81ea9d1b2612de537c33d3f9f2522c",
+                "patch": null
+            },
+            {
+                "sha": "ce2fdd3e59ab35ee4eb89e45923f8243b07708c9",
+                "filename": "backup/moodle2/restore_exacomp_activity_task.class.php",
+                "status": "removed",
+                "additions": 0,
+                "deletions": 73,
+                "changes": 73,
+                "blob_url": "https://github.com/gtn/exacomp/blob/d0b2663fef81ea9d1b2612de537c33d3f9f2522c/backup/moodle2/restore_exacomp_activity_task.class.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/d0b2663fef81ea9d1b2612de537c33d3f9f2522c/backup/moodle2/restore_exacomp_activity_task.class.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/backup/moodle2/restore_exacomp_activity_task.class.php?ref=d0b2663fef81ea9d1b2612de537c33d3f9f2522c",
+                "patch": null
+            },
+            {
+                "sha": "5fdc6e123bdd23bc375315893eb7a385a73d643f",
+                "filename": "backup/moodle2/restore_exacomp_block_task.class.php",
+                "status": "modified",
+                "additions": 4,
+                "deletions": 0,
+                "changes": 4,
+                "blob_url": "https://github.com/gtn/exacomp/blob/be751350b25a41fe847e5b5ad696faa5c852e75c/backup/moodle2/restore_exacomp_block_task.class.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/be751350b25a41fe847e5b5ad696faa5c852e75c/backup/moodle2/restore_exacomp_block_task.class.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/backup/moodle2/restore_exacomp_block_task.class.php?ref=be751350b25a41fe847e5b5ad696faa5c852e75c",
+                "patch": null
+            },
+            {
+                "sha": "9d324052973da896219e8bbda5d571bf5744e331",
+                "filename": "build/services.htm",
+                "status": "modified",
+                "additions": 1,
+                "deletions": 8,
+                "changes": 9,
+                "blob_url": "https://github.com/gtn/exacomp/blob/be751350b25a41fe847e5b5ad696faa5c852e75c/build/services.htm",
+                "raw_url": "https://github.com/gtn/exacomp/raw/be751350b25a41fe847e5b5ad696faa5c852e75c/build/services.htm",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/build/services.htm?ref=be751350b25a41fe847e5b5ad696faa5c852e75c",
+                "patch": null
+            },
+            {
+                "sha": "ce6410e2c0b4f5167f4669833823763443ba57f6",
+                "filename": "import.php",
+                "status": "modified",
+                "additions": 1,
+                "deletions": 1,
+                "changes": 2,
+                "blob_url": "https://github.com/gtn/exacomp/blob/be751350b25a41fe847e5b5ad696faa5c852e75c/import.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/be751350b25a41fe847e5b5ad696faa5c852e75c/import.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/import.php?ref=be751350b25a41fe847e5b5ad696faa5c852e75c",
+                "patch": null
+            },
+            {
+                "sha": "9389d75b470a5e07d5e0381a6d4e8973c5774077",
+                "filename": "lib/lib.php",
+                "status": "modified",
+                "additions": 20,
+                "deletions": 0,
+                "changes": 20,
+                "blob_url": "https://github.com/gtn/exacomp/blob/be751350b25a41fe847e5b5ad696faa5c852e75c/lib/lib.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/be751350b25a41fe847e5b5ad696faa5c852e75c/lib/lib.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/lib/lib.php?ref=be751350b25a41fe847e5b5ad696faa5c852e75c",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "d0b2663fef81ea9d1b2612de537c33d3f9f2522c",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzpkMGIyNjYzZmVmODFlYTlkMWIyNjEyZGU1MzdjMzNkM2Y5ZjI1MjJj",
+        "commit": {
+            "author": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-10T12:16:14Z"
+            },
+            "committer": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-10T12:16:24Z"
+            },
+            "message": "removed activitylist from dakora_get_example_information",
+            "tree": {
+                "sha": "8aa15387f287fa072f5adc67608c8a47d03ea19c",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/8aa15387f287fa072f5adc67608c8a47d03ea19c"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/d0b2663fef81ea9d1b2612de537c33d3f9f2522c",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/d0b2663fef81ea9d1b2612de537c33d3f9f2522c",
+        "html_url": "https://github.com/gtn/exacomp/commit/d0b2663fef81ea9d1b2612de537c33d3f9f2522c",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/d0b2663fef81ea9d1b2612de537c33d3f9f2522c/comments",
+        "author": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "0f46270fb7f76d53a934ebadcef4afce4057fe3d",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/0f46270fb7f76d53a934ebadcef4afce4057fe3d",
+                "html_url": "https://github.com/gtn/exacomp/commit/0f46270fb7f76d53a934ebadcef4afce4057fe3d"
+            }
+        ],
+        "stats": {
+            "total": 4,
+            "additions": 2,
+            "deletions": 2
+        },
+        "files": [
+            {
+                "sha": "45e2b63319a4f345a3fce6c0bdf6477b0668d118",
+                "filename": "externallib.php",
+                "status": "modified",
+                "additions": 2,
+                "deletions": 2,
+                "changes": 4,
+                "blob_url": "https://github.com/gtn/exacomp/blob/d0b2663fef81ea9d1b2612de537c33d3f9f2522c/externallib.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/d0b2663fef81ea9d1b2612de537c33d3f9f2522c/externallib.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/externallib.php?ref=d0b2663fef81ea9d1b2612de537c33d3f9f2522c",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "0f46270fb7f76d53a934ebadcef4afce4057fe3d",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzowZjQ2MjcwZmI3Zjc2ZDUzYTkzNGViYWRjZWY0YWZjZTQwNTdmZTNk",
+        "commit": {
+            "author": {
+                "name": "GTN-FabioPernegger",
+                "email": "fpernegger@gtn-solutions.com",
+                "date": "2020-03-10T10:40:25Z"
+            },
+            "committer": {
+                "name": "GTN-FabioPernegger",
+                "email": "fpernegger@gtn-solutions.com",
+                "date": "2020-03-10T10:40:25Z"
+            },
+            "message": "single activity export implemented",
+            "tree": {
+                "sha": "2458ddb56a2ff5548df803954fe70d0c3c320b5f",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/2458ddb56a2ff5548df803954fe70d0c3c320b5f"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/0f46270fb7f76d53a934ebadcef4afce4057fe3d",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/0f46270fb7f76d53a934ebadcef4afce4057fe3d",
+        "html_url": "https://github.com/gtn/exacomp/commit/0f46270fb7f76d53a934ebadcef4afce4057fe3d",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/0f46270fb7f76d53a934ebadcef4afce4057fe3d/comments",
+        "author": {
+            "login": "FabioPernegger",
+            "id": 22474674,
+            "node_id": "MDQ6VXNlcjIyNDc0Njc0",
+            "avatar_url": "https://avatars1.githubusercontent.com/u/22474674?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/FabioPernegger",
+            "html_url": "https://github.com/FabioPernegger",
+            "followers_url": "https://api.github.com/users/FabioPernegger/followers",
+            "following_url": "https://api.github.com/users/FabioPernegger/following{/other_user}",
+            "gists_url": "https://api.github.com/users/FabioPernegger/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/FabioPernegger/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/FabioPernegger/subscriptions",
+            "organizations_url": "https://api.github.com/users/FabioPernegger/orgs",
+            "repos_url": "https://api.github.com/users/FabioPernegger/repos",
+            "events_url": "https://api.github.com/users/FabioPernegger/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/FabioPernegger/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "FabioPernegger",
+            "id": 22474674,
+            "node_id": "MDQ6VXNlcjIyNDc0Njc0",
+            "avatar_url": "https://avatars1.githubusercontent.com/u/22474674?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/FabioPernegger",
+            "html_url": "https://github.com/FabioPernegger",
+            "followers_url": "https://api.github.com/users/FabioPernegger/followers",
+            "following_url": "https://api.github.com/users/FabioPernegger/following{/other_user}",
+            "gists_url": "https://api.github.com/users/FabioPernegger/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/FabioPernegger/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/FabioPernegger/subscriptions",
+            "organizations_url": "https://api.github.com/users/FabioPernegger/orgs",
+            "repos_url": "https://api.github.com/users/FabioPernegger/repos",
+            "events_url": "https://api.github.com/users/FabioPernegger/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/FabioPernegger/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "9c39a8c529856e609dcdb277d32682afc37f8bab",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/9c39a8c529856e609dcdb277d32682afc37f8bab",
+                "html_url": "https://github.com/gtn/exacomp/commit/9c39a8c529856e609dcdb277d32682afc37f8bab"
+            }
+        ],
+        "stats": {
+            "total": 115,
+            "additions": 85,
+            "deletions": 30
+        },
+        "files": [
+            {
+                "sha": "72e7f4c6922222022266bcc9ec35a8108a379c46",
+                "filename": "activities_to_descriptors.php",
+                "status": "modified",
+                "additions": 23,
+                "deletions": 0,
+                "changes": 23,
+                "blob_url": "https://github.com/gtn/exacomp/blob/0f46270fb7f76d53a934ebadcef4afce4057fe3d/activities_to_descriptors.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/0f46270fb7f76d53a934ebadcef4afce4057fe3d/activities_to_descriptors.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/activities_to_descriptors.php?ref=0f46270fb7f76d53a934ebadcef4afce4057fe3d",
+                "patch": null
+            },
+            {
+                "sha": "0f75011a10b6e1b97d7a07dc05332160211e1bde",
+                "filename": "backup/activity_restore.php",
+                "status": "modified",
+                "additions": 1,
+                "deletions": 1,
+                "changes": 2,
+                "blob_url": "https://github.com/gtn/exacomp/blob/0f46270fb7f76d53a934ebadcef4afce4057fe3d/backup/activity_restore.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/0f46270fb7f76d53a934ebadcef4afce4057fe3d/backup/activity_restore.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/backup/activity_restore.php?ref=0f46270fb7f76d53a934ebadcef4afce4057fe3d",
+                "patch": null
+            },
+            {
+                "sha": "36e2d4d5d00996a854d1f23513bca6e2d2f4a9fa",
+                "filename": "backup/moodle2/restore_exacomp_activity_stepslib.php",
+                "status": "modified",
+                "additions": 1,
+                "deletions": 1,
+                "changes": 2,
+                "blob_url": "https://github.com/gtn/exacomp/blob/0f46270fb7f76d53a934ebadcef4afce4057fe3d/backup/moodle2/restore_exacomp_activity_stepslib.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/0f46270fb7f76d53a934ebadcef4afce4057fe3d/backup/moodle2/restore_exacomp_activity_stepslib.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/backup/moodle2/restore_exacomp_activity_stepslib.php?ref=0f46270fb7f76d53a934ebadcef4afce4057fe3d",
+                "patch": null
+            },
+            {
+                "sha": "ce2fdd3e59ab35ee4eb89e45923f8243b07708c9",
+                "filename": "backup/moodle2/restore_exacomp_activity_task.class.php",
+                "status": "modified",
+                "additions": 2,
+                "deletions": 7,
+                "changes": 9,
+                "blob_url": "https://github.com/gtn/exacomp/blob/0f46270fb7f76d53a934ebadcef4afce4057fe3d/backup/moodle2/restore_exacomp_activity_task.class.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/0f46270fb7f76d53a934ebadcef4afce4057fe3d/backup/moodle2/restore_exacomp_activity_task.class.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/backup/moodle2/restore_exacomp_activity_task.class.php?ref=0f46270fb7f76d53a934ebadcef4afce4057fe3d",
+                "patch": null
+            },
+            {
+                "sha": "f6241209a2e49d213b1b8b65450e31f6bad65063",
+                "filename": "build/services.htm",
+                "status": "modified",
+                "additions": 23,
+                "deletions": 21,
+                "changes": 44,
+                "blob_url": "https://github.com/gtn/exacomp/blob/0f46270fb7f76d53a934ebadcef4afce4057fe3d/build/services.htm",
+                "raw_url": "https://github.com/gtn/exacomp/raw/0f46270fb7f76d53a934ebadcef4afce4057fe3d/build/services.htm",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/build/services.htm?ref=0f46270fb7f76d53a934ebadcef4afce4057fe3d",
+                "patch": null
+            },
+            {
+                "sha": "6c7a6017289e945f7b11c829c637e586d49888a5",
+                "filename": "javascript/activities_to_descriptors.js",
+                "status": "modified",
+                "additions": 35,
+                "deletions": 0,
+                "changes": 35,
+                "blob_url": "https://github.com/gtn/exacomp/blob/0f46270fb7f76d53a934ebadcef4afce4057fe3d/javascript/activities_to_descriptors.js",
+                "raw_url": "https://github.com/gtn/exacomp/raw/0f46270fb7f76d53a934ebadcef4afce4057fe3d/javascript/activities_to_descriptors.js",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/javascript/activities_to_descriptors.js?ref=0f46270fb7f76d53a934ebadcef4afce4057fe3d",
+                "patch": null
+            }
+        ]
+    },
+    {
+        "sha": "9c39a8c529856e609dcdb277d32682afc37f8bab",
+        "node_id": "MDY6Q29tbWl0NDk3MTcxMzo5YzM5YThjNTI5ODU2ZTYwOWRjZGIyNzdkMzI2ODJhZmMzN2Y4YmFi",
+        "commit": {
+            "author": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-10T09:27:06Z"
+            },
+            "committer": {
+                "name": "Sergey Zavarzin",
+                "email": "razawa@ukr.net",
+                "date": "2020-03-10T09:27:06Z"
+            },
+            "message": "dakora_get_all_topics_by_course",
+            "tree": {
+                "sha": "559998e5d64f5f86a981bea3d92ca9bfddb327f9",
+                "url": "https://api.github.com/repos/gtn/exacomp/git/trees/559998e5d64f5f86a981bea3d92ca9bfddb327f9"
+            },
+            "url": "https://api.github.com/repos/gtn/exacomp/git/commits/9c39a8c529856e609dcdb277d32682afc37f8bab",
+            "comment_count": 0,
+            "verification": {
+                "verified": false,
+                "reason": "unsigned",
+                "signature": null,
+                "payload": null
+            }
+        },
+        "url": "https://api.github.com/repos/gtn/exacomp/commits/9c39a8c529856e609dcdb277d32682afc37f8bab",
+        "html_url": "https://github.com/gtn/exacomp/commit/9c39a8c529856e609dcdb277d32682afc37f8bab",
+        "comments_url": "https://api.github.com/repos/gtn/exacomp/commits/9c39a8c529856e609dcdb277d32682afc37f8bab/comments",
+        "author": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "committer": {
+            "login": "razawa",
+            "id": 2575209,
+            "node_id": "MDQ6VXNlcjI1NzUyMDk=",
+            "avatar_url": "https://avatars3.githubusercontent.com/u/2575209?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/razawa",
+            "html_url": "https://github.com/razawa",
+            "followers_url": "https://api.github.com/users/razawa/followers",
+            "following_url": "https://api.github.com/users/razawa/following{/other_user}",
+            "gists_url": "https://api.github.com/users/razawa/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/razawa/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/razawa/subscriptions",
+            "organizations_url": "https://api.github.com/users/razawa/orgs",
+            "repos_url": "https://api.github.com/users/razawa/repos",
+            "events_url": "https://api.github.com/users/razawa/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/razawa/received_events",
+            "type": "User",
+            "site_admin": false
+        },
+        "parents": [
+            {
+                "sha": "d0df88727087da5fc0139e93a1acf6aefe8f17ca",
+                "url": "https://api.github.com/repos/gtn/exacomp/commits/d0df88727087da5fc0139e93a1acf6aefe8f17ca",
+                "html_url": "https://github.com/gtn/exacomp/commit/d0df88727087da5fc0139e93a1acf6aefe8f17ca"
+            }
+        ],
+        "stats": {
+            "total": 33,
+            "additions": 19,
+            "deletions": 14
+        },
+        "files": [
+            {
+                "sha": "b31814a1023f70a18ba5c6628109224fed6b713f",
+                "filename": "externallib.php",
+                "status": "modified",
+                "additions": 19,
+                "deletions": 14,
+                "changes": 33,
+                "blob_url": "https://github.com/gtn/exacomp/blob/9c39a8c529856e609dcdb277d32682afc37f8bab/externallib.php",
+                "raw_url": "https://github.com/gtn/exacomp/raw/9c39a8c529856e609dcdb277d32682afc37f8bab/externallib.php",
+                "contents_url": "https://api.github.com/repos/gtn/exacomp/contents/externallib.php?ref=9c39a8c529856e609dcdb277d32682afc37f8bab",
+                "patch": null
+            }
+        ]
     }
 ]
