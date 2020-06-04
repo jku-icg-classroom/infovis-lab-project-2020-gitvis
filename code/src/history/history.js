@@ -255,6 +255,7 @@ function createDatePicker(new_data){
     });
 
     let datepicker = d3.select("#datepicker");
+    datepicker.html("");
     datepicker.append("br");
     datepicker.append("label").text("From: ");
     datepicker.append("input").attr("type","date").attr("id","fieldMin").attr("value",formatDate(mindate));
