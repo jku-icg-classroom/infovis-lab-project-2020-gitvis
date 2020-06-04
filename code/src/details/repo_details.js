@@ -218,13 +218,22 @@ function _repoUpdateFileTypeChart(repo_data) {
 
     rect.select('title').text(d => d.width + (d.additions ? " Additions" : " Deletions"));
 
-    let maxWidth = 0;
+    //let maxWidth = 0;
     //rd_g_files.selectAll('rect').select('title').text(d => {
     //    console.log(d);
     //    return " hahaha "; 
     //});
-    console.log(maxWidth);
+    //console.log(maxWidth);
     //rd_g_files.attr('transform', `translate(${repo_margin.left + fileTypeSpacing},${repo_margin.top})`);
+
+    rd_g_yaxis_files.selectAll('text')
+                    //.append('div').attr('class', 'tooltip')
+                    //.append('span').attr('class', 'tooltiptext').text(d => map.get(d).additions)
+    .on('mouseover', d => {
+        console.log(map.get(d));
+        return d;
+    });
+    //rd_g_yaxis_files.select('text').select('title').
 }
 
 /**
@@ -232,7 +241,6 @@ function _repoUpdateFileTypeChart(repo_data) {
  * @param {*} flag whether we show or hide the repo details
  */
 function showRepoDetails(flag) {
-    console.log("Repo det");
     d3.select('#details').select('#repo_details').style('display', 
         (flag ? 'block' : 'none')
     );
