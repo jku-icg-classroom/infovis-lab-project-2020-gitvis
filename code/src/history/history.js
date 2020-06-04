@@ -240,8 +240,9 @@ function renderHistoryGraphFromTo() {
 
     createLinesChangedChart();      //#Mike
 
-    // updateHistoryVis(state.filteredData);
 
+    debugger
+    updateHistoryVis(state.filteredData);
     vis(state.filteredData);
 }
 
