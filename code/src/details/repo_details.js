@@ -217,10 +217,10 @@ function _repoUpdateFileTypeChart(repo_data) {
     rect.select('title').text(d => d.width + (d.additions ? " Additions" : " Deletions"));
 
     let maxWidth = 0;
-    rd_g_files.selectAll('rect').select('title').text(d => {
-        console.log(d);
-        return " hahaha "; 
-    });
+    //rd_g_files.selectAll('rect').select('title').text(d => {
+    //    console.log(d);
+    //    return " hahaha "; 
+    //});
     console.log(maxWidth);
     //rd_g_files.attr('transform', `translate(${repo_margin.left + fileTypeSpacing},${repo_margin.top})`);
 }

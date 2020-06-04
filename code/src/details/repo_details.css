@@ -1,12 +1,21 @@
 
+#repo_details {
+    height: 100%;
+}
+
 #repo_adds_dels_chart {
     width: 100%;
-    height: 100%;
+    height: 25%;
     padding: 0;
+}
+
+#repo_files {
+    width: 100%;
+    height: 60%;
 }
 
 #repo_file_chart {
     width: 100%;
-    height: 90%;
+    height: 100%;
     padding: 0;
 }
