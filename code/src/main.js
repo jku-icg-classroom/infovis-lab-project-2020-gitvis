@@ -59,9 +59,9 @@ function createVis() {
         updateHeaderVis(new_data);
         if(!state.historyloaded){
             createDatePicker(new_data);
-            updateHistoryVis(new_data);
             state.historyloaded = true;
         }
+        updateHistoryVis(new_data);
         showRepoDetails(state.selectedCommit === null && state.selectedAuthor === null);    //true = show, false = hide
         updateCommitDetails(state.selectedCommit);    //must be a single commit
         updateAuthorDetailsVis(state.authors, state.selectedAuthor, state.filteredData || state.data);    

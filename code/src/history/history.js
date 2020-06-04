@@ -240,7 +240,9 @@ function renderHistoryGraphFromTo() {
 
     createLinesChangedChart();      //#Mike
 
-    updateHistoryVis(state.filteredData);
+    // updateHistoryVis(state.filteredData);
+
+    vis(state.filteredData);
 }
 
 function createDatePicker(new_data){
