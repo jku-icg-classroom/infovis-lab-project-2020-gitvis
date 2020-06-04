@@ -163,7 +163,7 @@ function _updateChangesChart(authors, author, data) {
 function _updateAddVsDelChart(author, data) {
     const colorScale = d3.scaleOrdinal()
         .domain(['additions', 'deletions'])
-        .range(['#23FFA0', '#FF648E']);
+        .range([COLOR_ADDS, COLOR_DELS]);
 
     let visData = {
         additions: 0,
