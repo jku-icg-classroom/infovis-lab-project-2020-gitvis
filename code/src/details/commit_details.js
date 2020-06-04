@@ -131,13 +131,23 @@ function updateCommitDetails(new_commit) {
 }
 
 function _updateAddsDelsChart(new_commit) {
-    const data = [  { title: "+", width: new_commit.stats.additions }, 
+    let data = [  { title: "+", width: new_commit.stats.additions }, 
                     { title: "-", width: new_commit.stats.deletions } ];
 
+    //check for special case "empty commit"
+    if(new_commit.stats.additions === 0 && new_commit.stats.deletions === 0) {
+        data = [];
+        xscale_ad.domain([0, 0]);
+        yscale_ad.domain(["+", "-"]);
+
+    } else {
+        //update the scales
+        xscale_ad.domain([0, d3.max(data, d => d.width)]);
+        yscale_ad.domain(data.map(d => d.title));
+    }
+
+
     //create visualization
-    //update the scales
-    xscale_ad.domain([0, d3.max(data, d => d.width)]);
-    yscale_ad.domain(data.map(d => d.title));
     //render the axis
     g_xaxis_ad.transition().call(xaxis_ad);
     g_yaxis_ad.transition().call(yaxis_ad);
