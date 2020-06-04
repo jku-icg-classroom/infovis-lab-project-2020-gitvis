@@ -5,7 +5,7 @@ text {
     font-size: 14px;
 }
 
-.node rect {
+.node > rect {
     stroke: #595f61;
     fill: #F5F5F5;
     stroke-width: 2px;
