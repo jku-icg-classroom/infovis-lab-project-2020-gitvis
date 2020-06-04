@@ -20,7 +20,7 @@ function createRepoDetails(visElement) {
     const repoDetailsDiv = visElement.append("div").attr("id", "repo_details");
 
     //create the description part (top) of the commit details
-    const headline = repoDetailsDiv.append('h1').text('Repo Details');
+    const headline = repoDetailsDiv.append('h1').attr("id", "repo_detail_headline").text('Repo Details');
 
 
     _repoCreateAddsDelsChart(repoDetailsDiv);

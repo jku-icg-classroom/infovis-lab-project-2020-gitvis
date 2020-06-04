@@ -1,5 +1,5 @@
 
-const MAX_FILETYPES_PER_CHART = 3;
+const MAX_FILETYPES_PER_CHART = 10;
 
 function preprocessFileTypeMap(map) {
     let sorted_map = new Map([...map.entries()].sort((a, b) => {

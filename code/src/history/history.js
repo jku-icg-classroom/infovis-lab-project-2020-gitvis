@@ -109,7 +109,10 @@ function renderLinesChanged(div, commit, id) {
     ];
     //create visualization
     //const yscale = d3.scaleLinear().range([0, changes]);
-    yscale.domain([0, changes]);
+    if(changes === 0) {
+        yscale.domain([0, 0]);
+    }
+    else yscale.domain([0, changes]);
 
     // Render the chart with new data
     // DATA JOIN use the key argument for ensurign that the same DOM element is bound to the same data-item
