@@ -39,7 +39,7 @@ function createCommitDetailsVis(visElement) {
 
 const cmt_margin = { 
     top: 20,
-    bottom: 0,
+    bottom: 00,
     left: 40,
     right: 0
 };
@@ -146,7 +146,6 @@ function _updateAddsDelsChart(new_commit) {
         yscale_ad.domain(data.map(d => d.title));
     }
 
-
     //create visualization
     //render the axis
     g_xaxis_ad.transition().call(xaxis_ad);
@@ -183,9 +182,8 @@ function _updateAddsDelsChart(new_commit) {
 }
 
 function _updateFileTypeChart(new_commit) {
-    const map = new Map();  // maps each file-type to its number of addtions and deletions
+    let map = new Map();  // maps each file-type to its number of addtions and deletions
 
-    //debugger
     //prepare data for visualizing
     new_commit.files.forEach((f) => {
         const dotIndex = f.filename.lastIndexOf(".");
@@ -205,15 +203,10 @@ function _updateFileTypeChart(new_commit) {
         }
     });
 
-    //sort by descending changes
-    const sorted_map = new Map([...map.entries()].sort((a, b) => {
-        const changesA = a[1].additions + a[1].deletions;
-        const changesB = b[1].additions + b[1].deletions;
-        return changesB - changesA;  
-    }));
+    map = preprocessFileTypeMap(map);
 
     const parsed_data = [];
-    for (const item of sorted_map.values()) {
+    for (const item of map.values()) {
         parsed_data.push({ offset: 0, additions: true, width: item.additions, type: item.type });
         parsed_data.push({ offset: item.additions, additions: false, width: item.deletions, type: item.type });
     }

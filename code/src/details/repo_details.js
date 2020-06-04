@@ -137,7 +137,7 @@ function _repoUpdateAddsDelsChart(repo_data) {
 }
 
 function _repoUpdateFileTypeChart(repo_data) {
-    const map = new Map();  // maps each file-type to its number of addtions and deletions
+    let map = new Map();  // maps each file-type to its number of addtions and deletions
 
     //prepare data for visualizing
     repo_data.forEach(commit => {
@@ -161,14 +161,10 @@ function _repoUpdateFileTypeChart(repo_data) {
     });
 
     //sort by descending changes
-    const sorted_map = new Map([...map.entries()].sort((a, b) => {
-        const changesA = a[1].additions + a[1].deletions;
-        const changesB = b[1].additions + b[1].deletions;
-        return changesB - changesA;  
-    }));
-
+    map = preprocessFileTypeMap(map);
+    
     const parsed_data = [];
-    for (const item of sorted_map.values()) {
+    for (const item of map.values()) {
         //parsed_data.push(item);
         parsed_data.push({ offset: 0, additions: true, width: item.additions, type: item.type });
         parsed_data.push({ offset: item.additions, additions: false, width: item.deletions, type: item.type });
