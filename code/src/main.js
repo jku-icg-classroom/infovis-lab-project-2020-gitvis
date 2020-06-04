@@ -18,11 +18,6 @@ const state = {
 const COLOR_ADDS = "rgb(70, 200, 70)";
 const COLOR_DELS = "rgb(255, 25, 50)";
 
-function filterData() {
-    // filter the raw data according to user selection
-    return state.data;
-}
-
 function wrangleData(filtered) {
     // wrangles the given filtered data to the format required by the visualizations
     filtered.forEach((e, k) => {
@@ -103,11 +98,7 @@ const vis = createVis();
 
 function updateApp() {
     // updates the application
-    const filtered = filterData();
-    const new_data = wrangleData(filtered);
-
-
-
+    const new_data = wrangleData(state.data);
     // update visualization
     vis(new_data);
 }

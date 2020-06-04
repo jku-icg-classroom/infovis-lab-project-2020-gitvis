@@ -6,12 +6,13 @@ function createHeaderVis(parentDiv) {
         .attr("width", "auto");
 
     let datasetsDropdown = parentDiv.append("select")
-        .attr("id", "datasets");
+        .attr("id", "datasets")
+        .attr("onchange","changeDataset()");
     datasetsDropdown.append("option")
-        .attr("value", "d1")
+        .attr("value", "./data/commits_gitvis_20200603.json")
         .text("Dataset 1");
     datasetsDropdown.append("option")
-        .attr("value", "d2")
+        .attr("value", "./data/commits_exacomp_20200528.json")
         .text("Dataset 2");
     datasetsDropdown.append("option")
         .attr("value", "d3")
@@ -22,17 +23,55 @@ function createHeaderVis(parentDiv) {
     authorsDiv.append("div").attr("id", "authors_row");
 }
 
+function changeDataset(){
+    state.data = [];
+    state.filteredData = null;
+    state.details = COMMIT_DETAILS;
+    state.selectedCommit = null;
+    state.selectedAuthor = null;
+    state.authors = [];
+    state.historyloaded = false;
+    state.minDate = new Date(2020, 3, 24);
+    state.maxDate = new Date(2020, 4, 15);
+    state.selectMinDate = new Date();
+    state.selectMaxDate = new Date();
+
+    let selected = document.getElementById("datasets").value;
+
+    d3.json(selected).then((data) => {
+        // load data, e.g. via d3.json and update app afterwards
+
+        data.reverse();
+        console.log(data);
+
+        state.data = data;
+        debugger
+
+        const authors = data.map(e => e.author);
+        const distinctAuthors = Array.from(new Set(authors.map(a => a.id)))
+            .map(id => {
+                return {
+                    ...authors.find(a => a.id === id)
+                }
+            });
+        state.authors = distinctAuthors;
+
+        updateApp();
+    });
+}
+
 function updateHeaderVis(data) {
     // TODO: make this nicer xD
-    d3.select('#authors_row').selectAll("div")
-        .data(state.authors)
+    let avatars = d3.select('#authors_row').selectAll(".author_avatar").data(state.authors);
+    avatars
         .style('background-image', author => 'url(' + author.avatar_url + ')')
         .style('opacity', function (author) {
             if (state.selectedAuthor && state.selectedAuthor.id === author.id) {
                 return 1.0;
             }
             return 0.5;
-        })
+        });
+    avatars
         .enter()
         .append("div")
         .attr('class', 'author_avatar')
@@ -50,4 +89,7 @@ function updateHeaderVis(data) {
                 selectAuthor(author);
             }
         });
+    avatars
+        .exit()
+        .remove();
 }
