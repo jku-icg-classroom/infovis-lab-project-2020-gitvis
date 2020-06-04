@@ -60,6 +60,7 @@ function createVis() {
         if(!state.historyloaded){
             createDatePicker(new_data);
             updateHistoryVis(new_data);
+            updateRepoDetails(new_data);
             state.historyloaded = true;
         }
         showRepoDetails(state.selectedCommit === null && state.selectedAuthor === null);    //true = show, false = hide
@@ -105,7 +106,7 @@ function updateApp() {
     const filtered = filterData();
     const new_data = wrangleData(filtered);
 
-    updateRepoDetails(filtered);    //TODO check if this is the right position; Repo-Details just need to be updated if the repository changes
+
 
     // update visualization
     vis(new_data);

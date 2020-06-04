@@ -243,6 +243,7 @@ function renderHistoryGraphFromTo() {
 
     debugger
     updateHistoryVis(state.filteredData);
+    updateRepoDetails(state.filteredData);    //TODO check if this is the right position; Repo-Details just need to be updated if the repository changes
     vis(state.filteredData);
 }
 
