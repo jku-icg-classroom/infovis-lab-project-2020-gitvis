@@ -39,20 +39,20 @@ function createCommitDetailsVis(visElement) {
 
 const cmt_margin = { 
     top: 20,
-    //bottom: 0,
+    bottom: 0,
     left: 40,
-    //right: 10
+    right: 0
 };
 function _createAddsDelsChart(div) {
     const svg = div.append("svg").attr("id", "adds_dels_chart");
-    const ad_chart = $('#adds_dels_chart');    //get svg as jquery-object
-    const width = ad_chart.width();
-    const height = ad_chart.height();
 
     // Group used to enforce margin
     g_ad = svg.append('g')
             .attr('transform', `translate(${cmt_margin.left},${cmt_margin.top})`);
 
+    const ad_chart = $('#adds_dels_chart');    //get svg as jquery-object
+    const width = ad_chart.width() - cmt_margin.left - cmt_margin.right;
+    const height = ad_chart.height() - cmt_margin.top - cmt_margin.bottom;
     // Scales setup
     xscale_ad = d3.scaleLinear().range([0, width]);
     yscale_ad = d3.scaleBand().rangeRound([0, height]).paddingInner(0.1);
@@ -70,15 +70,15 @@ function _createFileTypeChart(div) {
                 //.attr("width", width)
                 //.attr("height", height);
 
-    const file_chart = $('#file_chart');    //get svg as jquery-object
-    const width = file_chart.width();
-    const height = file_chart.height();
 
     // Group used to enforce cmt_margin
-//    const fileTypeSpacing = 20;     //so the text of the fileTypes isn't cut off
+    const fileTypeSpacing = 20;     //so the text of the fileTypes isn't cut off
     g_files = svg.append('g')
             .attr('transform', `translate(${cmt_margin.left},${cmt_margin.top})`);
 
+    const file_chart = $('#file_chart');    //get svg as jquery-object
+    const width = file_chart.width() - cmt_margin.left - cmt_margin.right - fileTypeSpacing;
+    const height = file_chart.height() - cmt_margin.top - cmt_margin.bottom;
     // Scales setup
     xscale_files = d3.scaleLinear().range([0, width]);
     yscale_files = d3.scaleBand().rangeRound([0, height]).paddingInner(0.1);
@@ -197,15 +197,9 @@ function _updateFileTypeChart(new_commit) {
 
     const parsed_data = [];
     for (const item of map.values()) {
-        //parsed_data.push(item);
         parsed_data.push({ offset: 0, additions: true, width: item.additions, type: item.type });
         parsed_data.push({ offset: item.additions, additions: false, width: item.deletions, type: item.type });
-        //const type = item.type;
-        //const additions = item.additions;
-        //const deletions = item.deletions;
-        //console.log(type + ": +" + additions + ", -" + deletions);
     }
-    //console.log(parsed_data);
 
     //create visualization
     //update the scales

@@ -33,19 +33,19 @@ function createRepoDetails(visElement) {
 }
 const repo_margin = { 
     top: 20,
-    //bottom: 0,
+    bottom: 0,
     left: 40,
-    //right: 10
+    right: 0
 };
 function _repoCreateAddsDelsChart(div) {
     const svg = div.append("svg").attr("id", "repo_adds_dels_chart");
-    const ad_chart = $('#repo_adds_dels_chart');    //get svg as jquery-object
-    const width = ad_chart.width();
-    const height = ad_chart.height();
-
     // Group used to enforce margin
     rd_g_ad = svg.append('g')
             .attr('transform', `translate(${repo_margin.left},${repo_margin.top})`);
+
+    const ad_chart = $('#repo_adds_dels_chart');    //get svg as jquery-object
+    const width = ad_chart.width() - repo_margin.left - repo_margin.right;
+    const height = ad_chart.height() - repo_margin.top - repo_margin.bottom;
 
     // Scales setup
     rd_xscale_ad = d3.scaleLinear().range([0, width]);
@@ -64,15 +64,14 @@ function _repoCreateFileTypeChart(div) {
                 //.attr("width", width)
                 //.attr("height", height);
 
-    const file_chart = $('#repo_file_chart');    //get svg as jquery-object
-    const width = file_chart.width();
-    const height = file_chart.height();
-
     // Group used to enforce repo_margin
     const fileTypeSpacing = 20;     //so the text of the fileTypes isn't cut off
     rd_g_files = svg.append('g')
             .attr('transform', `translate(${repo_margin.left + fileTypeSpacing},${repo_margin.top})`);
 
+    const file_chart = $('#repo_file_chart');    //get svg as jquery-object
+    const width = file_chart.width() - repo_margin.left - repo_margin.right - fileTypeSpacing;
+    const height = file_chart.height() - repo_margin.top - repo_margin.bottom;
     // Scales setup
     rd_xscale_files = d3.scaleLinear().range([0, width]);
     rd_yscale_files = d3.scaleBand().rangeRound([0, height]).paddingInner(0.1);
@@ -138,7 +137,6 @@ function _repoUpdateAddsDelsChart(repo_data) {
 }
 
 function _repoUpdateFileTypeChart(repo_data) {
-
     const map = new Map();  // maps each file-type to its number of addtions and deletions
 
     //debugger
@@ -162,7 +160,6 @@ function _repoUpdateFileTypeChart(repo_data) {
             }
         });
     });
-    
 
     const parsed_data = [];
     for (const item of map.values()) {
@@ -218,6 +215,14 @@ function _repoUpdateFileTypeChart(repo_data) {
         ;
 
     rect.select('title').text(d => d.width + (d.additions ? " Additions" : " Deletions"));
+
+    let maxWidth = 0;
+    rd_g_files.selectAll('rect').select('title').text(d => {
+        console.log(d);
+        return " hahaha "; 
+    });
+    console.log(maxWidth);
+    //rd_g_files.attr('transform', `translate(${repo_margin.left + fileTypeSpacing},${repo_margin.top})`);
 }
 
 /**
