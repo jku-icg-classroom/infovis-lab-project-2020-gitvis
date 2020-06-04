@@ -1,4 +1,3 @@
-
 function createHeaderVis(parentDiv) {
     parentDiv.append("img")
         .attr("src", "img/logo.png")
