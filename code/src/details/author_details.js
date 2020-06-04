@@ -120,7 +120,9 @@ function _updateCommitsChart(authors, author, data) {
         '#ad_contributions_commits_chart',
         commitsPerAuthorAggregated,
         colorScale,
-        pieChartRadiusSmall
+        pieChartRadiusSmall,
+        false,
+        'commits'
     );
 }
 
@@ -156,7 +158,9 @@ function _updateChangesChart(authors, author, data) {
         '#ad_contributions_changes_chart',
         changesPerAuthorAggregated,
         colorScale,
-        pieChartRadiusSmall
+        pieChartRadiusSmall,
+        false,
+        'lines changed'
     );
 }
 
@@ -180,7 +184,8 @@ function _updateAddVsDelChart(author, data) {
         '#ad_add_vs_del_chart',
         visData,
         colorScale,
-        pieChartRadius
+        pieChartRadius,
+        true
     );
 }
 
@@ -239,7 +244,8 @@ function _updateFileTypesChart(author, data) {
         visData,
         colorScale,
         pieChartRadius,
-        true
+        true,
+        'lines changed'
     );
 }
 
@@ -264,8 +270,6 @@ function _createCommitHistoryChart(parentElem) {
         .attr("text-anchor", "middle")
         .style("fill", "#000000")
         .text("Fr");
-
-    // TODO: group for axis/labels?
 }
 
 function _updateCommitHistoryChart(author, data) {
@@ -367,7 +371,7 @@ function _updateCommitHistoryChart(author, data) {
                 text: monthStr,
                 col: curCol
             });
-            
+
             prevMonth = curDate.getMonth();
         }
         if (dayOfWeek === kSunday && prevMonth != curDate.getMonth()) {
@@ -423,9 +427,11 @@ function _updateCommitHistoryChart(author, data) {
         .attr('y', function (d, i) { return d.row * kCellSizeWithPadding; })
         .style('width', kCellSize)
         .style('height', kCellSize)
-        .style('fill', function (d, i) { return cellsColorScale(d.numCommits); });
+        .style('fill', function (d, i) { return cellsColorScale(d.numCommits); })
+        .append('title')
+        .text((d, i) => d.numCommits + ' commits (' + d.day + ')');
     cells.exit().remove();
-    
+
     // update x-axis labels
     let xAxisLabels = svg.selectAll('.x-label')
         .data(xLabels);
@@ -449,7 +455,7 @@ function _createPieChart(parentElem, id, size) {
         .attr('class', 'legend');
 }
 
-function _updatePieChart(id, data, colorScale, radius, showLegend) {
+function _updatePieChart(id, data, colorScale, radius, showLegend, tooltip) {
     showLegend = showLegend || false;
 
     // utility function to compute startAngle and endAngle for every data item 
@@ -480,6 +486,8 @@ function _updatePieChart(id, data, colorScale, radius, showLegend) {
         .attr('class', 'slice')
         .attr('d', arcGenerator)
         .style('fill', d => colorScale(d.data.key))
+        .append('title')
+        .text((d, i) => d.value + ' ' + (tooltip || ''))
         .each(d => { this._current = d; });
     slices.transition()
         .duration(500)
