@@ -14,8 +14,8 @@
     height: 59%;
 }
 
-#repo_details_headline {
-    margin: 0
+#repo_detail_headline {
+    margin-top: 0;
 }
 
 #repo_file_chart {
