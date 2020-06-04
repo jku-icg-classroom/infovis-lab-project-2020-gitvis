@@ -3,7 +3,7 @@ const COMMIT_DETAILS = 1;
 const AUTHOR_DETAILS = 2;
 const state = {
     data: [],
-    filteredData: [],
+    filteredData: null,
     details: COMMIT_DETAILS,
     selectedCommit: null,
     selectedAuthor: null,
@@ -46,8 +46,6 @@ function createVis() {
     createCommitDetailsVis(detailsDiv);
     createAuthorDetailsVis(detailsDiv);
 
-
-
     // split the history and details divs 
     // history div has an initial width of 70%
     // details div has an initial width of 30%
@@ -66,7 +64,7 @@ function createVis() {
         }
         showRepoDetails(state.selectedCommit === null && state.selectedAuthor === null);    //true = show, false = hide
         updateCommitDetails(state.selectedCommit);    //must be a single commit
-        updateAuthorDetailsVis(state.authors, state.selectedAuthor, state.data);    //TODO Elias change to state.filteredData? [by Mike]
+        updateAuthorDetailsVis(state.authors, state.selectedAuthor, state.filteredData || state.data);    
     }
 
     // return the update function to be called
