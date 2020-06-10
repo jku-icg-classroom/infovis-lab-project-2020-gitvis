@@ -233,6 +233,7 @@ function _repoUpdateFileTypeChart(repo_data) {
     //console.log(maxWidth);
     //rd_g_files.attr('transform', `translate(${repo_margin.left + fileTypeSpacing},${repo_margin.top})`);
 
+    repo_bonus_info.text("");
     rd_g_yaxis_files.selectAll('text')
                     //.append('div').attr('class', 'tooltip')
                     //.append('span').attr('class', 'tooltiptext').text(d => map.get(d).additions)

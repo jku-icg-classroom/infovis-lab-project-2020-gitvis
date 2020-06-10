@@ -265,7 +265,7 @@ function _updateFileTypeChart(new_commit) {
 
     rect.select('title').text((d) => d.width + (d.additions ? " Additions" : " Deletions"));
 
-    
+    cmt_bonus_info.text("");
     g_yaxis_files.selectAll('text')
     .on('mouseover', d => {
         const val = map.get(d);
