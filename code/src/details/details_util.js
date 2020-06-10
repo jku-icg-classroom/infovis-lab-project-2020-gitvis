@@ -49,3 +49,12 @@ function aggregateFileTypeMap(map) {
 
     return { map: map, information: information };
 }
+
+function getStepSize(maxXVal) {
+    if(maxXVal < 5) return 1;
+
+    const digits = new String(maxXVal).length;
+    if(digits <= 1) return Math.floor(maxXVal / 4);
+    else if(digits >= 6) return Math.floor(maxXVal / 4);
+    return Math.floor(maxXVal / (10 - digits));
+}

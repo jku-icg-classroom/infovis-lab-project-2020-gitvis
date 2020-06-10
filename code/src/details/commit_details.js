@@ -146,10 +146,16 @@ function _updateAddsDelsChart(new_commit) {
         xscale_ad.domain([0, 0]);
         yscale_ad.domain(["+", "-"]);
 
+        //update ticks
+        xaxis_ad.tickValues([]);    //nothing to show
+
     } else {
         //update the scales
-        xscale_ad.domain([0, d3.max(data, d => d.width)]);
+        const maxXVal = d3.max(data, d => d.width);
+        xscale_ad.domain([0, maxXVal]);
         yscale_ad.domain(data.map(d => d.title));
+        //update ticks
+        xaxis_ad.tickValues(d3.range(0, maxXVal, getStepSize(maxXVal)));
     }
 
     //create visualization
@@ -220,9 +226,12 @@ function _updateFileTypeChart(new_commit) {
 
     //create visualization
     //update the scales
-    xscale_files.domain([0, d3.max(parsed_data, (d) => d.offset + d.width)]);
+    const maxXVal = d3.max(parsed_data, d => d.offset + d.width);
+    xscale_files.domain([0, maxXVal]);
     yscale_files.domain(parsed_data.map(d => d.type));
+
     //render the axis
+    xaxis_files.tickValues(d3.range(0, maxXVal, getStepSize(maxXVal)));
     g_xaxis_files.transition().call(xaxis_files);
     g_yaxis_files.transition().call(yaxis_files);
 

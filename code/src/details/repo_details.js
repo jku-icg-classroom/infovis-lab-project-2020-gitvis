@@ -107,9 +107,12 @@ function _repoUpdateAddsDelsChart(repo_data) {
 
     //create visualization
     //update the scales
-    rd_xscale_ad.domain([0, d3.max(data, d => d.width)]);
+    const maxXVal = d3.max(data, d => d.width);
+    rd_xscale_ad.domain([0, maxXVal]);
     rd_yscale_ad.domain(data.map(d => d.title));
+
     //render the axis
+    rd_xaxis_ad.tickValues(d3.range(0, maxXVal, getStepSize(maxXVal)));
     rd_g_xaxis_ad.transition().call(rd_xaxis_ad);
     rd_g_yaxis_ad.transition().call(rd_yaxis_ad);
 
@@ -173,15 +176,18 @@ function _repoUpdateFileTypeChart(repo_data) {
     const parsed_data = [];
     for (const item of map.values()) {
         //parsed_data.push(item);
-        parsed_data.push({ offset: 0, additions: true, width: item.additions, type: item.type });
-        parsed_data.push({ offset: item.additions, additions: false, width: item.deletions, type: item.type });
+        parsed_data.push({ additions: true,     offset: 0,              width: item.additions, type: item.type });
+        parsed_data.push({ additions: false,    offset: item.additions, width: item.deletions, type: item.type });
     }
 
     //create visualization
     //update the scales
-    rd_xscale_files.domain([0, d3.max(parsed_data, (d) => d.offset + d.width)]);
+    const maxXVal = d3.max(parsed_data, d => d.offset + d.width);
+    rd_xscale_files.domain([0, maxXVal]);
     rd_yscale_files.domain(parsed_data.map(d => d.type));
+
     //render the axis
+    rd_xaxis_files.tickValues(d3.range(0, maxXVal, getStepSize(maxXVal)));
     rd_g_xaxis_files.transition().call(rd_xaxis_files);
     rd_g_yaxis_files.transition().call(rd_yaxis_files);
 
