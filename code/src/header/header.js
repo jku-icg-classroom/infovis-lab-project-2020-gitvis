@@ -9,13 +9,13 @@ function createHeaderVis(parentDiv) {
         .attr("onchange","changeDataset()");
     datasetsDropdown.append("option")
         .attr("value", "./data/commits_gitvis_20200603.json")
-        .text("Dataset 1");
+        .text("GitVis");
     datasetsDropdown.append("option")
         .attr("value", "./data/commits_exacomp_20200528.json")
-        .text("Dataset 2");
+        .text("Exacomp");
     datasetsDropdown.append("option")
-        .attr("value", "d3")
-        .text("Dataset 3");
+        .attr("value", "./data/commits_openlierox_20200609.json")
+        .text("OpenLieroX");
 
     let authorsDiv = parentDiv.append("div").attr("id", "authors");
     authorsDiv.append("h4").attr("id", "authors_label").text("Authors");
