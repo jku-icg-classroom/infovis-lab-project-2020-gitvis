@@ -8,11 +8,14 @@ function preprocessFileTypeMap(map) {
         return changesB - changesA;  
     }));
 
+    let information;
     if(sorted_map.size > MAX_FILETYPES_PER_CHART) {
-        sorted_map = aggregateFileTypeMap(sorted_map);
+        const ret = aggregateFileTypeMap(sorted_map);
+        sorted_map = ret.map;
+        information = ret.information;
     }
 
-    return sorted_map;
+    return { map: sorted_map, information: information };
 }
 
 function aggregateFileTypeMap(map) {
@@ -23,6 +26,8 @@ function aggregateFileTypeMap(map) {
         "additions": 0, 
         "deletions": 0 
     };
+
+    let information = "";
 
     //add the more important fileTypes normally
     for(let i = 0; i < MAX_FILETYPES_PER_CHART-1; i++) {
@@ -36,10 +41,11 @@ function aggregateFileTypeMap(map) {
         const val = item.value;
         others.additions += val.additions;
         others.deletions += val.deletions;
+        information += val.type + "(+" + val.additions + "| -" + val.deletions + ")\n";
 
         item = iterator.next();
     }
     map.set("others", others);
 
-    return map;
+    return { map: map, information: information };
 }

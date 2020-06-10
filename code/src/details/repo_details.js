@@ -15,9 +15,11 @@ let rd_g_xaxis_files;
 let rd_yaxis_files;
 let rd_g_yaxis_files;
 
+let repo_bonus_info;
+
 
 function createRepoDetails(visElement) {
-    const repoDetailsDiv = visElement.append("div").attr("id", "repo_details");
+    const repoDetailsDiv = visElement.append('div').attr("id", "repo_details");
 
     //create the description part (top) of the commit details
     const headline = repoDetailsDiv.append('h1').attr("id", "repo_detail_headline").text('Repo Details');
@@ -30,7 +32,11 @@ function createRepoDetails(visElement) {
     repoDetailsDiv.append("h3").text("File Types");
     const files = repoDetailsDiv.append("div").attr("id", "repo_files");
     _repoCreateFileTypeChart(files);
+
+    repoDetailsDiv.append("span").attr("id", "repo_bonus_info");
+    repo_bonus_info = $('#repo_bonus_info');
 }
+    
 const repo_margin = { 
     top: 20,
     bottom: 0,
@@ -161,7 +167,8 @@ function _repoUpdateFileTypeChart(repo_data) {
     });
 
     //sort by descending changes
-    map = preprocessFileTypeMap(map);
+    const ret = preprocessFileTypeMap(map);
+    map = ret.map;
     
     const parsed_data = [];
     for (const item of map.values()) {
@@ -230,7 +237,13 @@ function _repoUpdateFileTypeChart(repo_data) {
                     //.append('div').attr('class', 'tooltip')
                     //.append('span').attr('class', 'tooltiptext').text(d => map.get(d).additions)
     .on('mouseover', d => {
-        console.log(map.get(d));
+        const val = map.get(d);
+        //show additional information about others as tooltip if possible
+        if(d === "others" && ret.information) repo_bonus_info.prop("title", ret.information);
+        else repo_bonus_info.prop("title", "");
+
+        repo_bonus_info.text(val.type + ": +" + val.additions + " | -" + val.deletions);
+        
         return d;
     });
     //rd_g_yaxis_files.select('text').select('title').

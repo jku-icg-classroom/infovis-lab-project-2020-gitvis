@@ -14,6 +14,9 @@ let xaxis_files;
 let g_xaxis_files;
 let yaxis_files;
 let g_yaxis_files;
+
+let cmt_bonus_info;
+
 function createCommitDetailsVis(visElement) {
     const commitDetailsDiv = visElement.append("div").attr("id", "cmt_details");
 
@@ -35,6 +38,9 @@ function createCommitDetailsVis(visElement) {
     commitDetailsDiv.append("h3").text("File Types");
     const files = commitDetailsDiv.append("div").attr("id", "cmt_files");
     _createFileTypeChart(files);
+
+    commitDetailsDiv.append("span").attr("id", "cmt_bonus_info");
+    cmt_bonus_info = $('#cmt_bonus_info');
 }
 
 const cmt_margin = { 
@@ -203,7 +209,8 @@ function _updateFileTypeChart(new_commit) {
         }
     });
 
-    map = preprocessFileTypeMap(map);
+    const ret = preprocessFileTypeMap(map);
+    map = ret.map;
 
     const parsed_data = [];
     for (const item of map.values()) {
@@ -223,9 +230,6 @@ function _updateFileTypeChart(new_commit) {
         .domain(d3.entries(map.values()).map(d => d.type))
         .range(d3.schemeCategory10);
     colorScale('php');  //don't ask me why, but if I delete this line, the coloring doesn't work anymore.............................
-
-
-
 
     // Render the chart with new data
     // DATA JOIN use the key argument for ensurign that the same DOM element is bound to the same data-item
@@ -260,6 +264,19 @@ function _updateFileTypeChart(new_commit) {
         .attr('x', d => xscale_files(d.offset));
 
     rect.select('title').text((d) => d.width + (d.additions ? " Additions" : " Deletions"));
+
+    
+    g_yaxis_files.selectAll('text')
+    .on('mouseover', d => {
+        const val = map.get(d);
+        //show additional information about others as tooltip if possible
+        if(d === "others" && ret.information) cmt_bonus_info.prop("title", ret.information);
+        else cmt_bonus_info.prop("title", "");
+
+        cmt_bonus_info.text(val.type + ": +" + val.additions + " | -" + val.deletions);
+        
+        return d;
+    });
 }
 
 function _updateRepoOverview() {
