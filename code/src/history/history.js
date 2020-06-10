@@ -81,12 +81,8 @@ function createLinesChangedChart() {
 
 }
 
-function updateChartScales(data) {
-    let maxChanges = 1;  //we need to know the maximum amount of changes a commit of the repo had
-    data.forEach(commit => {
-        const changes = commit.stats.additions + commit.stats.deletions;
-        if(changes > maxChanges) maxChanges = changes;
-    });
+function updateChartScales(data) {    
+    const maxChanges = d3.max(data, commit => commit.stats.additions + commit.stats.deletions) || 1;    //if somehow d3 can't calculate a maximum (e.x. data is empty) we set it to 1
     xscale.domain([1, maxChanges]); //start with 1 because 0 is not allowed for log
 }
 
@@ -107,11 +103,9 @@ function renderLinesChanged(div, commit, id) {
         { adds: true, y: 0, height: commit.stats.additions, width: changes },
         { adds: false, y: adds, height: commit.stats.deletions, width: changes }
     ];
+
     //create visualization
-    //const yscale = d3.scaleLinear().range([0, changes]);
-    if(changes === 0) {
-        yscale.domain([0, 0]);
-    }
+    if(changes === 0) return;   //nothing to show
     else yscale.domain([0, changes]);
 
     // Render the chart with new data

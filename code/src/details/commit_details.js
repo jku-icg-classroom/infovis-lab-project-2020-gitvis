@@ -242,7 +242,9 @@ function _updateFileTypeChart(new_commit) {
 
     // Render the chart with new data
     // DATA JOIN use the key argument for ensurign that the same DOM element is bound to the same data-item
-    const rect = g_files.selectAll('rect').data(parsed_data, d => d.type + (d.additions ? '_a' : '_d')).join(
+    const rect = g_files.selectAll('rect').data(
+        maxXVal === 0 ? [] : //nothing to show
+        parsed_data, d => d.type + (d.additions ? '_a' : '_d')).join(
         // ENTER
         // new elements
         (enter) => {
