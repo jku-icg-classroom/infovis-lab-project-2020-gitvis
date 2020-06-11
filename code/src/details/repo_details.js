@@ -15,8 +15,9 @@ let rd_g_xaxis_files;
 let rd_yaxis_files;
 let rd_g_yaxis_files;
 
+let repo_ad_chart;
+let repo_file_chart;
 let repo_bonus_info;
-
 
 function createRepoDetails(visElement) {
     const repoDetailsDiv = visElement.append('div').attr("id", "repo_details");
@@ -39,23 +40,21 @@ function createRepoDetails(visElement) {
     
 const repo_margin = { 
     top: 20,
-    bottom: 0,
-    left: 40,
-    right: 0
+    bottom: 10,
+    left: 50,
+    right: 20
 };
 function _repoCreateAddsDelsChart(div) {
     const svg = div.append("svg").attr("id", "repo_adds_dels_chart");
+    repo_ad_chart = $('#repo_adds_dels_chart');    //get svg as jquery-object
+
     // Group used to enforce margin
     rd_g_ad = svg.append('g')
             .attr('transform', `translate(${repo_margin.left},${repo_margin.top})`);
 
-    const ad_chart = $('#repo_adds_dels_chart');    //get svg as jquery-object
-    const width = ad_chart.width() - repo_margin.left - repo_margin.right;
-    const height = ad_chart.height() - repo_margin.top - repo_margin.bottom;
-
     // Scales setup
-    rd_xscale_ad = d3.scaleLinear().range([0, width]);
-    rd_yscale_ad = d3.scaleBand().rangeRound([0, height]).paddingInner(0.1);
+    rd_xscale_ad = d3.scaleLinear();//.range([0, width]);
+    rd_yscale_ad = d3.scaleBand();//.rangeRound([0, height]).paddingInner(0.1);
 
     // Axis setup
     rd_xaxis_ad = d3.axisTop().scale(rd_xscale_ad);
@@ -69,18 +68,15 @@ function _repoCreateFileTypeChart(div) {
                 .attr("id", "repo_file_chart");
                 //.attr("width", width)
                 //.attr("height", height);
-
+    repo_file_chart = $('#repo_file_chart');    //get svg as jquery-object
+    
     // Group used to enforce repo_margin
-    const fileTypeSpacing = 20;     //so the text of the fileTypes isn't cut off
     rd_g_files = svg.append('g')
-            .attr('transform', `translate(${repo_margin.left + fileTypeSpacing},${repo_margin.top})`);
+            .attr('transform', `translate(${repo_margin.left},${repo_margin.top})`);
 
-    const file_chart = $('#repo_file_chart');    //get svg as jquery-object
-    const width = file_chart.width() - repo_margin.left - repo_margin.right - fileTypeSpacing;
-    const height = file_chart.height() - repo_margin.top - repo_margin.bottom;
     // Scales setup
-    rd_xscale_files = d3.scaleLinear().range([0, width]);
-    rd_yscale_files = d3.scaleBand().rangeRound([0, height]).paddingInner(0.1);
+    rd_xscale_files = d3.scaleLinear();//.range([0, width]);
+    rd_yscale_files = d3.scaleBand();//.rangeRound([0, height]).paddingInner(0.1);
 
     // Axis setup
     rd_xaxis_files = d3.axisTop().scale(rd_xscale_files);
@@ -95,6 +91,12 @@ function updateRepoDetails(data) {
 }
 
 function _repoUpdateAddsDelsChart(repo_data) {
+    const width = repo_ad_chart.width() - cmt_margin.left - cmt_margin.right;
+    const height = repo_ad_chart.height() - cmt_margin.top - cmt_margin.bottom;
+    // Scales setup - paddingInner so the content doesn't overlap with the axis-lines
+    rd_xscale_ad.range([0, width]);//.paddingInner(0.1);
+    rd_yscale_ad.range([0, height]);
+
     let adds = 0;
     let dels = 0;
     repo_data.forEach(commit => {
@@ -146,6 +148,12 @@ function _repoUpdateAddsDelsChart(repo_data) {
 }
 
 function _repoUpdateFileTypeChart(repo_data) {
+    const width = repo_file_chart.width() - cmt_margin.left - cmt_margin.right;
+    const height = repo_file_chart.height() - cmt_margin.top - cmt_margin.bottom;
+    // Scales setup - paddingInner so the content doesn't overlap with the axis-lines
+    rd_xscale_files.range([0, width]);//.paddingInner(0.1);
+    rd_yscale_files.range([0, height]);
+
     let map = new Map();  // maps each file-type to its number of addtions and deletions
 
     //prepare data for visualizing

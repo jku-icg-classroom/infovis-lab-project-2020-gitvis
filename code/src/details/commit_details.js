@@ -15,6 +15,8 @@ let g_xaxis_files;
 let yaxis_files;
 let g_yaxis_files;
 
+let ad_chart;   //additions-deletions-chart div as jquery element
+let file_chart; //filetype-chart div as jquery element
 let cmt_bonus_info;
 
 function createCommitDetailsVis(visElement) {
@@ -45,23 +47,21 @@ function createCommitDetailsVis(visElement) {
 
 const cmt_margin = { 
     top: 20,
-    bottom: 00,
-    left: 40,
-    right: 0
+    bottom: 20,
+    left: 50,
+    right: 20
 };
 function _createAddsDelsChart(div) {
     const svg = div.append("svg").attr("id", "adds_dels_chart");
+    ad_chart = $('#adds_dels_chart');    //get svg as jquery-object
 
     // Group used to enforce margin
     g_ad = svg.append('g')
             .attr('transform', `translate(${cmt_margin.left},${cmt_margin.top})`);
 
-    const ad_chart = $('#adds_dels_chart');    //get svg as jquery-object
-    const width = ad_chart.width() - cmt_margin.left - cmt_margin.right;
-    const height = ad_chart.height() - cmt_margin.top - cmt_margin.bottom;
     // Scales setup
-    xscale_ad = d3.scaleLinear().range([0, width]);
-    yscale_ad = d3.scaleBand().rangeRound([0, height]).paddingInner(0.1);
+    xscale_ad = d3.scaleLinear();
+    yscale_ad = d3.scaleBand();
 
     // Axis setup
     xaxis_ad = d3.axisTop().scale(xscale_ad);
@@ -75,19 +75,15 @@ function _createFileTypeChart(div) {
                 .attr("id", "file_chart");
                 //.attr("width", width)
                 //.attr("height", height);
-
+    file_chart = $('#file_chart');    //get svg as jquery-object
 
     // Group used to enforce cmt_margin
-    const fileTypeSpacing = 20;     //so the text of the fileTypes isn't cut off
     g_files = svg.append('g')
             .attr('transform', `translate(${cmt_margin.left},${cmt_margin.top})`);
 
-    const file_chart = $('#file_chart');    //get svg as jquery-object
-    const width = file_chart.width() - cmt_margin.left - cmt_margin.right - fileTypeSpacing;
-    const height = file_chart.height() - cmt_margin.top - cmt_margin.bottom;
     // Scales setup
-    xscale_files = d3.scaleLinear().range([0, width]);
-    yscale_files = d3.scaleBand().rangeRound([0, height]).paddingInner(0.1);
+    xscale_files = d3.scaleLinear();
+    yscale_files = d3.scaleBand();
 
     // Axis setup
     xaxis_files = d3.axisTop().scale(xscale_files);
@@ -137,6 +133,13 @@ function updateCommitDetails(new_commit) {
 }
 
 function _updateAddsDelsChart(new_commit) {
+    const width = ad_chart.width() - cmt_margin.left - cmt_margin.right;
+    const height = ad_chart.height() - cmt_margin.top - cmt_margin.bottom;
+    // Scales setup - paddingInner so the content doesn't overlap with the axis-lines
+    xscale_ad.range([0, width]);//.paddingInner(0.1);
+    yscale_ad.range([0, height]);
+
+
     let data = [  { title: "+", width: new_commit.stats.additions }, 
                     { title: "-", width: new_commit.stats.deletions } ];
 
@@ -194,6 +197,12 @@ function _updateAddsDelsChart(new_commit) {
 }
 
 function _updateFileTypeChart(new_commit) {
+    const width = file_chart.width() - cmt_margin.left - cmt_margin.right;
+    const height = file_chart.height() - cmt_margin.top - cmt_margin.bottom;
+    // Scales setup - paddingInner so the content doesn't overlap with the axis-lines
+    xscale_files.range([0, width]);//.paddingInner(0.1);
+    yscale_files.range([0, height]);
+
     let map = new Map();  // maps each file-type to its number of addtions and deletions
 
     //prepare data for visualizing
@@ -274,8 +283,23 @@ function _updateFileTypeChart(new_commit) {
         .attr('y', d => yscale_files(d.type))
         .attr('x', d => xscale_files(d.offset));
 
-    rect.select('title').text((d) => d.width + (d.additions ? " Additions" : " Deletions"));
 
+    rect.select('title').text(d => {
+        const text = d.width + (d.additions ? " Additions" : " Deletions");
+        //if(text.length > maxCharacters) maxCharacters = text.length;
+        return text;
+    });
+
+
+    let maxCharacters = 1;
+    g_yaxis_files.selectAll('text').text(d => {
+        if(d.length > maxCharacters) maxCharacters = d.length;
+        return d;
+    });
+    const translateX = maxCharacters * 10 + 7 + 10;
+    console.log(translateX);
+
+    
     cmt_bonus_info.text("");
     g_yaxis_files.selectAll('text')
     .on('mouseover', d => {
@@ -288,6 +312,7 @@ function _updateFileTypeChart(new_commit) {
         
         return d;
     });
+    
 }
 
 function _updateRepoOverview() {
