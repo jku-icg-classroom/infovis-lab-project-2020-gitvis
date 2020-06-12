@@ -34,7 +34,7 @@ function createRepoDetails(visElement) {
     const files = repoDetailsDiv.append("div").attr("id", "repo_files");
     _repoCreateFileTypeChart(files);
 
-    repoDetailsDiv.append("span").attr("id", "repo_bonus_info");
+    repoDetailsDiv.append("span").attr("id", "repo_bonus_info").attr("class", "bonus-info");
     repo_bonus_info = $('#repo_bonus_info');
 }
     

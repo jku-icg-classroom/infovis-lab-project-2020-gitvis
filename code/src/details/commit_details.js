@@ -41,7 +41,7 @@ function createCommitDetailsVis(visElement) {
     const files = commitDetailsDiv.append("div").attr("id", "cmt_files");
     _createFileTypeChart(files);
 
-    commitDetailsDiv.append("span").attr("id", "cmt_bonus_info");
+    commitDetailsDiv.append("span").attr("id", "cmt_bonus_info").attr("class", "bonus-info");
     cmt_bonus_info = $('#cmt_bonus_info');
 }
 
