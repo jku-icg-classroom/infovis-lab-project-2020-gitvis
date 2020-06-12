@@ -49,7 +49,7 @@ const cmt_margin = {
     top: 20,
     bottom: 20,
     left: 50,
-    right: 20
+    right: 30
 };
 function _createAddsDelsChart(div) {
     const svg = div.append("svg").attr("id", "adds_dels_chart");
