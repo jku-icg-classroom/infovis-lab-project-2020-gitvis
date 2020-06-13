@@ -46,7 +46,7 @@ function createVis() {
     // details div has an initial width of 30%
     // split allows to resize both divs horizontally using the mouse 
     Split(['#history', '#details'], {
-        sizes: [70, 30],
+        sizes: [60, 40],
     });
 
     function update(new_data) {

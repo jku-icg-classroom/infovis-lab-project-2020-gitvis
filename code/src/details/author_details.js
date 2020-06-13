@@ -91,7 +91,7 @@ function updateAuthorDetailsVis(authors, author, data) {
 function _updateCommitsChart(authors, author, data) {
     const colorScale = d3.scaleOrdinal()
         .domain(['a', 'b'])
-        .range(['#64ACFF', '#F9F9F9']);
+        .range(['#64ACFF', '#D7DFDF']);
 
     const authorCommitsInitial = authors.reduce((acc, cur) => {
         acc["" + cur.id] = 0;
@@ -129,7 +129,7 @@ function _updateCommitsChart(authors, author, data) {
 function _updateChangesChart(authors, author, data) {
     const colorScale = d3.scaleOrdinal()
         .domain(['a', 'b'])
-        .range(['#64ACFF', '#F9F9F9']);
+        .range(['#64ACFF', '#D7DFDF']);
 
     const authorChangesInitial = authors.reduce((acc, cur) => {
         acc["" + cur.id] = 0;
@@ -420,6 +420,8 @@ function _updateCommitHistoryChart(author, data) {
         .style('width', kCellSize)
         .style('height', kCellSize)
         .style('fill', function (d, i) { return cellsColorScale(d.numCommits); });
+    cells.select('title')
+        .text((d, i) => d.numCommits + ' commits (' + d.day + ')');
     cells.enter()
         .append('rect')
         .attr('class', 'cell')
@@ -480,6 +482,8 @@ function _updatePieChart(id, data, colorScale, radius, showLegend, tooltip) {
         .data(arcAngles)
         .attr('d', arcGenerator)
         .style('fill', d => colorScale(d.data.key));
+    slices.select('title')
+        .text((d, i) => d.value + ' ' + (tooltip || ''));
     slices
         .enter()
         .append('path')
