@@ -40,8 +40,6 @@ p {display: table}
 div {display: table}
 
 #history {
-    /* TODO: delete bec Split library handles width */
-    /*width: 70%;*/
     height: 100%;
     background-color: #F9FBFB;
     float: left;
@@ -51,8 +49,6 @@ div {display: table}
 #details {
     position: relative;
     float: left;
-    /* TODO: delete bec Split library handles width */
-    /* width: 30%; */
     height: 100%;
     background-color: #F9FBFB;
 }
