@@ -19,7 +19,7 @@ function createAuthorDetailsVis(parentDiv) {
     const profileDivNames = profileDiv.append('div')
         .attr('id', 'ad_profile_row_names');
     profileDivNames.append('span').attr('id', 'ad_name');
-    profileDivNames.append('span').attr('id', 'ad_github');
+    profileDivNames.append('a').attr('id', 'ad_github');
 
     // how many commits the author made compared to all other authors 
     const contributionsDiv = root.append('div')
@@ -77,7 +77,9 @@ function updateAuthorDetailsVis(authors, author, data) {
     // basic profile informations about the author 
     d3.select('#ad_avatar').style('background-image', 'url(' + author.avatar_url + ')');
     d3.select('#ad_name').text(author.login);
-    d3.select('#ad_github').text(author.html_url);
+    d3.select('#ad_github')
+        .attr('href', author.html_url)
+        .text(author.html_url);
 
     _updateCommitsChart(authors, author, data);
     _updateChangesChart(authors, author, data);
