@@ -43,7 +43,7 @@ div {display: table}
     /* TODO: delete bec Split library handles width */
     /*width: 70%;*/
     height: 100%;
-    background-color: #FFFFFF;
+    background-color: #F9FBFB;
     float: left;
 }
 
@@ -54,7 +54,7 @@ div {display: table}
     /* TODO: delete bec Split library handles width */
     /* width: 30%; */
     height: 100%;
-    background-color: white;
+    background-color: #F9FBFB;
 }
 
 body {
