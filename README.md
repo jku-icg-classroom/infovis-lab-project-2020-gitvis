@@ -359,7 +359,8 @@ So the user goal "Which commit(s) possibly caused the bug" is fulfilled, but the
 * How does the solution enable users to answer the tasks?
 * What are the findings and insights from the dataset?
 
-[* Which developer committed at what time: This can be seen in the author details in the tilemap as well as in the history where a daterange can be selected.
+[
+* Which developer committed at what time: This can be seen in the author details in the tilemap as well as in the history where a daterange can be selected.
 * Which commit possibly caused the bug: This can be seen by taking a look at which files where changed in a commit. The user clicks a commit and then sees the filetype barcharts in the details.
 
 * The dataset is less complex than we expected. Even more data would be useful, for example having deeper information about the changes in the files, not only "add" and "delete".]
