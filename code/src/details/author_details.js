@@ -313,7 +313,6 @@ function _updateCommitHistoryChart(author, data) {
         numDays = 140;
     }
 
-    // TODO: show exactly 20 weeks ???
     if (numDays < 140) {
         // determine the new startDate for a 20 week history
         let newStartDate = new Date(endDate);
