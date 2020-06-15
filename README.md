@@ -208,7 +208,7 @@ comparing two commits can be done in an instant.
 ### Commit Detail Vis
 At the top of the commit details view are textual details of the commit. This includes title/description, author and date of the commit. 
 Also the number of additions and deletions is shown as bar graph (same data as in the node, but with two bars comparing is easier than with the stacked bars in the node).
-Beneath this is a detailed section of the different file types. With a stacked bar chart the additions and deletions for each file type are visualized. The types are located on the y-axis so the width of the bars encodes the number of additions/deletions. To further 
+Beneath this is a detailed section of the different file types. With a stacked the additions and deletions for each file type are visualized. The types are located on the y-axis so the width of the bars encodes the number of additions/deletions. To further 
 differentiate between the bars, the types have different hues and the additions are slightly brighter than the deletions.
 
 ### Author Detail Vis
@@ -232,7 +232,70 @@ Visualizations that are being used:
 * Which external libraries and/or resources did you use?
 * Additional information about the implementation
 
-[TODO]
+[The dashboard is split into three main areas: header, history, details
+The main.js is the core of the code where everything is initialized. The js code and the css-files for the actual visulizations of these areas are in three respective folders.
+Main:
+Variables: 
+-state: Contains all the globally needed variables like data, currently selected commit and author, selected date, etc.
+-various constants
+Functions:
+-createVis: Appends the html elements for the three areas, calls the functions for creating the visualizations, update function.
+-various small functions
+
+Header:
+It shows a list of all authors that contributed to the repository. From this list the user can select an author to view more details about this authors contributions to the repository. The header also contains a dropdown list to switch between different datasets.  
+
+History:
+The history is resposible for creating the datepicker and the interactive graph for the currently selected repository. The graph structure is rendered with dagreD3 which takes care of the layout, the inner HTML of the nodes showing detailed information is created with pure d3.
+Variables:
+-a few variables for the html-elements, height and widht, zoom
+-the graph and the dagreD3-renderer
+Functions:
+-createHistoryVis: appends the elements to the history-div and initializes the dagre-d3 graph.
+-updateHistoryVis: iterates over all  commits and creates the visualization for each node. Creates a node for each commit, adds it to the dagreD3 graph structure and renders it.
+-renderAfterDagreRender: small tweaks to the visualization inside the nodes after letting dagre-d3 do the rendering of the graph.
+-renderLinesChanged: renders the stacked bar chart for every node.
+-updateChartScales: updates the scale for the lineschanged bar chart.
+-createDatePicker: gets the min and max date of the current dataset and creates a datepicker with these as preset values.
+-renderHistoryGraphFromTo: renders only the correct nodes after datePicker has been used.
+-formatDate: helperfunction for easier formatting of date.
+
+Details:
+Commit details:
+The commit details shows the presented information of the selected node in more details. It consists of three parts:
+- at the top you can see author, date and title/description,
+- in the middle you can see a bar chart showing the number of additions and deletions of the commit,
+- and at the bottom you can see the number of additions and deletions for specific file types
+
+Variables:
+- axis, scales, groups etc. needed for the bar charts (2 sets, 1 for additions-deletions and 1 for file types)
+- some constants like margin
+
+Functions:
+- createCommitDetailsVis: builds the html-structure for the three parts and initializes the visualization variables; it is split into 2 functions: 1 for additions-deletions and 1 for file types
+- updateCommitDetails: parses the data into the needed format, updates scales and updates (enter, update, remove) the d3-presented data; again split into 2 functions
+
+Repo details:
+The repo details use the same visualizations as the commit details, but instead of a single commit it uses the data of the whole repository. Also there is no further description like author (there is no real author and we decided not to use the creator of the repository), title (already in the header) or date.
+Variables:
+- axis, scales, groups etc. needed for the bar charts (2 sets, 1 for additions-deletions and 1 for file types)
+- some constants like margin
+Functions:
+- createRepoDetails: builds the html-structure for the two parts and initializes the visualization variables; it is split into 2 functions: 1 for additions-deletions and 1 for file types
+- updateRepoDetails: parses the data into the needed format, updates scales and updates (enter, update, remove) the d3-presented data; again split into 2 functions
+- showRepoDetails: contrary to commit details, repo details don't need to update everytime they are shown. Only at the beginning or if the repository is changed, the data needs to be up
+
+
+-getrepojson.html
+This is a small tool for creating our datasets by using git-api. 
+It gets the commits in a certain timeperiod, iterates over them and gets the details of which files have been changed how.
+
+Used libraries:
+-jquery.js
+-split.js
+-dagreD3.js
+-d3.js
+]
 
 ## Limitations
 
