@@ -106,7 +106,7 @@ d3.select().on('click', () => {
 })
 
 // d3.json("./data/commits_exacomp_20200528.json").then((data) => {
-d3.json("./data/commits_gitvis_20200603.json").then((data) => {
+d3.json("./data/commits_gitvis_20200615.json").then((data) => {
     // load data, e.g. via d3.json and update app afterwards
 
     data.reverse();

@@ -8,7 +8,7 @@ function createHeaderVis(parentDiv) {
         .attr("id", "datasets")
         .attr("onchange","changeDataset()");
     datasetsDropdown.append("option")
-        .attr("value", "./data/commits_gitvis_20200603.json")
+        .attr("value", "./data/commits_gitvis_20200615.json")
         .text("GitVis");
     datasetsDropdown.append("option")
         .attr("value", "./data/commits_exacomp_20200528.json")

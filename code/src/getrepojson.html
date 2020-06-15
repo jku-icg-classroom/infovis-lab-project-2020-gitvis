@@ -8,11 +8,16 @@
 <p class="mypanel"></p>
 
 <script>
-    var untildate = new Date("2015-09-18");
-    var sincedate = new Date(untildate);
-    sincedate.setDate(sincedate.getDate() - 1000);
+    // var untildate = new Date("2020-06-05");
+    // // var sincedate = new Date(untildate);
+    // // sincedate.setDate(sincedate.getDate() - 4);
+    // var sincedate = new Date("2020-06-02");
 
 
+
+
+    var untildate = new Date("2020-06-16");
+    var sincedate = new Date("2020-06-12");
 
     var until = untildate.toISOString();
     var since = sincedate.toISOString();
@@ -26,19 +31,19 @@
 
 
     // var webservice = "https://api.github.com/repos/gtn/exacomp/commits?sha=experimental&since="+since+"&until="+until;
-    // var webservice = "https://api.github.com/repos/jku-icg-classroom/infovis-lab-project-2020-gitvis/commits?sha=master&since="+since+"&until="+until;
-    var webservice = "https://api.github.com/repos/albertz/openlierox/commits?sha=0.59&since="+since+"&until="+until;
+    var webservice = "https://api.github.com/repos/jku-icg-classroom/infovis-lab-project-2020-gitvis/commits?sha=master&since="+since+"&until="+until;
+    // var webservice = "https://api.github.com/repos/albertz/openlierox/commits?sha=0.59&since="+since+"&until="+until;
 
     //document.write(webservice);
     d3.json(webservice, function(commits) {
         var queue = d3.queue();
         var text = "[<br>";
 
-        commits = commits.slice(0,4);
+        commits = commits.slice(0,25);
         commits.forEach(function(singlecommit){
             // queue.defer(d3.json,'https://api.github.com/repos/gtn/exacomp/commits/'+singlecommit.sha);
-            // queue.defer(d3.json,'https://api.github.com/repos/jku-icg-classroom/infovis-lab-project-2020-gitvis/commits/'+singlecommit.sha);
-            queue.defer(d3.json,'https://api.github.com/repos/albertz/openlierox/commits/'+singlecommit.sha);
+            queue.defer(d3.json,'https://api.github.com/repos/jku-icg-classroom/infovis-lab-project-2020-gitvis/commits/'+singlecommit.sha);
+            // queue.defer(d3.json,'https://api.github.com/repos/albertz/openlierox/commits/'+singlecommit.sha);
         });
 
         queue.awaitAll(function(error,details) {
