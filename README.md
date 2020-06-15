@@ -277,11 +277,9 @@ The commit details shows the presented information of the selected node in more 
 * in the middle you can see a bar chart showing the number of additions and deletions of the commit,
 * and at the bottom you can see the number of additions and deletions for specific file types
 
-
 Variables:
 * axis, scales, groups etc. needed for the bar charts (2 sets, 1 for additions-deletions and 1 for file types)
 * some constants like margin
-
 
 Functions:
 * createCommitDetailsVis: builds the html-structure for the three parts and initializes the visualization variables; it is split into 2 functions: 1 for additions-deletions and 1 for file types
@@ -290,9 +288,11 @@ Functions:
 #### Repo details:
 
 The repo details use the same visualizations as the commit details, but instead of a single commit it uses the data of the whole repository. Also there is no further description like author (there is no real author and we decided not to use the creator of the repository), title (already in the header) or date.
+
 Variables:
 * axis, scales, groups etc. needed for the bar charts (2 sets, 1 for additions-deletions and 1 for file types)
 * some constants like margin
+
 Functions:
 * createRepoDetails: builds the html-structure for the two parts and initializes the visualization variables; it is split into 2 functions: 1 for additions-deletions and 1 for file types
 * updateRepoDetails: parses the data into the needed format, updates scales and updates (enter, update, remove) the d3-presented data; again split into 2 functions
