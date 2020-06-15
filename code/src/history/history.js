@@ -211,15 +211,6 @@ function createHistoryVis(visElement){
     });
     dagresvg.call(zoom);
 
-
-
-
-    // // Center the graph
-    // var xCenterOffset = (svg.attr("width") - gr.graph().width) / 2;
-    // dagresvggroup.attr("transform", "translate(" + xCenterOffset + ", 20)");
-    // dagresvg.attr("height", gr.graph().height + 40);
-
-
     createLinesChangedChart();      //#Mike
 }
 

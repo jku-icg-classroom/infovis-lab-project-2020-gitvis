@@ -55,7 +55,6 @@ function createVis() {
         if(!state.historyloaded){
             createDatePicker(new_data);
             updateHistoryVis(new_data);
-            debugger
             updateRepoDetails(new_data);
             state.historyloaded = true;
         }
