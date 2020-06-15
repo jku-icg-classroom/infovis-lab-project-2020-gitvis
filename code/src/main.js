@@ -71,8 +71,6 @@ function selectCommit(commit) {
     state.selectedCommit = commit;
     state.selectedAuthor = null;
     state.details = COMMIT_DETAILS;
-
-    // TODO: avoid updating whole vis?
     updateApp();
 }
 
@@ -80,8 +78,6 @@ function selectAuthor(author) {
     state.selectedAuthor = author;
     state.selectedCommit = null;
     state.details = AUTHOR_DETAILS;
-
-    // TODO: avoid updating whole vis?
     updateApp();
 }
 
