@@ -253,20 +253,22 @@ It shows a list of all authors that contributed to the repository. From this lis
 
 ### History:
 
-The history is resposible for creating the datepicker and the interactive graph for the currently selected repository. The graph structure is rendered with dagreD3 which takes care of the layout, the inner HTML of the nodes showing detailed information is created with pure d3.
+The history is responsible for creating the datepicker and the interactive graph for the currently selected repository. The graph structure is rendered with dagreD3 which takes care of the layout. The inner HTML of the nodes showing overview information is created with pure d3.
+The whole graph is draggable and zoomable. When a node is clicked, the details view is updated with the date of this node. With the datepicker the user can choose to only show part of the data.
+
 Variables:
-* a few variables for the html-elements, height and widht, zoom
+* a few variables for the HTML-elements, height and width, variable for storing zoom when reloading the graph
 * the graph and the dagreD3-renderer
+
 Functions:
 * createHistoryVis: appends the elements to the history-div and initializes the dagre-d3 graph.
-* updateHistoryVis: iterates over all  commits and creates the visualization for each node. Creates a node for each commit, adds it to the dagreD3 graph structure and renders it.
+* updateHistoryVis: iterates over all commits and creates the visualization of the overview information for each node. Creates a node for each commit, adds it to the dagreD3 graph structure, and renders it.
 * renderAfterDagreRender: small tweaks to the visualization inside the nodes after letting dagre-d3 do the rendering of the graph.
 * renderLinesChanged: renders the stacked bar chart for every node.
 * updateChartScales: updates the scale for the lineschanged bar chart.
 * createDatePicker: gets the min and max date of the current dataset and creates a datepicker with these as preset values.
 * renderHistoryGraphFromTo: renders only the correct nodes after datePicker has been used.
-* formatDate: helperfunction for easier formatting of date.
-
+* formatDate: helper function for easier formatting of date.
 
 ### Details:
 
