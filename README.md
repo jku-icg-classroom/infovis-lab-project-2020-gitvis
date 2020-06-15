@@ -208,7 +208,7 @@ comparing two commits can be done in an instant.
 ### Commit Detail Vis
 At the top of the commit details view are textual details of the commit. This includes title/description, author and date of the commit. 
 Also the number of additions and deletions is shown as bar graph (same data as in the node, but with two bars comparing is easier than with the stacked bars in the node).
-Beneath this is a detailed section of the different file types. With a stacked bar chart the additions and deletions for each file type are visualized. The types are located on the y-axis so the width of the bars encodes the number of additions/deletions. To further 
+Beneath this is a detailed section of the different file types. With a stacked the additions and deletions for each file type are visualized. The types are located on the y-axis so the width of the bars encodes the number of additions/deletions. To further 
 differentiate between the bars, the types have different hues and the additions are slightly brighter than the deletions.
 
 ### Author Detail Vis
@@ -232,24 +232,169 @@ Visualizations that are being used:
 * Which external libraries and/or resources did you use?
 * Additional information about the implementation
 
-[TODO]
+The dashboard is split into three main areas: header, history, details
+The main.js is the core of the code where everything is initialized. The js code and the css-files for the actual visulizations of these areas are in three respective folders.
+
+### Main:
+
+Variables: 
+
+- state: Contains all the globally needed variables like data, currently selected commit and author, selected date, etc.
+- various constants
+
+Functions:
+
+- createVis: Appends the html elements for the three areas, calls the functions for creating the visualizations, update function.
+- various small functions
+
+### Header:
+
+It shows a list of all authors that contributed to the repository. From this list the user can select an author to view more details about this authors contributions to the repository. The header also contains a dropdown list to switch between different datasets.  
+
+### History:
+
+The history is resposible for creating the datepicker and the interactive graph for the currently selected repository. The graph structure is rendered with dagreD3 which takes care of the layout, the inner HTML of the nodes showing detailed information is created with pure d3.
+Variables:
+* a few variables for the html-elements, height and widht, zoom
+* the graph and the dagreD3-renderer
+Functions:
+* createHistoryVis: appends the elements to the history-div and initializes the dagre-d3 graph.
+* updateHistoryVis: iterates over all  commits and creates the visualization for each node. Creates a node for each commit, adds it to the dagreD3 graph structure and renders it.
+* renderAfterDagreRender: small tweaks to the visualization inside the nodes after letting dagre-d3 do the rendering of the graph.
+* renderLinesChanged: renders the stacked bar chart for every node.
+* updateChartScales: updates the scale for the lineschanged bar chart.
+* createDatePicker: gets the min and max date of the current dataset and creates a datepicker with these as preset values.
+* renderHistoryGraphFromTo: renders only the correct nodes after datePicker has been used.
+* formatDate: helperfunction for easier formatting of date.
+
+
+### Details:
+
+#### Commit details:
+
+The commit details shows the presented information of the selected node in more details. It consists of three parts:
+* at the top you can see author, date and title/description,
+* in the middle you can see a bar chart showing the number of additions and deletions of the commit,
+* and at the bottom you can see the number of additions and deletions for specific file types
+
+
+Variables:
+* axis, scales, groups etc. needed for the bar charts (2 sets, 1 for additions-deletions and 1 for file types)
+* some constants like margin
+
+
+Functions:
+* createCommitDetailsVis: builds the html-structure for the three parts and initializes the visualization variables; it is split into 2 functions: 1 for additions-deletions and 1 for file types
+* updateCommitDetails: parses the data into the needed format, updates scales and updates (enter, update, remove) the d3-presented data; again split into 2 functions
+
+#### Repo details:
+
+The repo details use the same visualizations as the commit details, but instead of a single commit it uses the data of the whole repository. Also there is no further description like author (there is no real author and we decided not to use the creator of the repository), title (already in the header) or date.
+Variables:
+* axis, scales, groups etc. needed for the bar charts (2 sets, 1 for additions-deletions and 1 for file types)
+* some constants like margin
+Functions:
+* createRepoDetails: builds the html-structure for the two parts and initializes the visualization variables; it is split into 2 functions: 1 for additions-deletions and 1 for file types
+* updateRepoDetails: parses the data into the needed format, updates scales and updates (enter, update, remove) the d3-presented data; again split into 2 functions
+* showRepoDetails: contrary to commit details, repo details don't need to update everytime they are shown. Only at the beginning or if the repository is changed, the data needs to be up
+
+Since commit details and repo details are so similar, there is an additional details_util.js that handles the following:
+* sorting the file types so the type with the most changes (additions + deletions) is at the top
+* aggregating some file types to an "others"-type if there are more than 10 different file types in the current data (commit or repository). This makes the bar chart easier to grasp and by hovering over "others" you can still see the additions and deletions of the file types that are in others. others are always at the bottom, regardless of the previous sorting.
+* calculating the step size for the ticks on the x-axis of the bar charts
+
+
+
+#### Author Details:
+
+Creates and updates the author details for the currently selected author (if any). 
+It uses primarily pie charts to visualize the respective data.
+Additionally, it uses a tile map to visualize the author´s commit frequency 
+in the last 20 weeks.  
+
+Important methods: 
+
+* updatePieChart
+Updates the piechart with a given ID. 
+First it uses the d3.pie() function to compute the startAngle and endAngle for each data item.
+These angles are later used as data for visualizing the single piechart slices.
+Each of these angle pairs will be visualized using d3.arc() which helps build 
+arc shapes from these angles. 
+Changes in the data are being animated, by interpolating between the old and new 
+angle values, which gives a smooth piechart slice animation.  
+Optionally, a tooltip text can be passed to this method which will
+ be displayed when the user hovers over a piechart slice (in addition to the data value).
+Optionally, a legend can be shown next to the piechart for the different data items. 
+
+ 
+* updateCommitsChart
+Processes the data such that for every author it collects how many commits he has made. 
+Finally aggregates all other authors (i.e. all except the author whose details are being visualized) 
+into an 'others' option.
+* updateChangesChart
+Processes the data such that for every author it collects how many changes he has made. 
+Finally aggregates all other authors (i.e. all except the author whose details are being visualized) 
+into an 'others' option.  
+* updateFileTypesChart
+Pre-processes the data and updates the pie chart. 
+First it collects all the files that the author has commited to. 
+For each of these files it extracts the filetype and stores for each filetype the 
+number of occurances. Finally, if it´s more than five filetypes, it will take 
+the four most frequently changed filetypes by the author and aggregate all other 
+filetypes into an 'others' option. 
+ 
+* updateCommitHistoryChart
+Probably the most complicated method of all mentioned.
+First it pre-processes the data. 
+It aggregates the authors commit data such that for every day it contains the number of commits for that author. 
+Then it computes the intervall of days that should be visualized (spaning over 140 days). 
+In order to properly visualize the single tiles (or cells) it stores the row and column in 
+the tilemap in addition to the number of commits for that data item (i.e. day). 
+Finally, based on these filtered, aggregated and mapped data items it updates 
+the tilemap visualization and adds tooltips to show the exact number of commits 
+for the tile (i.e. day) that is being hovered by the user.
+
+
+### -getrepojson.html
+This is a small tool for creating our datasets by using git-api. 
+It gets the commits in a certain timeperiod, iterates over them and gets the details of which files have been changed how.
+
+### Used libraries:
+* jquery.js
+* split.js
+* dagreD3.js
+* d3.js
+
 
 ## Limitations
 
 * What are the limitations of your solution?
 * Is there anything that a user could not achieve from the given user tasks? Why? What is missing and how must the prototype be improved?
 
-[TODO]
+[
+* The most significant limitation is that the user cannot see which files have actually been changed, and what has been changed in those files.
+So the user goal "Which commit(s) possibly caused the bug" is fulfilled, but the user has to use a different software, e.g. GitHub to actually FIND this bug. This is one thing that we would implement for sure if this would be developed further.
+* Cannot compare authors directly: 
+  In hindsight it would be very interesting to compare different authors side-by-side.
+  This would make comparing authors much more easier. 
+* The same filetype may have different colors in different charts: e.g. the .php might be blue in commit details and green in repo  details and red in author details. In order to solve this we would need a global color scale which supports every existing filetype of the repository - which could be far too many, which is why we haven't found a solution yet.
+* The piecharts for lineschanged might be missleading. If a committer adds and deletes a huge file, e.g. a library, then this makes them look like a huge contributor.
+]
 
 ## Findings and Insights
 
 * How does the solution enable users to answer the tasks?
 * What are the findings and insights from the dataset?
 
-[TODO]
+[* Which developer committed at what time: This can be seen in the author details in the tilemap as well as in the history where a daterange can be selected.
+* Which commit possibly caused the bug: This can be seen by taking a look at which files where changed in a commit. The user clicks a commit and then sees the filetype barcharts in the details.
+
+* The dataset is less complex than we expected. Even more data would be useful, for example having deeper information about the changes in the files, not only "add" and "delete".]
 
 ## Conclusion
 
 * What is your conclusion?
 
-[TODO]
+[Feedback from colleagues suggests that this visualization is mainly useful for exploration and entertainment, like comparing each others commit to lineschanged ratio. You can find out some interesting things about yourself and your fellow commiters, but not so much about bugs.
+
+Future development could go more into the direction of gamification, e.g. having a highscore list for the authors who have the most lines added.]
