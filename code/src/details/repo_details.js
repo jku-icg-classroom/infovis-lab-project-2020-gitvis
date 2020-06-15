@@ -85,16 +85,14 @@ function _repoCreateFileTypeChart(div) {
     rd_g_yaxis_files = rd_g_files.append('g').attr('class','y axis');
 }
 
-let repo_initial_update = true;
 function updateRepoDetails(data) {
     _repoUpdateAddsDelsChart(data);
     _repoUpdateFileTypeChart(data);
-    if(repo_initial_update) repo_initial_update = false;
 }
 
 function _repoUpdateAddsDelsChart(repo_data) {
     //the first call happens before the divs have the correct sizes, so we can't use them
-    if(repo_initial_update) {
+    if(!state.historyloaded) {
         const width = 380 - cmt_margin.left - cmt_margin.right;
         const height = 200 - cmt_margin.top - cmt_margin.bottom;
         rd_xscale_ad.range([0, width]);//.paddingInner(0.1);
@@ -160,7 +158,7 @@ function _repoUpdateAddsDelsChart(repo_data) {
 
 function _repoUpdateFileTypeChart(repo_data) {
     //the first call happens before the divs have the correct sizes, so we can't use them
-    if(repo_initial_update) {
+    if(!state.historyloaded) {
         const width = 380 - cmt_margin.left - cmt_margin.right;
         const height = 480 - cmt_margin.top - cmt_margin.bottom;
         // Scales setup - paddingInner so the content doesn't overlap with the axis-lines

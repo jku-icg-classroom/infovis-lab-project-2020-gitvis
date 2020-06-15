@@ -11,7 +11,7 @@
     var untildate = new Date("2015-09-18");
     var sincedate = new Date(untildate);
     sincedate.setDate(sincedate.getDate() - 1000);
-    debugger
+
 
 
     var until = untildate.toISOString();
@@ -33,7 +33,7 @@
     d3.json(webservice, function(commits) {
         var queue = d3.queue();
         var text = "[<br>";
-        debugger
+
         commits = commits.slice(0,4);
         commits.forEach(function(singlecommit){
             // queue.defer(d3.json,'https://api.github.com/repos/gtn/exacomp/commits/'+singlecommit.sha);

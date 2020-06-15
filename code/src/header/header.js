@@ -35,6 +35,7 @@ function changeDataset(){
     state.selectMinDate = new Date();
     state.selectMaxDate = new Date();
 
+
     let selected = document.getElementById("datasets").value;
 
     d3.json(selected).then((data) => {
@@ -44,7 +45,7 @@ function changeDataset(){
         console.log(data);
 
         state.data = data;
-        debugger
+
 
         const authors = data.map(e => e.author);
         const distinctAuthors = Array.from(new Set(authors.map(a => a.id)))
