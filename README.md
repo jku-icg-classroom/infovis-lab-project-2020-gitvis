@@ -306,54 +306,26 @@ Since commit details and repo details are so similar, there is an additional det
 
 
 #### Author Details:
-
 Creates and updates the author details for the currently selected author (if any). 
 It uses primarily pie charts to visualize the respective data.
-Additionally, it uses a tile map to visualize the author´s commit frequency 
-in the last 20 weeks.  
+Additionally, it uses a tile map to visualize the author´s commit frequency in the last 20 weeks.  
 
 Important methods: 
-
-* updatePieChart
-Updates the piechart with a given ID. 
+* updatePieChart: Updates the piechart with a given ID. 
 First it uses the d3.pie() function to compute the startAngle and endAngle for each data item.
 These angles are later used as data for visualizing the single piechart slices.
-Each of these angle pairs will be visualized using d3.arc() which helps build 
-arc shapes from these angles. 
-Changes in the data are being animated, by interpolating between the old and new 
-angle values, which gives a smooth piechart slice animation.  
-Optionally, a tooltip text can be passed to this method which will
- be displayed when the user hovers over a piechart slice (in addition to the data value).
+Each of these angle pairs will be visualized using d3.arc() which helps build arc shapes from these angles. 
+Changes in the data are being animated, by interpolating between the old and new angle values, which gives a smooth piechart slice animation. Optionally, a tooltip text can be passed to this method which will be displayed when the user hovers over a piechart slice (in addition to the data value).
 Optionally, a legend can be shown next to the piechart for the different data items. 
-
- 
-* updateCommitsChart
-Processes the data such that for every author it collects how many commits he has made. 
-Finally aggregates all other authors (i.e. all except the author whose details are being visualized) 
-into an 'others' option.
-* updateChangesChart
-Processes the data such that for every author it collects how many changes he has made. 
-Finally aggregates all other authors (i.e. all except the author whose details are being visualized) 
-into an 'others' option.  
-* updateFileTypesChart
-Pre-processes the data and updates the pie chart. 
-First it collects all the files that the author has commited to. 
-For each of these files it extracts the filetype and stores for each filetype the 
-number of occurances. Finally, if it´s more than five filetypes, it will take 
-the four most frequently changed filetypes by the author and aggregate all other 
-filetypes into an 'others' option. 
- 
-* updateCommitHistoryChart
-Probably the most complicated method of all mentioned.
-First it pre-processes the data. 
-It aggregates the authors commit data such that for every day it contains the number of commits for that author. 
-Then it computes the intervall of days that should be visualized (spaning over 140 days). 
-In order to properly visualize the single tiles (or cells) it stores the row and column in 
-the tilemap in addition to the number of commits for that data item (i.e. day). 
-Finally, based on these filtered, aggregated and mapped data items it updates 
-the tilemap visualization and adds tooltips to show the exact number of commits 
-for the tile (i.e. day) that is being hovered by the user.
-
+* updateCommitsChart: Processes the data such that for every author it collects how many commits he has made. 
+Finally aggregates all other authors (i.e. all except the author whose details are being visualized) into an 'others' option.
+* updateChangesChart: Processes the data such that for every author it collects how many changes he has made. 
+Finally aggregates all other authors (i.e. all except the author whose details are being visualized) into an 'others' option.  
+* updateFileTypesChart: Pre-processes the data and updates the pie chart. 
+First it collects all the files that the author has commited to. For each of these files it extracts the filetype and stores for each filetype the number of occurances. Finally, if it´s more than five filetypes, it will take the four most frequently changed filetypes by the author and aggregate all other filetypes into an 'others' option. 
+* updateCommitHistoryChart: Probably the most complicated method of all mentioned. First it pre-processes the data. 
+It aggregates the authors commit data such that for every day it contains the number of commits for that author. Then it computes the intervall of days that should be visualized (spaning over 140 days). In order to properly visualize the single tiles (or cells) it stores the row and column in the tilemap in addition to the number of commits for that data item (i.e. day). 
+Finally, based on these filtered, aggregated and mapped data items it updates the tilemap visualization and adds tooltips to show the exact number of commits for the tile (i.e. day) that is being hovered by the user.
 
 ### -getrepojson.html
 This is a small tool for creating our datasets by using git-api. 
@@ -364,7 +336,6 @@ It gets the commits in a certain timeperiod, iterates over them and gets the det
 * split.js
 * dagreD3.js
 * d3.js
-
 
 ## Limitations
 
